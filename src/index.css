@@ -9,7 +9,7 @@
   --color-bg-primary: #fff;
   --color-fg-primary: #0f0f0f;
   --color-dark-blue: #065fd4;
-  --color-light-blue: #6fccde;
+  --color-light-blue: #dffaff;
   --color-grey-f8: #f8f8f8;
   --color-grey-e8: #e8e8e8;
   --color-grey-d8: #d8d8d8;
@@ -19,4 +19,8 @@
   --color-border-clr: rgba(0, 0, 0, 0.2);
   --color-border-clr-alt: #303030;
   --font-roboto: "Roboto", "Arial", sans-serif;
+  --spacing-page-w: min(90vw, 1200px);
+
+  @keyframes click-effect {
+  }
 }
