@@ -191,6 +191,154 @@ const YoutubeIcon = ({ icon, tailwindStyles = "" }) => {
     );
   }
 
+  if (icon === "music") {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        focusable="false"
+        aria-hidden="true"
+        className={`pointer-events-none block ${tailwindStyles}`}
+      >
+        <path d="M11 2.766v10.99a4.5 4.5 0 101.994 3.976L13 17.5V9.2l5.485 3.292A1 1 0 0020 11.634V6.966a1 1 0 00-.485-.857l-7-4.2A1 1 0 0011 2.766Zm2 4.102V4.533l5 3v2.335l-5-3ZM8.5 15a2.5 2.5 0 110 5.001A2.5 2.5 0 018.5 15Z" />
+      </svg>
+    );
+  }
+
+  if (icon === "live") {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        focusable="false"
+        aria-hidden="true"
+        className={`pointer-events-none block ${tailwindStyles}`}
+      >
+        <path
+          clipRule="evenodd"
+          d="M18.364 4.224a1 1 0 011.414 0 11 11 0 010 15.557 1 1 0 01-1.414-1.414 9 9 0 000-12.729 1 1 0 010-1.414ZM4.222 4.222a1 1 0 011.414 1.415 9 9 0 000 12.728 1 1 0 11-1.414 1.414 11.002 11.002 0 010-15.557Zm3.181 3.181a1.002 1.002 0 011.415 1.415 4.503 4.503 0 00-.975 4.904c.226.545.558 1.042.975 1.46a1.001 1.001 0 01-1.415 1.414 6.502 6.502 0 010-9.193Zm7.779 0c.39-.39 1.024-.39 1.415 0a6.5 6.5 0 010 9.193 1.001 1.001 0 01-1.415-1.415 4.5 4.5 0 000-6.363 1.001 1.001 0 010-1.415ZM12 10a2 2 0 110 4 2 2 0 010-4Z"
+          fillRule="evenodd"
+        />
+      </svg>
+    );
+  }
+
+  if (icon === "gaming") {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        focusable="false"
+        aria-hidden="true"
+        className={`pointer-events-none block ${tailwindStyles}`}
+      >
+        <path d="M15.97 2.615 12 4.998 8.03 2.615a2 2 0 00-2.06 0l-5 3A2 2 0 000 7.33v7.34a2 2 0 00.97 1.715l10 6c.634.38 1.426.38 2.06 0l10-6A1.998 1.998 0 0024 14.67V7.33a2 2 0 00-.97-1.715l-5-3a2 2 0 00-2.06 0ZM12 7.33l5-3 5 3v7.34l-10 6-10-6V7.33l5-3 5 3ZM7 7.5a1 1 0 00-1 1v1.502H4.5a1 1 0 000 2H6V13.5a1 1 0 102 0v-1.498h1.5a1 1 0 000-2H8V8.5a1 1 0 00-1-1Zm11.5 1.502a1.5 1.5 0 100 3 1.5 1.5 0 000-3Zm-4 2a1.5 1.5 0 100 3 1.5 1.5 0 000-3Z" />
+      </svg>
+    );
+  }
+
+  if (icon === "show-more") {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        focusable="false"
+        aria-hidden="true"
+        className={`pointer-events-none block ${tailwindStyles}`}
+      >
+        <path d="M18.707 8.793a1 1 0 00-1.414 0L12 14.086 6.707 8.793a1 1 0 10-1.414 1.414L12 16.914l6.707-6.707a1 1 0 000-1.414Z" />
+      </svg>
+    );
+  }
+
+  if (icon === "news") {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        focusable="false"
+        aria-hidden="true"
+        className={`pointer-events-none block ${tailwindStyles}`}
+      >
+        <path d="M23 17V3H1v14a4 4 0 004 4h14a4 4 0 004-4ZM3 17V5h18v12a2 2 0 01-2 2H5a2 2 0 01-2-2ZM18 7H6a1 1 0 000 2h12a1 1 0 000-2Zm0 4h-3a1 1 0 000 2h3a1 1 0 000-2Zm-7 0H6a1 1 0 00-1 1v4a1 1 0 001 1h5a1 1 0 001-1v-4a1 1 0 00-1-1Zm-4 4v-2h3v2H7Zm11 0h-3a1 1 0 000 2h3a1 1 0 000-2Z" />
+      </svg>
+    );
+  }
+
+  if (icon === "sports") {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        focusable="false"
+        aria-hidden="true"
+        className={`pointer-events-none block ${tailwindStyles}`}
+      >
+        <path d="M17.5 1h-11A1.5 1.5 0 005 2.5V4H2a1 1 0 00-1 1v3a5 5 0 004.669 4.987 7.01 7.01 0 004.72 3.826l-2.926 4.655A1 1 0 008.31 23h7.38a1 1 0 00.847-1.532l-2.927-4.657a7.01 7.01 0 004.72-3.824A5 5 0 0023 8V5a1 1 0 00-1-1h-3V2.5A1.5 1.5 0 0017.5 1ZM7 10V3h10v7a5 5 0 11-10 0ZM3 8V6h2v4c0 .283.017.565.052.845A3 3 0 013 8Zm16 2V6h2v2a3 3 0 01-2.053 2.845c.034-.277.052-.559.053-.845Zm-8.88 11L12 18.008 13.88 21h-3.76Z" />
+      </svg>
+    );
+  }
+
+  if (icon === "learning") {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        focusable="false"
+        aria-hidden="true"
+        className={`pointer-events-none block ${tailwindStyles}`}
+      >
+        <path d="M16 18a2 2 0 01-2 2h-4a2 2 0 01-2-2v-1.07a8 8 0 118 0V18Zm-1.002-2.802a6 6 0 10-5.997 0l.999.578V18h4v-2.224l.998-.578Zm-1.584 7.216A2 2 0 0014 21h-4a2 2 0 003.414 1.414Z" />
+      </svg>
+    );
+  }
+
+  if (icon === "memberships") {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        focusable="false"
+        aria-hidden="true"
+        className={`pointer-events-none block ${tailwindStyles}`}
+      >
+        <path d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1Zm0 2a9 9 0 110 18.001A9 9 0 0112 3Zm-.538 2.09-.347.702-.214.434-.016.034-1.237 2.504-2.763.402-.037.004-.479.07-.774.114a.6.6 0 00-.333 1.022l.561.547.346.338.027.026 1.999 1.949-.471 2.752-.006.037-.082.477-.133.771a.6.6 0 00.871.633l.692-.364.429-.225.033-.017L12 16l2.472 1.3.032.017.43.225.692.364a.6.6 0 00.871-.633l-.133-.771-.082-.477-.006-.037-.472-2.751 2-1.95.027-.026.346-.338.561-.547a.6.6 0 00-.333-1.022l-.774-.113-.479-.07-.037-.005-2.763-.402-1.237-2.504-.016-.034-.214-.434-.347-.702a.6.6 0 00-1.076 0Zm-.02 4.56L12 8.52l.558 1.129.465.943 1.04.152 1.247.18-.902.88-.753.734.178 1.036.213 1.242-1.116-.586-.93-.49-.931.489-1.115.587.213-1.242.178-1.036-.753-.734-.903-.879 1.248-.182 1.04-.151.465-.942Z" />
+      </svg>
+    );
+  }
+
+  if (icon === "show-less") {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        focusable="false"
+        aria-hidden="true"
+        className={`pointer-events-none block ${tailwindStyles}`}
+      >
+        <path d="M5.293 15.207a1 1 0 001.414 0L12 9.914l5.293 5.293a1 1 0 101.414-1.414L12 7.086l-6.707 6.707a1 1 0 000 1.414Z" />
+      </svg>
+    );
+  }
+
   return <span>no icon</span>;
 };
 

@@ -1,4 +1,12 @@
+import SideBar from "../components/SideBar";
+
 const HomePage = () => {
-  return <h1>home page</h1>;
+  // const
+  return (
+    <>
+      <SideBar />
+      <main className="h-[400vh]"></main>
+    </>
+  );
 };
 export default HomePage;
