@@ -4,13 +4,13 @@ import SearchField, { WithMobile } from "./SearchField";
 import SignInButton from "./SignInButton";
 import YoutubeIcon from "./YoutubeIcon";
 
+const MobileSearchField = WithMobile(SearchField);
+
 const Header = () => {
   const [screenIsLarge, setScreenIsLarge] = useState(
     matchMedia("(min-width:640px)").matches,
   );
   const [mobileSearchTabIsOpen, setMobileSearchTabIsOpen] = useState(false);
-
-  const MobileSearchField = WithMobile(SearchField);
 
   const onMobileSearchClick = () =>
     setMobileSearchTabIsOpen(!mobileSearchTabIsOpen);
@@ -25,27 +25,27 @@ const Header = () => {
 
   return (
     <header className="py-2 px-5 flex justify-between items-center relative">
-      {mobileSearchTabIsOpen && (
+      {mobileSearchTabIsOpen && !screenIsLarge && (
         <MobileSearchField setIsOpen={setMobileSearchTabIsOpen} />
       )}
       <LogoAndBurgerButton />
       {screenIsLarge && <SearchField />}
-      <div className="flex items-center gap-4">
-        <button
-          title="Settings"
-          className="p-2 rounded-full cursor-pointer active:bg-grey-e8"
-        >
-          <YoutubeIcon icon="three-dots" />
-        </button>
+      <div className="flex items-center gap-2 md:gap-4">
         {!screenIsLarge && (
           <button
             title="Search"
-            className="p-2 rounded-full cursor-pointer active:bg-grey-e8"
+            className="p-2 rounded-full cursor-pointer transition-button border-bg-primary hover:bg-grey-e8 active:bg-grey-d8  active:border-grey-d8"
             onClick={onMobileSearchClick}
           >
             <YoutubeIcon icon="search" />
           </button>
         )}
+        <button
+          title="Settings"
+          className="p-2 rounded-full cursor-pointer transition-button border-bg-primary active:bg-grey-e8  active:border-grey-e8"
+        >
+          <YoutubeIcon icon="three-dots" />
+        </button>
 
         <SignInButton />
       </div>

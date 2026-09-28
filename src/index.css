@@ -20,7 +20,16 @@
   --color-border-clr-alt: #303030;
   --font-roboto: "Roboto", "Arial", sans-serif;
   --spacing-page-w: min(90vw, 1200px);
+  --shadow-inset: inset 0 0 2px 1px;
+}
 
-  @keyframes click-effect {
+@utility transition-button {
+  transition-property: border-color;
+  transition-timing-function: ease;
+  transition-duration: 300ms;
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  &:active {
+    transition-duration: 0ms;
   }
 }

@@ -1,14 +1,17 @@
-import { useEffect } from "react";
 import YoutubeIcon from "./YoutubeIcon";
 
 const SearchField = () => {
   return (
     <form className="flex w-9/12 sm:w-4/12 md:w-1/2">
-      <div className="border border-border-clr w-full rounded-s-full">
+      <div className="group border border-border-clr focus-within:border-dark-blue shadow-border-clr focus-within:shadow-inset w-full rounded-s-full flex items-center">
+        <YoutubeIcon
+          icon="search"
+          tailwindStyles=" w-14 hidden group-focus-within:block"
+        />
         <input
           type="text"
           placeholder="Search"
-          className="py-2 px-4 w-full border-0 outline-0"
+          className="py-2 px-4 group-focus-within:ps-0 w-full border-0 outline-0"
         />
       </div>
       <button
@@ -25,17 +28,6 @@ const SearchField = () => {
 export const WithMobile = (SearchField) => {
   return ({ setIsOpen }) => {
     const clickHandler = () => setIsOpen(false);
-
-    useEffect(() => {
-      const mediaQuery = matchMedia("(min-width:640px)");
-      const onChange = (e) => {
-        setIsOpen(!e.matches);
-        console.log(e);
-      };
-      mediaQuery.onchange = onChange;
-
-      return () => (mediaQuery.onchange = null);
-    }, []);
 
     return (
       <div className="py-2 px-5 flex items-center justify-between absolute top-0 left-0 w-full bg-bg-primary z-20">
