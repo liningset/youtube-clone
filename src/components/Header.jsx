@@ -24,7 +24,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="py-2 px-5 flex justify-between items-center sticky top-0 z-10 bg-bg-primary">
+    <header className="pe-5 flex justify-between items-center sticky top-0 z-10 bg-bg-primary">
       {mobileSearchTabIsOpen && !screenIsLarge && (
         <MobileSearchField setIsOpen={setMobileSearchTabIsOpen} />
       )}

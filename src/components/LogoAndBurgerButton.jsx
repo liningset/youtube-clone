@@ -7,7 +7,7 @@ const LogoAndBurgerButton = () => {
   const { collapsed, setCollapsed } = useContext(SideBarContext);
 
   return (
-    <div className="flex gap-2 md:gap-4 items-center">
+    <div className="flex gap-2 md:gap-4 items-center px-5 py-2">
       <button
         onClick={() => setCollapsed(!collapsed)}
         className="p-2 rounded-full border-bg-primary hover:bg-grey-d8 hover:border-grey-d8 active:bg-grey-a8 active:border-grey-a8 transition-button cursor-pointer"
