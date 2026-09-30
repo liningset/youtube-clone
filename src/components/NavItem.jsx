@@ -3,11 +3,11 @@ import YoutubeIcon from "./YoutubeIcon";
 import SideBarContext from "../utils/SideBarContext";
 
 const NavItem = ({ iconID, title, isActive = false }) => {
-  const { collapsed, withinModal } = useContext(SideBarContext);
+  const { expanded, outOfModal } = useContext(SideBarContext);
   const determineStyles = () => {
     const shared =
       "cursor-pointer flex items-center rounded-lg transition-button mx-1";
-    if (collapsed && !withinModal)
+    if (!expanded && outOfModal)
       return shared.concat(
         " flex-col gap-1 hover:bg-grey-e8 hover:border-grey-e8 active:bg-grey-d8 active:border-grey-d8 py-2",
       );
@@ -20,7 +20,7 @@ const NavItem = ({ iconID, title, isActive = false }) => {
     <li title={title} className={`border-bg-primary ${determineStyles()}`}>
       <YoutubeIcon icon={iconID} />
       <span
-        className={`${collapsed && !withinModal ? "text-[0.7rem]" : "text-sm"}`}
+        className={`${!expanded && outOfModal ? "text-[0.7rem]" : "text-sm"}`}
       >
         {title}
       </span>

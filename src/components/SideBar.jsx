@@ -5,12 +5,12 @@ import SignInButton from "./SignInButton";
 import SideBarContext from "../utils/SideBarContext";
 
 const SideBar = () => {
-  const { collapsed, withinModal } = useContext(SideBarContext);
+  const { expanded, outOfModal } = useContext(SideBarContext);
   return (
     <nav
-      className={`h-screen bg-bg-primary overflow-auto sticky top-15 ${collapsed ? "w-fit" : "w-56"}`}
+      className={`h-screen bg-bg-primary overflow-auto sticky top-15 ${!expanded ? "w-fit" : "w-56"}`}
     >
-      {collapsed && !withinModal ? (
+      {!expanded && outOfModal ? (
         <SideBarMainNav />
       ) : (
         <>

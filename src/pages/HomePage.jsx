@@ -4,11 +4,11 @@ import SideBarModal from "../components/SideBarModal";
 import SideBarContext from "../utils/SideBarContext";
 
 const HomePage = () => {
-  const { withinModal } = useContext(SideBarContext);
+  const { outOfModal } = useContext(SideBarContext);
   // const
   return (
     <>
-      {withinModal ? <SideBarModal /> : <SideBar />}
+      {outOfModal ? <SideBar /> : <SideBarModal />}
       <main className="h-[400vh]"></main>
     </>
   );

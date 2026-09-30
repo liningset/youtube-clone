@@ -1,25 +1,19 @@
-import { useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import Header from "./components/Header";
 import SideBarContext from "./utils/SideBarContext";
+import useBreakpoint from "./utils/useBreakpoint";
 
 function App() {
-  const mediaQuery = matchMedia("(min-width:760px)");
-  const [collapsed, setCollapsed] = useState(!mediaQuery.matches);
-  const [withinModal, setWithinModal] = useState(!mediaQuery.matches);
-
-  const onChange = (e) => setWithinModal(!e.matches);
-
-  useEffect(() => {
-    const mediaQuery = matchMedia("(min-width:760px)");
-    mediaQuery.onchange = (e) => onChange(e);
-
-    return () => (mediaQuery.onchange = null);
-  }, []);
+  const { state: expanded, dispatch: setExpanded } = useBreakpoint(
+    "760px",
+    false,
+  );
+  const { state: outOfModal, dispatch: setOutOfModal } =
+    useBreakpoint("1100px");
 
   return (
     <SideBarContext.Provider
-      value={{ collapsed, setCollapsed, withinModal, setWithinModal }}
+      value={{ expanded, setExpanded, outOfModal, setOutOfModal }}
     >
       <Header />
       <Outlet />

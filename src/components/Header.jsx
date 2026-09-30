@@ -1,27 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LogoAndBurgerButton from "./LogoAndBurgerButton";
 import SearchField, { WithMobile } from "./SearchField";
 import SignInButton from "./SignInButton";
 import YoutubeIcon from "./YoutubeIcon";
+import useBreakpoint from "../utils/useBreakpoint";
 
 const MobileSearchField = WithMobile(SearchField);
 
 const Header = () => {
-  const [screenIsLarge, setScreenIsLarge] = useState(
-    matchMedia("(min-width:640px)").matches,
-  );
+  const { state: screenIsLarge } = useBreakpoint("640px");
   const [mobileSearchTabIsOpen, setMobileSearchTabIsOpen] = useState(false);
-
-  const onMobileSearchClick = () =>
-    setMobileSearchTabIsOpen(!mobileSearchTabIsOpen);
-
-  useEffect(() => {
-    const mediaQuery = matchMedia("(min-width:640px)");
-    const onChange = (e) => setScreenIsLarge(e.matches);
-    mediaQuery.onchange = onChange;
-
-    return () => (mediaQuery.onchange = null);
-  }, []);
+  const onMobileSearchClick = () => setMobileSearchTabIsOpen((prev) => !prev);
 
   return (
     <header className="pe-5 flex justify-between items-center sticky top-0 z-10 bg-bg-primary">
