@@ -4,18 +4,18 @@ import SideBar from "./SideBar";
 import SideBarContext from "../utils/SideBarContext";
 
 const SideBarModal = () => {
-  const { collapsed, setCollapsed, withinModal } = useContext(SideBarContext);
+  const { collapsed, setCollapsed } = useContext(SideBarContext);
   const overlayRef = useRef(null);
   const overlayClickHandler = (e) => {
     if (e.target === overlayRef.current) setCollapsed(true);
   };
 
   useEffect(() => {
-    console.log("fired", "\nwithinModal:", withinModal);
-    if (withinModal && !collapsed) {
-      document.body.style.overflow = "hidden";
-    } else document.body.style.overflow = "visible";
-  }, [collapsed, withinModal]);
+    document.body.style.overflow = !collapsed ? "hidden" : "visible";
+
+    //not doing this tripped me up for two days
+    return () => (document.body.style.overflow = "visible");
+  }, [collapsed]);
 
   return (
     <div
