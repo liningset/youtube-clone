@@ -33,7 +33,7 @@ const Header = () => {
           title="Settings"
           className="p-2 rounded-full cursor-pointer transition-button border-bg-primary active:bg-grey-e8  active:border-grey-e8"
         >
-          <YoutubeIcon icon="three-dots" />
+          <YoutubeIcon icon="threeDots" />
         </button>
 
         <SignInButton />

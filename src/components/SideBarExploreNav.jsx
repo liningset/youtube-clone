@@ -12,7 +12,7 @@ const SideBarExploreNav = () => {
         <NavItem iconID="sports" title="Sports" />
         <NavItem iconID="learning" title="Learning" />
         <NavItem iconID="memberships" title="Memberships" />
-        <NavItem iconID="show-more" title="Show more" />
+        <NavItem iconID="showMore" title="Show more" />
       </ul>
     </>
   );
