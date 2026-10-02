@@ -2,6 +2,8 @@ import { Outlet } from "react-router";
 import Header from "./components/Header";
 import SideBarContext from "./utils/SideBarContext";
 import useBreakpoint from "./utils/useBreakpoint";
+import SideBar from "./components/SideBar";
+import SideBarModal from "./components/SideBarModal";
 
 function App() {
   const { state: expanded, dispatch: setExpanded } = useBreakpoint(
@@ -16,7 +18,10 @@ function App() {
       value={{ expanded, setExpanded, outOfModal, setOutOfModal }}
     >
       <Header />
-      <Outlet />
+      <div className="w-full flex">
+        {outOfModal ? <SideBar /> : <SideBarModal />}
+        <Outlet />
+      </div>
     </SideBarContext.Provider>
   );
 }
