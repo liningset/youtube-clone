@@ -18,6 +18,7 @@
   --color-grey-21: #212121;
   --color-border-clr: rgba(0, 0, 0, 0.2);
   --color-border-clr-alt: #303030;
+  --color-bg-primary-low-op: rgba(255, 255, 255, 0.9);
   --font-roboto: "Roboto", "Arial", sans-serif;
   --spacing-page-w: min(90vw, 1200px);
   --shadow-inset: inset 0 0 2px 1px;
@@ -27,8 +28,8 @@
   transition-property: border-color;
   transition-timing-function: ease;
   transition-duration: 300ms;
-  border-style: var(--tw-border-style);
-  border-width: 1px;
+  border: 1px solid transparent;
+
   &:active {
     transition-duration: 0ms;
   }

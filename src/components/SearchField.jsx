@@ -3,7 +3,7 @@ import YoutubeIcon from "./YoutubeIcon";
 const SearchField = () => {
   return (
     <form className="flex w-9/12 sm:w-4/12 md:w-1/2">
-      <div className="group border border-border-clr focus-within:border-dark-blue shadow-border-clr focus-within:shadow-inset w-full rounded-s-full flex items-center">
+      <div className="group border border-border-clr bg-bg-primary focus-within:border-dark-blue shadow-border-clr focus-within:shadow-inset w-full rounded-s-full flex items-center">
         <YoutubeIcon
           icon="search"
           tailwindStyles=" w-14 hidden group-focus-within:block"
@@ -11,7 +11,7 @@ const SearchField = () => {
         <input
           type="text"
           placeholder="Search"
-          className="py-2 px-4 group-focus-within:ps-0 w-full border-0 outline-0"
+          className="py-2 px-4  group-focus-within:ps-0 w-full border-0 outline-0"
         />
       </div>
       <button

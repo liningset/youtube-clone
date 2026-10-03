@@ -3,7 +3,7 @@ import NavItem from "./NavItem";
 const SideBarExploreNav = () => {
   return (
     <>
-      <h3>Explore</h3>
+      <h3 className="p-5">Explore</h3>
       <ul>
         <NavItem iconID="music" title="Music" />
         <NavItem iconID="live" title="Live" />
