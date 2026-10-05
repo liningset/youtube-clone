@@ -18,7 +18,7 @@ function App() {
       value={{ expanded, setExpanded, outOfModal, setOutOfModal }}
     >
       <Header />
-      <div className="w-full flex">
+      <div className="flex w-screen">
         {outOfModal ? <SideBar /> : <SideBarModal />}
         <Outlet />
       </div>

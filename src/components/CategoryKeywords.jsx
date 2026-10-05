@@ -20,7 +20,7 @@ const CategoryKeywords = () => {
     fetchKeywords();
   }, []);
   return (
-    <ul className="flex overflow-hidden items-center gap-2 py-2 sticky top-[10dvh] bg-bg-primary-low-op backdrop-blur-md z-10">
+    <ul className="flex overflow-x-hidden items-center gap-2 py-2 sticky top-[10dvh] bg-bg-primary-low-op backdrop-blur-md z-10">
       {/* <li className="py-1 px-2 rounded-xs text-bg-primary bg-fg-primary cursor-pointer">
         All
       </li> */}
