@@ -15,7 +15,7 @@ const VideoCardsList = () => {
     });
     const res = await fetch(BASE_URL + "videos?" + params);
     const data = await res.json();
-    console.log(data);
+    console.log(data?.items[0]);
     setVideos(data?.items);
     await fetchChannels(data?.items);
   };
@@ -30,7 +30,7 @@ const VideoCardsList = () => {
     });
     const res = await fetch(BASE_URL + "channels?" + params);
     const data = await res.json();
-    console.log(data);
+    console.log(data?.items[0]);
     setChannels(data?.items);
   };
 
@@ -39,7 +39,7 @@ const VideoCardsList = () => {
   }, []);
 
   return (
-    <ul className="grid items-start sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <ul className="grid px-5 items-start sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {videos.map((video) => {
         const channel = channels.find(
           (channel) => channel?.id === video?.snippet?.channelId,

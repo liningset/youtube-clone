@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const CategoryKeywords = () => {
-  const [categories, setCategories] = useState(["All"]);
+  const [categories, setCategories] = useState([]);
   const fetchKeywords = async () => {
     const BASE_URL = import.meta.env.VITE_BASE_URL;
     const params = new URLSearchParams({
@@ -20,15 +20,11 @@ const CategoryKeywords = () => {
     fetchKeywords();
   }, []);
   return (
-    <ul className="flex overflow-x-hidden items-center gap-2 py-2 sticky top-[10dvh] bg-bg-primary-low-op backdrop-blur-md z-10">
-      {/* <li className="py-1 px-2 rounded-xs text-bg-primary bg-fg-primary cursor-pointer">
-        All
-      </li> */}
-
+    <ul className="flex overflow-x-hidden items-center px-5 -left-2 gap-3 py-2 sticky top-[10dvh] bg-bg-primary-low-op backdrop-blur-lg z-10">
       {categories.map((category) => (
         <li
           key={category?.id}
-          className="py-1 px-2 whitespace-nowrap rounded-xs text-fg-primary font-semibold bg-grey-e8 cursor-pointer"
+          className="py-2 px-3 whitespace-nowrap rounded-lg text-fg-primary font-semibold bg-grey-e8 text-sm cursor-pointer"
         >
           {category?.title}
         </li>
