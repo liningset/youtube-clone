@@ -3,7 +3,7 @@ import LogoAndBurgerButton from "./LogoAndBurgerButton";
 import SearchField, { WithMobile } from "./SearchField";
 import SignInButton from "./SignInButton";
 import YoutubeIcon from "./YoutubeIcon";
-import useBreakpoint from "../utils/useBreakpoint";
+import useBreakpoint from "../hooks/useBreakpoint";
 
 const MobileSearchField = WithMobile(SearchField);
 

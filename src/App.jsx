@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
 import Header from "./components/Header";
 import SideBarContext from "./utils/SideBarContext";
-import useBreakpoint from "./utils/useBreakpoint";
+import useBreakpoint from "./hooks/useBreakpoint";
 import SideBar from "./components/SideBar";
 import SideBarModal from "./components/SideBarModal";
 

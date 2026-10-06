@@ -1,35 +1,22 @@
-import { useEffect, useState } from "react";
+import useCategories from "../hooks/useCategories";
 
 const CategoryKeywordsShimmer = () => {
   return (
     <ul className="flex overflow-x-hidden  px-5 -left-2 gap-3 py-2 sticky top-[10dvh] bg-bg-primary-low-op backdrop-blur-lg z-10">
-      {Array.from({ length: 15 }, () => (
-        <li className="h-10 w-24 shrink-0 rounded-lg animate-pulse bg-grey-a8"></li>
+      {Array.from({ length: 15 }, (_, i) => (
+        <li
+          key={i}
+          className="h-10 w-24 shrink-0 rounded-lg animate-pulse bg-grey-a8"
+        ></li>
       ))}
     </ul>
   );
 };
 
 const CategoryKeywords = () => {
-  const [categories, setCategories] = useState([]);
+  const { categories, isLoading } = useCategories();
 
-  useEffect(() => {
-    const fetchKeywords = async () => {
-      const BASE_URL = import.meta.env.VITE_BASE_URL;
-      const params = new URLSearchParams({
-        part: "snippet",
-        key: import.meta.env.VITE_KEY,
-        regionCode: "US",
-      });
-      const res = await fetch(BASE_URL + "videoCategories?" + params);
-      const data = await res.json();
-      setCategories(
-        data.items.map((obj) => ({ id: obj?.id, title: obj?.snippet?.title })),
-      );
-    };
-    fetchKeywords();
-  }, []);
-  return categories.length === 0 ? (
+  return isLoading ? (
     <CategoryKeywordsShimmer />
   ) : (
     <ul className="flex overflow-x-hidden items-center px-5 -left-2 gap-3 py-2 sticky top-[10dvh] bg-bg-primary-low-op backdrop-blur-lg z-10">
