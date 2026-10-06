@@ -4,8 +4,6 @@ import { extractColorsFromImage } from "extract-colors";
 import { toDuration, toViews, toPublishedDate } from "../utils/functions";
 
 const VideoCard = ({ data, channelData }) => {
-  console.log(data);
-
   const { thumbnails, title, channelTitle, publishedAt } = data.snippet;
   const { duration } = data.contentDetails;
   const { viewCount } = data.statistics;
@@ -25,7 +23,7 @@ const VideoCard = ({ data, channelData }) => {
     <li className="group relative">
       <div
         style={color}
-        className={`absolute pointer-events-none inset-10 opacity-0 transition-all duration-300 ease rounded-2xl group-hover:opacity-100 group-hover:bg-(--color-20) group-hover:-inset-2${color != null ? "" : " border-2 border-grey-a8"}`}
+        className={`absolute pointer-events-none inset-10 opacity-0 transition-all duration-300 ease rounded-2xl group-hover:opacity-100 group-hover:bg-(--color-20) group-hover:-inset-2 ${color != null ? "" : " border-2 border-grey-a8"}`}
       ></div>
       <div
         className={`bg-bg-primary aspect-video relative overflow-hidden rounded-2xl`}
