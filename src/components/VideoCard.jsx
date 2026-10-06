@@ -4,6 +4,8 @@ import { extractColorsFromImage } from "extract-colors";
 import { toDuration, toViews, toPublishedDate } from "../utils/functions";
 
 const VideoCard = ({ data, channelData }) => {
+  console.log(data);
+
   const { thumbnails, title, channelTitle, publishedAt } = data.snippet;
   const { duration } = data.contentDetails;
   const { viewCount } = data.statistics;
@@ -61,3 +63,22 @@ const VideoCard = ({ data, channelData }) => {
   );
 };
 export default VideoCard;
+
+export const VideoCardShimmer = () => {
+  return (
+    <li className="relative animate-pulse" aria-hidden="true">
+      <div className={`bg-grey-a8 aspect-video relative rounded-2xl`}></div>
+      <div className="flex items-center gap-2 mt-2">
+        <div className="w-16 aspect-square rounded-full bg-grey-a8"></div>
+        <div className="w-full flex flex-col gap-2">
+          <div className="h-6 w-9/12 mt-2 rounded-sm bg-grey-a8"></div>
+          <div className="flex w-7/12 gap-2">
+            <div className="h-4 w-14 flex-1 rounded-sm bg-grey-a8"></div>
+            <div className="h-4 w-14 flex-1 rounded-sm bg-grey-a8"></div>
+            <div className="h-4 w-14 flex-1 rounded-sm bg-grey-a8"></div>
+          </div>
+        </div>
+      </div>
+    </li>
+  );
+};
