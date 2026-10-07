@@ -6,7 +6,7 @@ const useChannelAvatars = (videos) => {
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    if (videos.length !== 0) return;
+    if (videos.length === 0) return;
     const fetchChannels = async () => {
       try {
         const channelIDs = videos.map((video) => video.snippet.channelId);
