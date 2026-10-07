@@ -1,9 +1,12 @@
 import { useState } from "react";
 import YoutubeIcon from "./YoutubeIcon";
-import { extractColorsFromImage } from "extract-colors";
+// import { extractColorsFromImage } from "extract-colors";
 import { toDuration, toViews, toPublishedDate } from "../utils/functions";
+import extractColor from "../utils/extract-color";
 
 const VideoCard = ({ data, channelData }) => {
+  console.log(data);
+
   const { thumbnails, title, channelTitle, publishedAt } = data.snippet;
   const { duration } = data.contentDetails;
   const { viewCount } = data.statistics;
@@ -11,11 +14,10 @@ const VideoCard = ({ data, channelData }) => {
   const [color, setColor] = useState(null);
 
   const onLoad = async (e) => {
-    const palette = await extractColorsFromImage(e.target);
-    const { red: r, green: g, blue: b } = palette[0];
+    const prominentColor = extractColor(e.target);
 
     setColor({
-      "--color-20": `rgb(${r},${g},${b},0.20)`,
+      "--prominent": prominentColor,
     });
   };
 
@@ -23,12 +25,13 @@ const VideoCard = ({ data, channelData }) => {
     <li className="group relative">
       <div
         style={color}
-        className={`absolute pointer-events-none inset-10 opacity-0 transition-all duration-300 ease rounded-2xl group-hover:opacity-100 group-hover:bg-(--color-20) group-hover:-inset-2 ${color != null ? "" : " border-2 border-grey-a8"}`}
+        className={`absolute pointer-events-none inset-10 opacity-0 transition-all duration-300 ease rounded-2xl group-hover:opacity-100 group-hover:bg-(--prominent) group-hover:-inset-2 ${color != null ? "" : " border-2 border-grey-a8"}`}
       ></div>
       <div
         className={`bg-bg-primary aspect-video relative overflow-hidden rounded-2xl`}
       >
         <img
+          crossOrigin="anonymous"
           src={thumbnails.high.url}
           className="w-full h-full object-cover"
           alt="video thumbnail"
@@ -46,7 +49,7 @@ const VideoCard = ({ data, channelData }) => {
         </div>
         <div className="w-full">
           <div className="flex w-full justify-between items-center">
-            <h3 className="font-bold text-lg">{title}</h3>
+            <h3 className="font-bold line-clamp-2 text-lg">{title}</h3>
             <button className="p-2 rounded-full self-start cursor-pointer transition-button border-bg-primary active:bg-grey-e8  active:border-grey-e8">
               <YoutubeIcon icon="threeDots" />
             </button>
