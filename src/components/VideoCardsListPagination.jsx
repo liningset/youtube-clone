@@ -1,14 +1,20 @@
 import { VideoCardsListShimmer } from "./VideoCardsList";
 import LoadingImage from "../../public/Loading_icon_cropped.gif";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import PaginationContext from "../utils/PaginationContext";
 
 const VideoCardsListPagination = () => {
+  const { setPaginatedCount, paginationInProgress, setPaginationInProgress } =
+    useContext(PaginationContext);
   const containerRef = useRef(null);
 
   useEffect(() => {
     const callback = (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) alert("yep");
+        if (entry.isIntersecting && !paginationInProgress) {
+          setPaginationInProgress(true);
+          setPaginatedCount((prev) => prev + 1);
+        }
       });
     };
     const observer = new IntersectionObserver((entries) => callback(entries), {
