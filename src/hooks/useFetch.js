@@ -1,60 +1,43 @@
 import { useEffect, useState } from "react";
 
-const useFetch = (
-  type,
-  config = null,
-  extraParams = null,
-  setNextPage = null,
-) => {
-  const [data, setData] = useState([]);
+const useFetch = (type, params, trigger = 0) => {
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [failed, setFailed] = useState(false);
-  const depenencies = config && config?.polling ? [config.dependOn] : [];
 
   useEffect(() => {
-    if (config?.dependOn) return;
     const controller = new AbortController();
-    const fetchData = async (obj) => {
+    const fetchData = async () => {
       try {
         setIsLoading(true);
         const BASE_URL = import.meta.env.VITE_BASE_URL;
-        const params = new URLSearchParams(obj);
-        params.append("key", import.meta.env.VITE_KEY);
+        const URLParams = new URLSearchParams(params);
+        URLParams.append("key", import.meta.env.VITE_KEY);
 
-        const res = await fetch(`${BASE_URL}${type}?${params}`, {
+        const res = await fetch(`${BASE_URL}${type}?${URLParams}`, {
           signal: controller.signal,
         });
 
-        if (!res.ok) setFailed(true);
+        if (!res.ok) {
+          setIsLoading(false);
+          setFailed(true);
+          throw new Error("response.ok === false");
+        }
 
         const data = await res.json();
         setIsLoading(false);
-        setData(data?.items);
-        setNextPage(data?.nextPageToken ?? null);
-        console.log(data?.items);
+        setFailed(false);
+        setData(data);
       } catch {
         setIsLoading(false);
         setFailed(true);
       }
     };
 
-    if (type === "videos") {
-      fetchData({
-        regionCode: "US",
-        chart: "mostPopular",
-        part: "snippet,statistics,contentDetails",
-        maxResults: 15,
-      });
-    }
-    if (type === "videoCategories") {
-      fetchData({ regionCode: "US", part: "snippet" });
-    }
-    if (type === "channels") {
-      fetchData({ ...extraParams, part: "snippet" });
-    }
+    fetchData();
 
     return () => controller.abort();
-  }, depenencies);
+  }, [trigger]);
 
   return { data, isLoading, failed };
 };

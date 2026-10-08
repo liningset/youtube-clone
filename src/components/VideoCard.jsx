@@ -5,7 +5,7 @@ import { toDuration, toViews, toPublishedDate } from "../utils/functions";
 import extractColor from "../utils/extract-color";
 
 const VideoCard = ({ data, channelData }) => {
-  console.log(data);
+  // console.log(data);
 
   const { thumbnails, title, channelTitle, publishedAt } = data.snippet;
   const { duration } = data.contentDetails;

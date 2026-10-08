@@ -1,28 +1,18 @@
 import CategoryKeywords from "../components/CategoryKeywords";
 import VideoCardsList from "../components/VideoCardsList";
-import VideoCardsListPagination from "../components/VideoCardsListPagination";
+import LoadingWheel from "../components/LoadingWheel";
+import usePagination from "../hooks/usePagination";
 import PaginationContext from "../utils/PaginationContext";
-import { useState } from "react";
 
 const HomePage = () => {
-  const [paginatedCount, setPaginatedCount] = useState(0);
-  const [paginationInProgress, setPaginationInProgress] = useState(false);
+  const { data: feed, nextPage, fetchNextPage } = usePagination();
 
   return (
-    <PaginationContext.Provider
-      value={{
-        paginatedCount,
-        setPaginatedCount,
-        paginationInProgress,
-        setPaginationInProgress,
-      }}
-    >
+    <PaginationContext.Provider value={{ feed, nextPage, fetchNextPage }}>
       <main className="w-full min-w-0 max-w-350 mx-auto flex flex-col gap-4 mb-10">
         <CategoryKeywords />
         <VideoCardsList />
-        {sessionStorage.getItem("nextPageToken") !== "done" && (
-          <VideoCardsListPagination />
-        )}
+        {nextPage && <LoadingWheel />}
       </main>
     </PaginationContext.Provider>
   );
