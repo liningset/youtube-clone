@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 
-const useFetch = (type, config = null, extra = null) => {
+const useFetch = (
+  type,
+  config = null,
+  extraParams = null,
+  setNextPage = null,
+) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [failed, setFailed] = useState(false);
-  const depenencies = config && config.polling ? [config.dependOn] : [];
+  const depenencies = config && config?.polling ? [config.dependOn] : [];
 
   useEffect(() => {
+    if (config?.dependOn) return;
     const controller = new AbortController();
     const fetchData = async (obj) => {
       try {
@@ -19,13 +25,12 @@ const useFetch = (type, config = null, extra = null) => {
           signal: controller.signal,
         });
 
-        if (!res.ok) {
-          setIsLoading(false);
-          setFailed(true);
-        }
+        if (!res.ok) setFailed(true);
+
         const data = await res.json();
         setIsLoading(false);
         setData(data?.items);
+        setNextPage(data?.nextPageToken ?? null);
         console.log(data?.items);
       } catch {
         setIsLoading(false);
@@ -45,7 +50,7 @@ const useFetch = (type, config = null, extra = null) => {
       fetchData({ regionCode: "US", part: "snippet" });
     }
     if (type === "channels") {
-      fetchData({ part: "snippet", id: extra });
+      fetchData({ ...extraParams, part: "snippet" });
     }
 
     return () => controller.abort();

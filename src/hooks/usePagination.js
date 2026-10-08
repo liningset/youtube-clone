@@ -1,19 +1,25 @@
 import { useState, useEffect } from "react";
 
 const usePagination = () => {
-  const [currentPage, setCurrentPage] = useState(null);
+  const [nextPage, setNextPage] = useState(null);
   const [inProgress, setInProgress] = useState(false);
   const [list, setList] = useState([]);
 
-  const { data, isLoading, failed } = useFetch("videos", {
-    polling: true,
-    dependOn: currentPage,
-  });
+  const { data, isLoading, failed } = useFetch(
+    "videos",
+    {
+      polling: true,
+      dependOn: inProgress,
+    },
+    null,
+    setNextPage,
+  );
 
   useEffect(() => {
     setList((prev) => [...prev, ...data]);
+    setInProgress(false);
   }, [data]);
 
-  return { data: list, currentPage, inProgress, status: { isLoading, failed } };
+  return { data: list, nextPage, inProgress, status: { isLoading, failed } };
 };
 export default usePagination;
