@@ -1,6 +1,7 @@
 import LoadingImage from "../../public/Loading_icon_cropped.gif";
 import { useContext, useEffect, useRef } from "react";
 import PaginationContext from "../utils/PaginationContext";
+import { VideoCardsListShimmer } from "./VideoCardsList";
 
 const LoadingWheel = () => {
   const { fetchNextPage } = useContext(PaginationContext);
@@ -15,7 +16,7 @@ const LoadingWheel = () => {
       });
     };
     const observer = new IntersectionObserver((entries) => callback(entries), {
-      threshold: 0,
+      threshold: 0.5,
     });
 
     observer.observe(containerRef.current);
@@ -24,8 +25,11 @@ const LoadingWheel = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="self-center">
-      <img className="w-8" src={LoadingImage} alt="Loading..." />
+    <div ref={containerRef} className="flex flex-col gap-8">
+      <VideoCardsListShimmer count={3} />
+      <div className="self-center">
+        <img className="w-8" src={LoadingImage} alt="Loading..." />
+      </div>
     </div>
   );
 };

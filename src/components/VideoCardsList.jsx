@@ -26,8 +26,6 @@ const VideoCardsList = () => {
 
         return <VideoCard key={video?.id} data={video} channelData={channel} />;
       })}
-      {nextPage &&
-        Array.from({ length: 6 }, (_, i) => <VideoCardShimmer key={i} />)}
     </ul>
   );
 };
