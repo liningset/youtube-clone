@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useFetch from "./useFetch";
 
-const usePagination = () => {
+const usePagination = (category) => {
   const [nextPage, setNextPage] = useState(0);
   const [trigger, setTrigger] = useState(0);
   const [list, setList] = useState([]);
@@ -15,7 +15,7 @@ const usePagination = () => {
     maxResults: 16,
   };
   if (nextPage) params.pageToken = nextPage;
-
+  if (category.title !== "All") params.videoCategoryId = category.id;
   // fetch resource of type video with fixed params (not stateful) and a trigger state to re-fetch when needed
   const { data: videosBatch } = useFetch("videos", params, trigger);
   //fetch resource of type channel with stateful params and no trigger state, because the trigger happens here in usePagination, the reason trigger is not in useFetch is because useFetch doesn't know about the latest videosBatch and our params depends on it
@@ -55,6 +55,15 @@ const usePagination = () => {
     };
     syncChannelsList();
   }, [channelsBatch]);
+
+  useEffect(() => {
+    const startOver = () => {
+      setList([]);
+      setNextPage(0);
+      setTrigger((prev) => prev + 1);
+    };
+    startOver();
+  }, [category]);
 
   return {
     data: { videos: list, channels: channelsList },
