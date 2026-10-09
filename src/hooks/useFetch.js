@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
-const useFetch = (type, params, trigger = 0) => {
+const useFetch = (type, params = null, trigger = 0) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
+    if (!params) return;
     const controller = new AbortController();
     const fetchData = async () => {
       try {
@@ -28,7 +29,8 @@ const useFetch = (type, params, trigger = 0) => {
         setIsLoading(false);
         setFailed(false);
         setData(data);
-      } catch {
+      } catch (err) {
+        if (err.name === "AbortError") return;
         setIsLoading(false);
         setFailed(true);
       }
@@ -37,7 +39,7 @@ const useFetch = (type, params, trigger = 0) => {
     fetchData();
 
     return () => controller.abort();
-  }, [trigger]);
+  }, [trigger, params?.id]);
 
   return { data, isLoading, failed };
 };

@@ -1,5 +1,4 @@
 import VideoCard, { VideoCardShimmer } from "./VideoCard";
-import useChannelAvatars from "../hooks/useChannelAvatars";
 import { useContext } from "react";
 import PaginationContext from "../utils/PaginationContext";
 
@@ -14,15 +13,14 @@ export const VideoCardsListShimmer = ({ count }) => {
 };
 
 const VideoCardsList = () => {
-  const { feed, nextPage } = useContext(PaginationContext);
-  const { channels } = useChannelAvatars(feed);
+  const { data, nextPage } = useContext(PaginationContext);
 
   return nextPage === 0 ? (
     <VideoCardsListShimmer count={9} />
   ) : (
     <ul className="grid px-5 items-start sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {feed.map((video) => {
-        const channel = channels.find(
+      {data?.videos.map((video) => {
+        const channel = data?.channels.find(
           (channel) => channel?.id === video?.snippet?.channelId,
         );
 

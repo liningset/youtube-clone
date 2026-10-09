@@ -5,10 +5,10 @@ import usePagination from "../hooks/usePagination";
 import PaginationContext from "../utils/PaginationContext";
 
 const HomePage = () => {
-  const { data: feed, nextPage, fetchNextPage } = usePagination();
+  const { data, nextPage, fetchNextPage } = usePagination();
 
   return (
-    <PaginationContext.Provider value={{ feed, nextPage, fetchNextPage }}>
+    <PaginationContext.Provider value={{ data, nextPage, fetchNextPage }}>
       <main className="w-full min-w-0 max-w-350 mx-auto flex flex-col gap-4 mb-10">
         <CategoryKeywords />
         <VideoCardsList />
