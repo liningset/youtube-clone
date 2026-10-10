@@ -7,7 +7,10 @@ const reducer = (state, action) => {
       data: { videos: [], channels: [] },
       nextPage: 0,
       status: "idle",
-      trigger: state.trigger + 1,
+      trigger:
+        state.nextPage === 0 && state.status === "pending"
+          ? state.trigger
+          : state.trigger + 1,
     };
   }
 
@@ -24,13 +27,13 @@ const reducer = (state, action) => {
   if (action.type === "sync-with-fetched-data") {
     const newState = {
       data: { videos: state.data.videos, channels: state.data.channels },
-      nextPage: action.token,
+      nextPage: action.data?.nextPageToken ?? state.nextPage,
       status: "succeeded",
       trigger: state.trigger,
     };
     newState.data[action.resource] = [
       ...state.data[action.resource],
-      ...action.data,
+      ...action.data.items,
     ];
     return newState;
   }
@@ -76,6 +79,21 @@ const usePaginatedList = (type, category) => {
     const switchCategory = () => dispatch({ type: "switch-category" });
     switchCategory();
   }, [category]);
+
+  useEffect(() => {
+    if (state.data.videos.length === 0) return;
+    const controller = new AbortController();
+
+    const channelIDs = state.data.videos.map((v) => v?.snippet?.channelId);
+    fetchFromYoutube(
+      "channels",
+      { part: "snippet", id: channelIDs.join(",") },
+      controller.signal,
+      dispatch,
+    );
+
+    return () => controller.abort();
+  }, [state.data.videos]);
 
   return {
     pagination: state,
