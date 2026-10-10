@@ -13,14 +13,18 @@ export const VideoCardsListShimmer = ({ count }) => {
 };
 
 const VideoCardsList = () => {
-  const { data, nextPage } = useContext(PaginationContext);
+  const { pagination } = useContext(PaginationContext);
+  const { videos, channels } = pagination.data;
 
-  return nextPage === 0 ? (
+  if (/not (found|available|supported)/i.test(pagination.status))
+    return <div>this category is not available</div>;
+
+  return pagination.nextPage === 0 ? (
     <VideoCardsListShimmer count={9} />
   ) : (
     <ul className="grid px-5 items-start sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {data?.videos.map((video) => {
-        const channel = data?.channels.find(
+      {videos.map((video) => {
+        const channel = channels.find(
           (channel) => channel?.id === video?.snippet?.channelId,
         );
 

@@ -4,14 +4,14 @@ import PaginationContext from "../utils/PaginationContext";
 import { VideoCardsListShimmer } from "./VideoCardsList";
 
 const LoadingWheel = () => {
-  const { fetchNextPage } = useContext(PaginationContext);
+  const { fetchNext } = useContext(PaginationContext);
   const containerRef = useRef(null);
 
   useEffect(() => {
     const callback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          fetchNextPage();
+          fetchNext();
         }
       });
     };
