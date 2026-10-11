@@ -51,6 +51,8 @@ const reducer = (state, action) => {
       trigger: state.trigger + 1,
     };
   }
+
+  return state;
 };
 
 const usePaginatedList = (type, category) => {

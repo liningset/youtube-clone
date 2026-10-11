@@ -14,7 +14,7 @@ const CategoryKeywordsShimmer = () => {
 };
 
 const CategoryKeywords = ({ active, changeCategory }) => {
-  const { data: categories, isLoading } = useFetch("videoCategories", {
+  const { data: categories, status } = useFetch("videoCategories", {
     part: "snippet",
     regionCode: "US",
   });
@@ -35,7 +35,9 @@ const CategoryKeywords = ({ active, changeCategory }) => {
     }
   };
 
-  return isLoading ? (
+  if (status.includes("error")) return;
+
+  return status === "pending" ? (
     <CategoryKeywordsShimmer />
   ) : (
     <ul

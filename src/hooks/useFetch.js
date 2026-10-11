@@ -1,46 +1,39 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer } from "react";
+import fetchFromYoutube from "../utils/fetchFromYoutube";
 
-const useFetch = (type, params = null, trigger = 0) => {
-  const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [failed, setFailed] = useState(false);
+const reducer = (state, action) => {
+  if (action.type === "change-status") {
+    if (!action?.status) return state;
+    return {
+      data: null,
+      status: action.status,
+    };
+  }
+  if (action.type === "sync-with-fetched-data") {
+    if (!action?.data) return state;
+    return {
+      data: action.data,
+      status: "idle",
+    };
+  }
+  return state;
+};
+
+const useFetch = (type, params) => {
+  const [state, dispatch] = useReducer(reducer, {
+    data: null,
+    status: "pending",
+  });
 
   useEffect(() => {
     if (!params) return;
     const controller = new AbortController();
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const BASE_URL = import.meta.env.VITE_BASE_URL;
-        const URLParams = new URLSearchParams(params);
-        URLParams.append("key", import.meta.env.VITE_KEY);
 
-        const res = await fetch(`${BASE_URL}${type}?${URLParams}`, {
-          signal: controller.signal,
-        });
-
-        if (!res.ok) {
-          setIsLoading(false);
-          setFailed(true);
-          throw new Error("response.ok === false");
-        }
-
-        const data = await res.json();
-        setIsLoading(false);
-        setFailed(false);
-        setData(data);
-      } catch (err) {
-        if (err.name === "AbortError") return;
-        setIsLoading(false);
-        setFailed(true);
-      }
-    };
-
-    fetchData();
+    fetchFromYoutube(type, params, controller.signal, dispatch);
 
     return () => controller.abort();
-  }, [trigger, params?.id]);
+  }, []);
 
-  return { data, isLoading, failed };
+  return { data: state.data, status: state.status };
 };
 export default useFetch;
