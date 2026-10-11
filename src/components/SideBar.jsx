@@ -3,12 +3,13 @@ import SideBarExploreNav from "./SideBarExploreNav";
 import SideBarMainNav from "./SideBarMainNav";
 import SignInButton from "./SignInButton";
 import SideBarContext from "../utils/SideBarContext";
+import SideBarFooter from "./SideBarFooter";
 
 const SideBar = () => {
   const { expanded, outOfModal } = useContext(SideBarContext);
   return (
     <nav
-      className={`h-[90dvh] bg-bg-primary overflow-auto sticky top-[10dvh] ${!expanded ? "w-fit" : "w-56"}`}
+      className={`h-[90dvh] bg-bg-primary overflow-auto sticky top-[10dvh] ${!expanded ? "w-fit" : "w-66"}`}
     >
       {!expanded && outOfModal ? (
         <SideBarMainNav />
@@ -22,6 +23,7 @@ const SideBar = () => {
             <SignInButton />
           </div>
           <SideBarExploreNav />
+          <SideBarFooter />
         </>
       )}
     </nav>

@@ -5,7 +5,7 @@ import SideBarContext from "../utils/SideBarContext";
 const SideBarMainNav = () => {
   const { expanded, outOfModal } = useContext(SideBarContext);
   return (
-    <ul>
+    <ul className={expanded || !outOfModal ? "px-5" : ""}>
       <NavItem iconID="home" title="Home" isActive={true} />
       <NavItem iconID="shorts" title="Shorts" />
       <NavItem iconID="subscriptions" title="Subscriptions" />

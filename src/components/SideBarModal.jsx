@@ -24,7 +24,7 @@ const SideBarModal = () => {
       onClick={overlayClickHandler}
     >
       <aside
-        className={`flex flex-col bg-bg-primary duration-200 left-0 w-56 absolute ${!expanded ? "-translate-x-56" : "translate-x-0"}`}
+        className={`flex flex-col bg-bg-primary duration-200 left-0 w-66 absolute ${!expanded ? "-translate-x-66" : "translate-x-0"}`}
       >
         <LogoAndBurgerButton />
         <SideBar />

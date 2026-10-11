@@ -6,14 +6,14 @@ const NavItem = ({ iconID, title, isActive = false }) => {
   const { expanded, outOfModal } = useContext(SideBarContext);
   const determineStyles = () => {
     const shared =
-      "cursor-pointer flex items-center rounded-lg transition-button mx-1";
+      "cursor-pointer flex items-center rounded-lg transition-button p-2 mx-1";
     if (!expanded && outOfModal)
       return shared.concat(
-        " flex-col gap-1 hover:bg-grey-e8 hover:border-grey-e8 active:bg-grey-d8 active:border-grey-d8 py-2",
+        " flex-col gap-1 hover:bg-grey-e8 hover:border-grey-e8 active:bg-grey-d8 active:border-grey-d8 px-1",
       );
 
     return shared.concat(
-      ` py-2 px-5 flex-row gap-6 ${isActive ? "bg-grey-e8 hover:bg-grey-d8 active:bg-grey-a8 active:border-grey-a8" : "hover:bg-grey-e8 active:bg-grey-d8"}`,
+      ` flex-row gap-6 ${isActive ? "bg-grey-e8 hover:bg-grey-d8 active:bg-grey-a8 active:border-grey-a8" : "hover:bg-grey-e8 active:bg-grey-d8"}`,
     );
   };
   return (
