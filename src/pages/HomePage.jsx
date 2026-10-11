@@ -10,14 +10,22 @@ const HomePage = () => {
     id: "0",
     title: "All",
   });
-  const { pagination, fetchNext } = usePaginatedList("videos", activeCategory);
+  const { pagination, fetchNext, switchInState } = usePaginatedList(
+    "videos",
+    activeCategory,
+  );
+
+  const changeCategory = (newData) => {
+    setActiveCategory(newData);
+    switchInState();
+  };
 
   return (
     <PaginationContext.Provider value={{ pagination, fetchNext }}>
       <main className="w-full min-w-0 max-w-350 mx-auto flex flex-col gap-4 mb-10">
         <CategoryKeywords
           active={activeCategory}
-          changeCategory={setActiveCategory}
+          changeCategory={changeCategory}
         />
         <VideoCardsList />
         {pagination.nextPage && <LoadingWheel />}

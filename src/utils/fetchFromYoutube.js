@@ -1,6 +1,19 @@
 const fetchFromYoutube = async (type, params, signal, dispatch) => {
+  const onLoading = () =>
+    dispatch({ type: "change-status", status: "pending", resource: type });
+
+  const onResolved = (data) =>
+    dispatch({ type: "sync-with-fetched-data", data, resource: type });
+
+  const onRejected = (err) =>
+    dispatch({
+      type: "change-status",
+      status: `error:${err.message}`,
+      resource: type,
+    });
+
   try {
-    dispatch({ type: "change-status", status: "pending" });
+    onLoading();
     const BASE_URL = import.meta.env.VITE_BASE_URL;
     const URLParams = new URLSearchParams(params);
     URLParams.append("key", import.meta.env.VITE_KEY);
@@ -10,14 +23,10 @@ const fetchFromYoutube = async (type, params, signal, dispatch) => {
 
     if (data.error != null) throw new Error(data?.error?.message);
     if (!data?.items) throw new Error("res.ok === false");
-
-    dispatch({ type: "sync-with-fetched-data", data, resource: type });
+    onResolved(data);
   } catch (err) {
     if (err.name === "AbortError") return;
-    dispatch({
-      type: "change-status",
-      status: `error:${err.message}`,
-    });
+    onRejected(err);
   }
 };
 

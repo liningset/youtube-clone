@@ -6,44 +6,48 @@ const reducer = (state, action) => {
     return {
       data: { videos: [], channels: [] },
       nextPage: 0,
-      status: "idle",
-      trigger:
-        state.nextPage === 0 && state.status === "pending"
-          ? state.trigger
-          : state.trigger + 1,
+      status: { videos: "idle", channels: "idle" },
+      trigger: state.trigger + 1,
     };
   }
 
   if (action.type === "change-status") {
-    if (action?.status === state.status) return state;
-    return {
-      data: { videos: state.data.videos, channels: state.data.channels },
+    if (!action?.status) return state;
+    if (action.status === state.status[action.resource]) return state;
+    const newState = {
+      data: { ...state.data },
       nextPage: state.nextPage,
-      status: action.status,
+      status: { ...state.status },
       trigger: state.trigger,
     };
+    newState.status[action.resource] = action.status;
+    return newState;
   }
 
   if (action.type === "sync-with-fetched-data") {
     const newState = {
-      data: { videos: state.data.videos, channels: state.data.channels },
-      nextPage: action.data?.nextPageToken ?? state.nextPage,
-      status: "succeeded",
+      data: { ...state.data },
+      nextPage:
+        action.resource === "videos"
+          ? (action.data.nextPageToken ?? null)
+          : state.nextPage,
+      status: { ...state.status },
       trigger: state.trigger,
     };
     newState.data[action.resource] = [
       ...state.data[action.resource],
       ...action.data.items,
     ];
+    newState.status[action.resource] = "idle";
     return newState;
   }
 
   if (action.type === "trigger-next-fetch") {
-    if (state.status === "pending") return state;
+    if (state.status.videos === "pending") return state;
     return {
       data: { videos: state.data.videos, channels: state.data.channels },
       nextPage: state.nextPage,
-      status: state.status,
+      status: { ...state.status },
       trigger: state.trigger + 1,
     };
   }
@@ -53,12 +57,12 @@ const usePaginatedList = (type, category) => {
   const [state, dispatch] = useReducer(reducer, {
     data: { videos: [], channels: [] },
     nextPage: 0,
-    status: "idle",
+    status: { videos: "idle", channels: "idle" },
     trigger: 0,
   });
 
   useEffect(() => {
-    if (state.status === "pending") return;
+    if (state.status.videos === "pending") return;
 
     const controller = new AbortController();
     const params = {
@@ -76,21 +80,19 @@ const usePaginatedList = (type, category) => {
   }, [state.trigger]);
 
   useEffect(() => {
-    const switchCategory = () => dispatch({ type: "switch-category" });
-    switchCategory();
-  }, [category]);
-
-  useEffect(() => {
     if (state.data.videos.length === 0) return;
-    const controller = new AbortController();
 
     const channelIDs = state.data.videos.map((v) => v?.snippet?.channelId);
-    fetchFromYoutube(
-      "channels",
-      { part: "snippet", id: channelIDs.join(",") },
-      controller.signal,
-      dispatch,
-    );
+    const dedupedIDs = Array.from(new Set(channelIDs));
+    const existingIDs = new Set(state.data.channels.map((c) => c.id));
+    const excludedPrevIDs = dedupedIDs.filter((id) => !existingIDs.has(id));
+
+    if (!excludedPrevIDs.length) return;
+
+    const controller = new AbortController();
+    const params = { part: "snippet", id: excludedPrevIDs.join(",") };
+
+    fetchFromYoutube("channels", params, controller.signal, dispatch);
 
     return () => controller.abort();
   }, [state.data.videos]);
@@ -98,6 +100,7 @@ const usePaginatedList = (type, category) => {
   return {
     pagination: state,
     fetchNext: () => dispatch({ type: "trigger-next-fetch" }),
+    switchInState: () => dispatch({ type: "switch-category" }),
   };
 };
 
