@@ -3,36 +3,52 @@ import YoutubeIcon from "./YoutubeIcon";
 import { Link } from "react-router";
 
 const reducer = (state, action) => {
+  if (!action?.operation) return;
+
   if (action.operation === "increment") {
     if (action?.length == null) return state;
 
-    return state === action.length ? 0 : state + 1;
+    return state === action.length - 1 ? 0 : state + 1;
   }
   if (action.operation === "decrement") {
     if (action?.length == null) return state;
 
-    return state === 0 ? action.length : state - 1;
+    return state <= 0 ? action.length - 1 : state - 1;
+  }
+  if (action.operation === "reset") {
+    return -1;
   }
 
   return state;
 };
 
 const SearchSuggestions = ({ items, updateSearch, showTab }) => {
-  const ulRef = useRef(null);
-
   const [active, updateActive] = useReducer(reducer, -1);
+  const ulRef = useRef(null);
 
   const onKeyNavigation = (e) => {
     const length = ulRef.current.children.length;
-    if (e.key === "ArrowUp") {
-      updateActive({ operation: "decrement", length });
-    }
-    if (e.key === "ArrowDown") {
-      updateActive({ operation: "increment", length });
-    }
 
-    console.log(e);
+    switch (e.key) {
+      case "ArrowUp":
+        updateActive({ operation: "decrement", length });
+        break;
+
+      case "ArrowDown":
+        updateActive({ operation: "increment", length });
+        break;
+
+      case "Escape":
+        updateActive({ operation: "reset" });
+        showTab(false);
+        break;
+
+      default:
+        updateActive({ operation: "reset" });
+        break;
+    }
   };
+
   const windowOnClick = (e) => {
     if (e.target.closest("form")) return;
 
@@ -41,7 +57,7 @@ const SearchSuggestions = ({ items, updateSearch, showTab }) => {
 
   const suggestionOnClick = (e) => {
     e.stopPropagation();
-    updateSearch(e.target.dataset.search);
+    updateSearch({ search: e.target.dataset.search, fetch: false });
     showTab(false);
   };
 
@@ -55,6 +71,16 @@ const SearchSuggestions = ({ items, updateSearch, showTab }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const listItems = ulRef.current.children;
+    const current = listItems[active]?.firstElementChild;
+
+    updateSearch((prev) => ({
+      search: current?.dataset?.suggestion ?? prev.search,
+      fetch: false,
+    }));
+  }, [active]);
+
   return (
     <ul
       ref={ulRef}
@@ -65,7 +91,7 @@ const SearchSuggestions = ({ items, updateSearch, showTab }) => {
         <Link to={`/results?q=${encodeURIComponent(item)}`}>
           <li
             key={i}
-            data-index={i}
+            data-suggestion={item}
             onClick={suggestionOnClick}
             className={`p-2 flex gap-2 rounded-lg hover:bg-grey-e8${i === active ? " bg-grey-e8" : ""}`}
           >

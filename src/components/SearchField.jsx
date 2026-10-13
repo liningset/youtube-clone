@@ -8,7 +8,8 @@ const SearchField = () => {
 
   const { search, suggested, resetSearch, updateSearch } = useDebounce();
 
-  const handleKeyStrokes = (e) => updateSearch(e.target.value);
+  const handleKeyStrokes = (e) =>
+    updateSearch({ search: e.target.value, fetch: true });
 
   const clearSearchHandler = (e) => {
     e.preventDefault();
@@ -30,7 +31,7 @@ const SearchField = () => {
           placeholder="Search"
           className="py-2 px-4 group-focus-within:ps-0 w-full border-0 outline-0"
           onChange={(e) => handleKeyStrokes(e)}
-          value={search}
+          value={search.search}
         />
         {suggestTabOpen && (
           <SearchSuggestions
