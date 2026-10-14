@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CategoryKeywords from "../components/CategoryKeywords";
 import VideoCardsList from "../components/VideoCardsList";
 import LoadingWheel from "../components/LoadingWheel";
 import PaginationContext from "../utils/PaginationContext";
 import usePaginatedList from "../hooks/usePaginatedList";
+import { useDispatch } from "react-redux";
+import { updateCurrentPage } from "../utils/appSlice";
 
 const HomePage = () => {
   const [activeCategory, setActiveCategory] = useState({
@@ -15,10 +17,17 @@ const HomePage = () => {
     activeCategory,
   );
 
+  const dispatch = useDispatch();
+
   const changeCategory = (newData) => {
     setActiveCategory(newData);
     switchInState();
   };
+
+  useEffect(() => {
+    document.title = "YouTube-clone";
+    dispatch(updateCurrentPage());
+  }, []);
 
   return (
     <PaginationContext.Provider value={{ pagination, fetchNext }}>

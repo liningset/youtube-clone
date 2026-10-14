@@ -1,0 +1,2357 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "5m47kwzNcgWhKVFs1tjzlNOOAa4",
+  "nextPageToken": "CDIQAA",
+  "regionCode": "NL",
+  "pageInfo": {
+    "totalResults": 1000000,
+    "resultsPerPage": 50
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "N1QOhhwNfb7m1zIVmkwz3haZ9Jo",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "fPmrzygqO8U"
+      },
+      "snippet": {
+        "publishedAt": "2026-05-14T15:01:09Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "IT&#39;S BEAUTIFUL | Subnautica 2 - Part 1",
+        "description": "It's been a long time but we're back in the deep down dark deep down in Subnautica 2 Drink my coffee: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/fPmrzygqO8U/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/fPmrzygqO8U/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/fPmrzygqO8U/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/fPmrzygqO8U/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/fPmrzygqO8U/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/fPmrzygqO8U/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-05-14T15:01:09Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "LsLKzO5fzvjJp_sBfe9QScmyMe8",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "5RE1GwL_XIQ"
+      },
+      "snippet": {
+        "publishedAt": "2026-09-22T13:00:32Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "SCOTLAND IS SCARY | Silent Hill Townfall - Part 1",
+        "description": "Very excited to be in Scotland for Silent Hill Townfall Donate to Thankmas: https://wishmas.tiltify.com/ Follow me on Instagram: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/5RE1GwL_XIQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/5RE1GwL_XIQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/5RE1GwL_XIQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/5RE1GwL_XIQ/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/5RE1GwL_XIQ/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/5RE1GwL_XIQ/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-09-22T13:00:32Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "LPhowJ7d4F9IHWhkEBsc_bh5xyI",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "mAg3rdk6FLw"
+      },
+      "snippet": {
+        "publishedAt": "2026-09-28T16:38:00Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Happy Wheels is on STEAM?",
+        "description": "I can't believe it... Happy Wheels is back and it's on Steam. Recession indicator Donate to Thankmas: https://wishmas.tiltify.com/ ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/mAg3rdk6FLw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/mAg3rdk6FLw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/mAg3rdk6FLw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/mAg3rdk6FLw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/mAg3rdk6FLw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/mAg3rdk6FLw/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-09-28T16:38:00Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "zI6w5iNlwrZryuazMq9FjDdbkDQ",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "hE4DWR6KCBU"
+      },
+      "snippet": {
+        "publishedAt": "2026-10-13T16:00:03Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Fixing My Favourite Console | Restory - Part 2",
+        "description": "Can you believe it? Another episode of Restory Drink my coffee: https://topofthemornincoffee.com/ Follow me on Instagram: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/hE4DWR6KCBU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/hE4DWR6KCBU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/hE4DWR6KCBU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/hE4DWR6KCBU/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/hE4DWR6KCBU/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/hE4DWR6KCBU/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-10-13T16:00:03Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "rRVliwinjSvxYWyu6CU6iwWt4gA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "A2NQuOfkrzo"
+      },
+      "snippet": {
+        "publishedAt": "2025-07-02T20:49:23Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Split the G",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/A2NQuOfkrzo/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/A2NQuOfkrzo/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/A2NQuOfkrzo/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/A2NQuOfkrzo/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/A2NQuOfkrzo/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2025-07-02T20:49:23Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "RCMG51G8M1mCPc5pq0gMEe11Gas",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "UiAaVdzovwY"
+      },
+      "snippet": {
+        "publishedAt": "2024-09-29T16:00:26Z",
+        "channelId": "UCXiOHPfGVBe3QNjyvdMU-KA",
+        "title": "Jacksepticeye went to a protest for PALESTINE #uk #jacksepticeye #palestine",
+        "description": "uk #jacksepticeye #palestine.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/UiAaVdzovwY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/UiAaVdzovwY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/UiAaVdzovwY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/UiAaVdzovwY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/UiAaVdzovwY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Jacksepticeye productions",
+        "liveBroadcastContent": "none",
+        "publishTime": "2024-09-29T16:00:26Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "r8bNSXpymdOT1eTY7cum-MqNN6I",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Zv-kc-FukXk"
+      },
+      "snippet": {
+        "publishedAt": "2026-08-29T17:00:00Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "THE FUNNIEST GAME OF 2026",
+        "description": "How To Fish might be the funniest game of 2026 Donate to Thankmas: https://wishmas.tiltify.com/ Spencer: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Zv-kc-FukXk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Zv-kc-FukXk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Zv-kc-FukXk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Zv-kc-FukXk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Zv-kc-FukXk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/Zv-kc-FukXk/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-08-29T17:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "-yc-BakBWH2LFfNEzAsy5FZJ1wA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "mAp9n2Od8cg"
+      },
+      "snippet": {
+        "publishedAt": "2026-05-15T16:01:15Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "IT KEEPS GETTING BETTER | Subnautica 2 - Part 2",
+        "description": "It just keeps getting better and better in Subnautica 2 Drink my coffee: https://topofthemornincoffee.com/ Follow me on Instagram: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/mAp9n2Od8cg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/mAp9n2Od8cg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/mAp9n2Od8cg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/mAp9n2Od8cg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/mAp9n2Od8cg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/mAp9n2Od8cg/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-05-15T16:01:15Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "aJvOLdwISwEwG8QCv6Pn6-agxmk",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "-eVOxb2KQSI"
+      },
+      "snippet": {
+        "publishedAt": "2025-01-28T17:00:00Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "WE ARE SO BACK - Turbo Dismount 2",
+        "description": "It's time to go all the way back to 2014 because Turbo Dismount 2 is here! Buy MY coffee: https://topofthemornincoffee.com/ Edited ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/-eVOxb2KQSI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/-eVOxb2KQSI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/-eVOxb2KQSI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/-eVOxb2KQSI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/-eVOxb2KQSI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2025-01-28T17:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "qNiA0mjvMZxLTLL_6YUmOJLPMTk",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "LPgLQU31_bw"
+      },
+      "snippet": {
+        "publishedAt": "2026-05-17T16:07:11Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "THIS IS TERRIFYING | Subnautica 2 - Part 4",
+        "description": "I venture further than any person ever before in Subnautica 2 Drink my coffee: https://topofthemornincoffee.com/ Follow me on ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/LPgLQU31_bw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/LPgLQU31_bw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/LPgLQU31_bw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/LPgLQU31_bw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/LPgLQU31_bw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/LPgLQU31_bw/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-05-17T16:07:11Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "atuQnJI6oZRI9cdQjqunjjxlnYs",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "O4RIncLkR-c"
+      },
+      "snippet": {
+        "publishedAt": "2025-10-22T19:00:30Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "I&#39;M IN THIS GAME... My Biggest Acting Role Yet (Dispatch 1 &amp; 2)",
+        "description": "Drink my coffee: https://topofthemornincoffee.com/ Follow me on Instagram: https://www.instagram.com/jacksepticeye Edited By: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/O4RIncLkR-c/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/O4RIncLkR-c/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/O4RIncLkR-c/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/O4RIncLkR-c/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/O4RIncLkR-c/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2025-10-22T19:00:30Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "nw5mkr_xeVKnCRpDhTZYaEf9dLc",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "cNU5nYxHuYI"
+      },
+      "snippet": {
+        "publishedAt": "2026-09-11T16:40:08Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "A Game About Chopping Trees",
+        "description": "A game about cutting down trees, that's it! That's the game Help with Thankmas: https://wishmas.tiltify.com/ Follow me on ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/cNU5nYxHuYI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/cNU5nYxHuYI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/cNU5nYxHuYI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/cNU5nYxHuYI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/cNU5nYxHuYI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/cNU5nYxHuYI/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-09-11T16:40:08Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "91UkhSzr03BIjDo12Htmi6CEACI",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "UzXmTNxuP64"
+      },
+      "snippet": {
+        "publishedAt": "2026-06-26T16:22:34Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "FEED THE HOLE",
+        "description": "Berry Bury Berry is an incredible game that hides a very dark secret THANKMAS: https://thankmas.tiltify.com/ Follow me on ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/UzXmTNxuP64/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/UzXmTNxuP64/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/UzXmTNxuP64/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/UzXmTNxuP64/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/UzXmTNxuP64/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/UzXmTNxuP64/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-06-26T16:22:34Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "_1CpcXFb-NYV7ig8LAF6cAAL4JI",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "YJZWGGk0qvs"
+      },
+      "snippet": {
+        "publishedAt": "2026-05-16T16:00:45Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "TIME TO EXPLORE | Subnautica 2 - Part 3",
+        "description": "I got the tadpole in Subnautica 2 Drink my coffee: https://topofthemornincoffee.com/ Follow me on Instagram: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/YJZWGGk0qvs/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/YJZWGGk0qvs/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/YJZWGGk0qvs/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/YJZWGGk0qvs/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/YJZWGGk0qvs/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/YJZWGGk0qvs/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-05-16T16:00:45Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "0vy4pJ5cVY0ZWOzwkiCSgsToIc4",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "b6apUuJHU2I"
+      },
+      "snippet": {
+        "publishedAt": "2026-05-29T20:51:12Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Meeting Animals I&#39;ve Never Seen Before",
+        "description": "I visited Maya Higa's Alveus Sanctuary and had the time of my life. Support Alveus: https://www.alveussanctuary.org/donate Watch ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/b6apUuJHU2I/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/b6apUuJHU2I/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/b6apUuJHU2I/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/b6apUuJHU2I/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/b6apUuJHU2I/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/b6apUuJHU2I/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-05-29T20:51:12Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "-9TOSvY6q3uTYrFRG5060NXAb6U",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "xAO7bQyAf0U"
+      },
+      "snippet": {
+        "publishedAt": "2026-08-23T16:02:11Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Moldrise (FULL GAME )",
+        "description": "Moldrise is a game about foot fungus and you must make it to the top Drink my coffee: https://topofthemornincoffee.com/ Follow me ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/xAO7bQyAf0U/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/xAO7bQyAf0U/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/xAO7bQyAf0U/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/xAO7bQyAf0U/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/xAO7bQyAf0U/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/xAO7bQyAf0U/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-08-23T16:02:11Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "jZTkwmqqAz3ht0htDRIe_sRrO2c",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "XCKwYhgT1AM"
+      },
+      "snippet": {
+        "publishedAt": "2026-04-29T16:01:02Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "A Game About Picking Up Leaves",
+        "description": "This is a game where all you do is pick up leaves... seriously A Game About Digging A Hole: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/XCKwYhgT1AM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/XCKwYhgT1AM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/XCKwYhgT1AM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/XCKwYhgT1AM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/XCKwYhgT1AM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/XCKwYhgT1AM/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-04-29T16:01:02Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "jOU78ccoHnV7JtfmvyPtrEDY4YY",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "jvFf08JC7y8"
+      },
+      "snippet": {
+        "publishedAt": "2026-05-02T16:18:00Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "I Own A Movie Rental Store",
+        "description": "Retro Rewind is a game about owning a movie rental store Drink my coffee: https://topofthemornincoffee.com/ Follow me on ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/jvFf08JC7y8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/jvFf08JC7y8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/jvFf08JC7y8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/jvFf08JC7y8/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/jvFf08JC7y8/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/jvFf08JC7y8/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-05-02T16:18:00Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "g91HA8N19XfnowaPGaGzYA7KPgw",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "SqfSp6Fv--0"
+      },
+      "snippet": {
+        "publishedAt": "2026-09-14T18:29:22Z",
+        "channelId": "UCZIuYUzkmEXgSSXzReOmeLw",
+        "title": "Jacksepticeye Just Ended His Career",
+        "description": "WestJett reacts to the Jacksepticeye Drama regarding his recent Charlie Kirk joke and the internet reaction that resulted over this ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/SqfSp6Fv--0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/SqfSp6Fv--0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/SqfSp6Fv--0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/SqfSp6Fv--0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/SqfSp6Fv--0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "WestJett",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-09-14T18:29:22Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "HAdRxP7QkWdygAQRoM0RZeM51Vs",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "m9AL7zI5T80"
+      },
+      "snippet": {
+        "publishedAt": "2026-06-14T16:55:04Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Fears to Fathom - Scratch Creek (FULL GAME)",
+        "description": "The new Fears to Fathom, Scratch Creek, is out and this time it's multiplayer only. Evelien's video: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/m9AL7zI5T80/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/m9AL7zI5T80/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/m9AL7zI5T80/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/m9AL7zI5T80/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/m9AL7zI5T80/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/m9AL7zI5T80/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-06-14T16:55:04Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "4iS7G8VVPTR-Cef1q9ZJuzCjdZs",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "FmKEQVXodVo"
+      },
+      "snippet": {
+        "publishedAt": "2026-02-26T15:00:24Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Resident Evil 9 Requiem - Part 1",
+        "description": "I can't believe it's time for another Resident Evil game. This time it's Resident Evil 9 Requiem with Leon and Grace Drink my ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/FmKEQVXodVo/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/FmKEQVXodVo/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/FmKEQVXodVo/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/FmKEQVXodVo/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/FmKEQVXodVo/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/FmKEQVXodVo/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-02-26T15:00:24Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "l_Qug734DDfRFYxa5bZ4o1xl9I4",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "bxLxy6NcgAo"
+      },
+      "snippet": {
+        "publishedAt": "2026-06-20T16:58:00Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Best Horror Game of 2026 | MOLE",
+        "description": "Mole is easily one of the best games I\"ve played so far this year. It ticked all my boxes Follow me on Instagram: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/bxLxy6NcgAo/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/bxLxy6NcgAo/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/bxLxy6NcgAo/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/bxLxy6NcgAo/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/bxLxy6NcgAo/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/bxLxy6NcgAo/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-06-20T16:58:00Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "kTBc2ecnl4nMXo49fE3FfO0_sKk",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "fjR5G_fZh8g"
+      },
+      "snippet": {
+        "publishedAt": "2026-09-23T16:00:24Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "SO MANY BODIES | Silent Hill Townfall - Part 2",
+        "description": "I didn't expect to play as Zoe in Silent Hill Townfall Donate to Thankmas: https://wishmas.tiltify.com/ Follow me on Instagram: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/fjR5G_fZh8g/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/fjR5G_fZh8g/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/fjR5G_fZh8g/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/fjR5G_fZh8g/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/fjR5G_fZh8g/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/fjR5G_fZh8g/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-09-23T16:00:24Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "Jcu3KoC0vjX7cwjeNvF8XkRe6pA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "GpQz4aY_mQ4"
+      },
+      "snippet": {
+        "publishedAt": "2026-08-17T17:07:34Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "EXTREMELY SATISFYING | Restory",
+        "description": "Extremely satisfying game where you fix old tech in Restory Drink my coffee: https://topofthemornincoffee.com/ Follow me on ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/GpQz4aY_mQ4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/GpQz4aY_mQ4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/GpQz4aY_mQ4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/GpQz4aY_mQ4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-08-17T17:07:34Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "YtNxDfviVYmTyIv-elSXUexj7Sg",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "W8HbJUvdo4A"
+      },
+      "snippet": {
+        "publishedAt": "2026-05-25T16:24:00Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "WHAT DOES IT ALL MEAN | Subnautica 2 - Part 5",
+        "description": "This may be the end of Subnautica 2 for now but there's so much more in the future Drink my coffee: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/W8HbJUvdo4A/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/W8HbJUvdo4A/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/W8HbJUvdo4A/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/W8HbJUvdo4A/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/W8HbJUvdo4A/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/W8HbJUvdo4A/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-05-25T16:24:00Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "J-rnWbX6doyrDVMca74NQ_51auY",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "B6uD8s4sQ-Y"
+      },
+      "snippet": {
+        "publishedAt": "2024-03-17T17:11:54Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Bloodborne (FULL GAME)",
+        "description": "Bloodborne all in one video Buy MY coffee: https://topofthemornincoffee.com/ Edited By: @Diceroll and @treyyates.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/B6uD8s4sQ-Y/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/B6uD8s4sQ-Y/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/B6uD8s4sQ-Y/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/B6uD8s4sQ-Y/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/B6uD8s4sQ-Y/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2024-03-17T17:11:54Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "THdCnxWEdctRx1sd2uu_pcypGCQ",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "8TRxchxdD1I"
+      },
+      "snippet": {
+        "publishedAt": "2022-06-11T16:00:07Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "MONSTERS ALREADY? | The Quarry - Part 2",
+        "description": "The Quarry continues and I didn't expect things to get this wild so soon The Quarry Playlist: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/8TRxchxdD1I/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/8TRxchxdD1I/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/8TRxchxdD1I/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/8TRxchxdD1I/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/8TRxchxdD1I/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-06-11T16:00:07Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "ARxFGaJXnh_wGg3clIlVQnykBXM",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "zf5Svi61CV8"
+      },
+      "snippet": {
+        "publishedAt": "2026-09-17T17:30:13Z",
+        "channelId": "UCOyX3_7wjAcXyF4Ge3Ci7VA",
+        "title": "The Jacksepticeye Situation Is SAD",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/zf5Svi61CV8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/zf5Svi61CV8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/zf5Svi61CV8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/zf5Svi61CV8/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/zf5Svi61CV8/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "NextzTV",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-09-17T17:30:13Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "46bZXlUffW5_Ej5fPWSVSMHSS5A",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "vzPB8jR2Gr8"
+      },
+      "snippet": {
+        "publishedAt": "2026-05-07T16:01:37Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "I Hired Someone",
+        "description": "My first ever emplyee in Retro Rewind Drink my coffee: https://topofthemornincoffee.com/ Follow me on Instagram: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/vzPB8jR2Gr8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/vzPB8jR2Gr8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/vzPB8jR2Gr8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/vzPB8jR2Gr8/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/vzPB8jR2Gr8/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/vzPB8jR2Gr8/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-05-07T16:01:37Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "4eDxoklzkRvQ13G_1Yx0lYq9PWk",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Ynq62nouiQ4"
+      },
+      "snippet": {
+        "publishedAt": "2026-07-16T16:00:09Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "THIS GAME P***ED ME OFF | Trees Hate You",
+        "description": "I recorded this game 2 months ago and just never uploaded it . Please be kind to my thumbnail, graphic design is my passion and ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Ynq62nouiQ4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Ynq62nouiQ4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Ynq62nouiQ4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Ynq62nouiQ4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Ynq62nouiQ4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/Ynq62nouiQ4/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-07-16T16:00:09Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "CvGMb74kAm2e_1clImFglM72j1U",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "fcm0y0uF2mg"
+      },
+      "snippet": {
+        "publishedAt": "2026-05-19T22:00:36Z",
+        "channelId": "UCXiOHPfGVBe3QNjyvdMU-KA",
+        "title": "Jacksepticeye DONATES $100k To Alveus Sanctuary ",
+        "description": "jacksepticeye #mayahiga #alveussanctuary #alveus Jacksepticeye visited Maya Higa's Alveus Sanctuary and during the break ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/fcm0y0uF2mg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/fcm0y0uF2mg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/fcm0y0uF2mg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/fcm0y0uF2mg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "Jacksepticeye productions",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-05-19T22:00:36Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "ak2CoPIM0A_H8qnPfFLoJaVdjNQ",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Y4AHrgdhLSI"
+      },
+      "snippet": {
+        "publishedAt": "2026-02-15T17:00:44Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "WAY TOO FUNNY | MyVoice Zoo",
+        "description": "Drink my coffee: https://topofthemornincoffee.com/ Follow me on Instagram: https://www.instagram.com/jacksepticeye Edited By: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Y4AHrgdhLSI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Y4AHrgdhLSI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Y4AHrgdhLSI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Y4AHrgdhLSI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Y4AHrgdhLSI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/Y4AHrgdhLSI/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-02-15T17:00:44Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "hjthOVv0HKomLCWABR89tQlLuB8",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "muLPtTLyI5Q"
+      },
+      "snippet": {
+        "publishedAt": "2026-08-15T17:03:13Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Terrifying Photography Anomaly Game | Photomaly",
+        "description": "Photomaly is a fantastic photography anomaly game Drink my coffee: https://topofthemornincoffee.com/ Follow me on Instagram: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/muLPtTLyI5Q/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/muLPtTLyI5Q/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/muLPtTLyI5Q/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/muLPtTLyI5Q/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/muLPtTLyI5Q/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/muLPtTLyI5Q/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-08-15T17:03:13Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "mTWnlevOqzjVWtR4gHfXbfq2Qqo",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "EeT-p3SZ5ls"
+      },
+      "snippet": {
+        "publishedAt": "2026-05-26T20:32:04Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "I&#39;m in 007 First Light",
+        "description": "007 First Light is OUT and I'm in the game Play a James Bond re-imagined origin story and Earn The Number. Available now ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/EeT-p3SZ5ls/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/EeT-p3SZ5ls/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/EeT-p3SZ5ls/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/EeT-p3SZ5ls/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/EeT-p3SZ5ls/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/EeT-p3SZ5ls/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-05-26T20:32:04Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "b1sAAXgjKGITL5pdfSBGEzASGUA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "XQJ4k7F3Y60"
+      },
+      "snippet": {
+        "publishedAt": "2026-08-20T16:00:05Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Old Gods Lurk Below Us...",
+        "description": "4 people go down into a hole in the earth but something terrifying lurks Below Rusted Gods Drink my coffee: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/XQJ4k7F3Y60/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/XQJ4k7F3Y60/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/XQJ4k7F3Y60/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/XQJ4k7F3Y60/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/XQJ4k7F3Y60/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/XQJ4k7F3Y60/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-08-20T16:00:05Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "l_Cnf6hMz1gdz2rkjfiuHJ0l5bc",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "MFJZoh3d2rU"
+      },
+      "snippet": {
+        "publishedAt": "2024-08-13T16:00:20Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "The Funniest Game I&#39;ve Ever Played",
+        "description": "Thank Goodness You're Here is the funniest game I've ever played! Comic Book: https://badegg.co/collections/new-altrverse-2 ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/MFJZoh3d2rU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/MFJZoh3d2rU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/MFJZoh3d2rU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/MFJZoh3d2rU/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/MFJZoh3d2rU/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2024-08-13T16:00:20Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "O1umiqI0w8hTc1-CNdGBi5wiQiI",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Eeq3WqCgrek"
+      },
+      "snippet": {
+        "publishedAt": "2026-08-13T16:00:30Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Big Walk",
+        "description": "Have you ever had a Walk so Big that you conquered the world? Big Walk starring: Spencer: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Eeq3WqCgrek/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Eeq3WqCgrek/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Eeq3WqCgrek/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Eeq3WqCgrek/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Eeq3WqCgrek/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/Eeq3WqCgrek/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-08-13T16:00:30Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "vQGXdArH8zou5qnktAjY9X9L4kw",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "wuSkzge4-ks"
+      },
+      "snippet": {
+        "publishedAt": "2026-09-26T16:00:03Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "WHAT DID IT ALL MEAN? | Silent Hill Townfall - Part 5 (END)",
+        "description": "This is it, the end of Silent Hill Townfall Donate to Thankmas: https://wishmas.tiltify.com/ Follow me on Instagram: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/wuSkzge4-ks/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/wuSkzge4-ks/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/wuSkzge4-ks/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/wuSkzge4-ks/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/wuSkzge4-ks/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/wuSkzge4-ks/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-09-26T16:00:03Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "RAsnpCrosHes8C6gS5n1H9_HaNc",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "axjNHX5OBiU"
+      },
+      "snippet": {
+        "publishedAt": "2026-09-24T16:00:16Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "OH. MY. GOD | Silent Hill Townfall - Part 3",
+        "description": "Things got so much worse in Silent Hill Townfall Donate to Thankmas: https://wishmas.tiltify.com/ Follow me on Instagram: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/axjNHX5OBiU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/axjNHX5OBiU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/axjNHX5OBiU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/axjNHX5OBiU/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/axjNHX5OBiU/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/axjNHX5OBiU/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-09-24T16:00:16Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "i1PuUgDnuC_gr7YSLaf-2Z0ujy8",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "XNatAfADSpM"
+      },
+      "snippet": {
+        "publishedAt": "2026-07-02T17:12:40Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Captured 2 (FULL GAME)",
+        "description": "Captured 2 is the best Anomaly game around Follow me on Instagram: https://www.instagram.com/jacksepticeye Edited By: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/XNatAfADSpM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/XNatAfADSpM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/XNatAfADSpM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/XNatAfADSpM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/XNatAfADSpM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/XNatAfADSpM/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-07-02T17:12:40Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "YGENFmm6bZq7qHrvZd_M_6aCcIg",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "FiNRLfZkkZk"
+      },
+      "snippet": {
+        "publishedAt": "2025-01-31T22:19:06Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Poppy Playtime Chapter 4 (FULL GAME)",
+        "description": "Poppy Playtime Chapter 4 is here and I've got the full game for you to watch Buy MY coffee: https://topofthemornincoffee.com/ ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/FiNRLfZkkZk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/FiNRLfZkkZk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/FiNRLfZkkZk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/FiNRLfZkkZk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/FiNRLfZkkZk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2025-01-31T22:19:06Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "iBiwmYHYkBVt8roERDcTEg0Lr54",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "eOwM64UVaGM"
+      },
+      "snippet": {
+        "publishedAt": "2026-05-12T16:12:05Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "What a mess…",
+        "description": "It's a dangerous dirty job but someone's gotta do it in Crime Scene Cleaner 'Drink my coffee: https://topofthemornincoffee.com/ ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/eOwM64UVaGM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/eOwM64UVaGM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/eOwM64UVaGM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/eOwM64UVaGM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/eOwM64UVaGM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/eOwM64UVaGM/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-05-12T16:12:05Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "2L7s7eBkmf1KEcqSagwDRWKQpg8",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Ri8cJfQgMBo"
+      },
+      "snippet": {
+        "publishedAt": "2024-02-29T17:00:30Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Dark Souls 3 (FULL GAME)",
+        "description": "Dark Souls 3 all in one video, you're welcome Buy MY coffee: https://topofthemornincoffee.com/ Edited By: @Diceroll and ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Ri8cJfQgMBo/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Ri8cJfQgMBo/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Ri8cJfQgMBo/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Ri8cJfQgMBo/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Ri8cJfQgMBo/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2024-02-29T17:00:30Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "WLN9GkE5-6p4CDRVFINzKMYTgG8",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "AtwgGc-An6U"
+      },
+      "snippet": {
+        "publishedAt": "2018-04-19T16:00:01Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "DADDY&#39;S HOME | God Of War - Part 1",
+        "description": "Put your Dad pants on because it's time for God of War! Uncharted 4 ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/AtwgGc-An6U/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/AtwgGc-An6U/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/AtwgGc-An6U/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/AtwgGc-An6U/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/AtwgGc-An6U/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2018-04-19T16:00:01Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "KmsFtrm_rSZ1l_eXuq4AOdwgQyQ",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "neQmCtDJzkw"
+      },
+      "snippet": {
+        "publishedAt": "2026-05-09T17:03:06Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Crime Scene Cleaner",
+        "description": "Crime Scene Cleaner is very fun. Drink my coffee: https://topofthemornincoffee.com/ Follow me on Instagram: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/neQmCtDJzkw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/neQmCtDJzkw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/neQmCtDJzkw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/neQmCtDJzkw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/neQmCtDJzkw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/neQmCtDJzkw/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-05-09T17:03:06Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "d-N0t2Tsey1ct3w_02pBlia-VfY",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "1GK-xIpbvtA"
+      },
+      "snippet": {
+        "publishedAt": "2020-06-18T12:02:58Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "I CAN&#39;T WAIT FOR THIS | The Last Of Us 2 - Part 1",
+        "description": "It all starts here. Our emotional journey begins now in our biggest series of the year. Welcome to The Last Of Us Part II My Coffee ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/1GK-xIpbvtA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/1GK-xIpbvtA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/1GK-xIpbvtA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/1GK-xIpbvtA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/1GK-xIpbvtA/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2020-06-18T12:02:58Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "HbjZhY7sNfeVtdQbFU-za-yqB44",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "icsP8f8TRdQ"
+      },
+      "snippet": {
+        "publishedAt": "2026-09-14T09:54:53Z",
+        "channelId": "UCMwJJL5FJFuTRT55ksbQ4GQ",
+        "title": "Jacksepticeye just got cancelled..",
+        "description": "Asmongold Clips / Asmongold Reacts To: Jacksepticeye went viral after making a Charlie Kirk joke, then immediately edited the ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/icsP8f8TRdQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/icsP8f8TRdQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/icsP8f8TRdQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/icsP8f8TRdQ/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/icsP8f8TRdQ/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Asmongold Clips",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-09-14T09:54:53Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "PpFAWm0NeO5yCf_vxoUYEk81vXg",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "pdksMfi0Hsc"
+      },
+      "snippet": {
+        "publishedAt": "2022-03-26T18:36:46Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "Please just leave me alone",
+        "description": "I'm being followed at work. Some guy keeps trying to take pictures of me on my Closing Shift 閉店事件 Buy MY coffee: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/pdksMfi0Hsc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/pdksMfi0Hsc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/pdksMfi0Hsc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/pdksMfi0Hsc/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/pdksMfi0Hsc/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-03-26T18:36:46Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "IEtgviPUyFeb80UPzVAu85_G-DM",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "wpHYFdzLQpA"
+      },
+      "snippet": {
+        "publishedAt": "2025-08-03T16:01:32Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "MY NEW ADDICTION - Supermarket Simulator - Part 1",
+        "description": "I have moved on from the world of Schedule 1 and I am now a Supermarket owner in Supermarket Simulator Try NordVPN Today: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/wpHYFdzLQpA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/wpHYFdzLQpA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/wpHYFdzLQpA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/wpHYFdzLQpA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/wpHYFdzLQpA/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2025-08-03T16:01:32Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "pv8VBFjjays9z7uajL1EC9rPb_k",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Gc1jmeTotTg"
+      },
+      "snippet": {
+        "publishedAt": "2017-10-20T19:00:03Z",
+        "channelId": "UCYzPXprvl5Y-Sf0g4vX-m6g",
+        "title": "ALREADY HILARIOUS | South Park: The Fractured But Whole - Part 1",
+        "description": "It's time to finally start South Park: The Fractured But Whole!! South Park The Stick Of Truth ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Gc1jmeTotTg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Gc1jmeTotTg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Gc1jmeTotTg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Gc1jmeTotTg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Gc1jmeTotTg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "jacksepticeye",
+        "liveBroadcastContent": "none",
+        "publishTime": "2017-10-20T19:00:03Z"
+      }
+    }
+  ]
+}
