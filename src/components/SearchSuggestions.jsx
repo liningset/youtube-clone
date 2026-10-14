@@ -22,7 +22,7 @@ const reducer = (state, action) => {
   return state;
 };
 
-const SearchSuggestions = ({ items, updateSearch, showTab }) => {
+const SearchSuggestions = ({ items, search, updateSearch, showTab }) => {
   const [active, updateActive] = useReducer(reducer, -1);
   const ulRef = useRef(null);
 
@@ -96,7 +96,12 @@ const SearchSuggestions = ({ items, updateSearch, showTab }) => {
             className={`p-2 flex gap-2 rounded-lg hover:bg-grey-e8${i === active ? " bg-grey-e8" : ""}`}
           >
             <YoutubeIcon icon="search" tailwindStyles="w-5" />
-            <span className="pointer-events-none">{item}</span>
+            <span className="pointer-events-none">
+              <b>
+                {item.match(search.search) ? item.match(search.search)[0] : ""}
+              </b>
+              {item.replace(search.search, "")}
+            </span>
           </li>
         </Link>
       ))}

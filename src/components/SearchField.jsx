@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchSuggestions from "./SearchSuggestions";
 import YoutubeIcon from "./YoutubeIcon";
 import useDebounce from "../hooks/useDebounce";
 
 const SearchField = () => {
-  const [suggestTabOpen, setSuggestTabOpen] = useState(true);
+  const [suggestTabOpen, setSuggestTabOpen] = useState(false);
 
   const { search, suggested, resetSearch, updateSearch } = useDebounce();
 
@@ -16,10 +16,22 @@ const SearchField = () => {
     resetSearch();
   };
 
+  useEffect(() => {
+    const onSearchChange = () => {
+      if (search.search.trim() === "") setSuggestTabOpen(false);
+      else {
+        if (!suggestTabOpen) setSuggestTabOpen(true);
+      }
+    };
+    onSearchChange();
+  }, [search.search]);
+
   return (
     <form
       className="flex w-9/12 sm:w-4/12 md:w-1/2 relative z-20"
-      onFocus={() => setSuggestTabOpen(true)}
+      onFocus={() => {
+        if (search.search.trim() !== "") setSuggestTabOpen(true);
+      }}
     >
       <div className="group border border-border-clr bg-bg-primary focus-within:border-dark-blue shadow-border-clr focus-within:shadow-inset w-full rounded-s-full flex items-center">
         <YoutubeIcon
@@ -36,12 +48,13 @@ const SearchField = () => {
         {suggestTabOpen && (
           <SearchSuggestions
             items={suggested}
+            search={search}
             updateSearch={updateSearch}
             showTab={setSuggestTabOpen}
           />
         )}
 
-        {search && (
+        {search.search && (
           <button
             onClick={(e) => clearSearchHandler(e)}
             className="absolute right-16 flex items-center justify-center hover:bg-border-clr rounded-full w-10 aspect-square"
@@ -75,7 +88,6 @@ export const WithMobile = (SearchField) => {
           <YoutubeIcon icon="back" tailwindStyles="w-6 h-6" />
         </button>
         <SearchField />
-        <SearchSuggestions />
       </div>
     );
   };
