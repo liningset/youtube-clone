@@ -66,17 +66,26 @@ export default SearchedVideoCard;
 
 export const SearchedVideoCardShimmer = () => {
   return (
-    <li className="relative animate-pulse" aria-hidden="true">
-      <div className={`bg-grey-a8 aspect-video relative rounded-2xl`}></div>
-      <div className="flex items-center gap-2 mt-2">
-        <div className="w-16 aspect-square rounded-full bg-grey-a8"></div>
+    <li
+      className="relative flex flex-col sm:flex-row animate-pulse gap-4 sm:p-1"
+      aria-hidden="true"
+    >
+      <div className="bg-grey-a8 flex-4 aspect-video relative sm:rounded-2xl w-full min-w-50 sm:w-5/12"></div>
+      <div className="flex px-5 sm:px-0 flex-6 items-center w-full flex-col gap-4">
         <div className="w-full flex flex-col gap-2">
-          <div className="h-6 w-9/12 mt-2 rounded-sm bg-grey-a8"></div>
-          <div className="flex w-7/12 gap-2">
-            <div className="h-4 w-14 flex-1 rounded-sm bg-grey-a8"></div>
+          <div className="h-6 w-9/12 rounded-sm bg-grey-a8"></div>
+          <div className="flex w-2/12 gap-2">
             <div className="h-4 w-14 flex-1 rounded-sm bg-grey-a8"></div>
             <div className="h-4 w-14 flex-1 rounded-sm bg-grey-a8"></div>
           </div>
+        </div>
+        <div className="flex self-start gap-2 items-center ">
+          <div className="w-8 aspect-square rounded-full bg-grey-a8"></div>
+          <div className="h-4 w-14 flex-1 rounded-sm bg-grey-a8"></div>
+        </div>
+        <div className="w-full flex flex-col gap-2">
+          <div className="w-full h-4 bg-grey-a8 rounded-sm"></div>
+          <div className="w-10/12 h-4 bg-grey-a8 rounded-sm"></div>
         </div>
       </div>
     </li>
