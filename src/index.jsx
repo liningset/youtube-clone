@@ -12,7 +12,7 @@ const routerConfig = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <ErrorPage />,
+    // errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/results/", element: <SearchPage /> },

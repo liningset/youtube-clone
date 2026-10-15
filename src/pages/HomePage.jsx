@@ -14,6 +14,12 @@ const HomePage = () => {
   });
   const { pagination, fetchNext, switchInState } = usePaginatedList(
     "videos",
+    {
+      regionCode: "US",
+      chart: "mostPopular",
+      part: "snippet,statistics,contentDetails",
+      maxResults: 15,
+    },
     activeCategory,
   );
 

@@ -1,16 +1,31 @@
+import dummyData from "../utils/data.json";
+
 const fetchFromYoutube = async (type, params, signal, dispatch) => {
   const onLoading = () =>
-    dispatch({ type: "change-status", status: "pending", resource: type });
+    dispatch({
+      type: "change-status",
+      status: "pending",
+      resource: type === "search" ? "videos" : type,
+    });
 
   const onResolved = (data) =>
-    dispatch({ type: "sync-with-fetched-data", data, resource: type });
+    dispatch({
+      type: "sync-with-fetched-data",
+      data,
+      resource: type === "search" ? "videos" : type,
+    });
 
   const onRejected = (err) =>
     dispatch({
       type: "change-status",
       status: `error:${err.message}`,
-      resource: type,
+      resource: type === "search" ? "videos" : type,
     });
+
+  if (type === "search") {
+    onResolved(dummyData);
+    return;
+  }
 
   try {
     onLoading();

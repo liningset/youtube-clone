@@ -55,7 +55,7 @@ const reducer = (state, action) => {
   return state;
 };
 
-const usePaginatedList = (type, category) => {
+const usePaginatedList = (type, params, category) => {
   const [state, dispatch] = useReducer(reducer, {
     data: { videos: [], channels: [] },
     nextPage: 0,
@@ -67,16 +67,13 @@ const usePaginatedList = (type, category) => {
     if (state.status.videos === "pending") return;
 
     const controller = new AbortController();
-    const params = {
-      regionCode: "US",
-      chart: "mostPopular",
-      part: "snippet,statistics,contentDetails",
-      maxResults: 15,
-    };
-    if (state.nextPage) params.pageToken = state.nextPage;
-    if (category.title !== "All") params.videoCategoryId = category.id;
+    const fullParams = { ...params };
+    if (state.nextPage) fullParams.pageToken = state.nextPage;
+    if (category.title !== "All") {
+      fullParams.videoCategoryId = category.id;
+    }
 
-    fetchFromYoutube(type, params, controller.signal, dispatch);
+    fetchFromYoutube(type, fullParams, controller.signal, dispatch);
 
     return () => controller.abort();
   }, [state.trigger]);
