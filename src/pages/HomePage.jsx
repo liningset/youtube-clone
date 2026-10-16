@@ -7,19 +7,22 @@ import usePaginatedList from "../hooks/usePaginatedList";
 import { useDispatch } from "react-redux";
 import { updateCurrentPage } from "../utils/appSlice";
 
+const params = {
+  regionCode: "US",
+  chart: "mostPopular",
+  part: "snippet,statistics,contentDetails",
+  maxResults: 15,
+};
+
 const HomePage = () => {
   const [activeCategory, setActiveCategory] = useState({
     id: "0",
     title: "All",
   });
+
   const { pagination, fetchNext, switchInState } = usePaginatedList(
     "videos",
-    {
-      regionCode: "US",
-      chart: "mostPopular",
-      part: "snippet,statistics,contentDetails",
-      maxResults: 15,
-    },
+    params,
     activeCategory,
   );
 

@@ -2,14 +2,12 @@ import YoutubeIcon from "./YoutubeIcon";
 import { toDuration, toViews, toPublishedDate } from "../utils/functions";
 import { Link } from "react-router";
 
-const SearchedVideoCard = ({ data, channelData }) => {
+const SearchResultCard = ({ data, channelData }) => {
   const { thumbnails, title, channelTitle, publishedAt, description } =
     data.snippet;
-  const { duration } = data?.contentDetails ?? { duration: "36S" };
-  const { viewCount } = data?.statistics ?? { viewCount: "2345" };
+  const { duration } = data?.contentDetails ?? { duration: "" };
+  const { viewCount } = data?.statistics ?? { viewCount: "" };
   const { thumbnails: channelThumbnails } = channelData?.snippet ?? {};
-
-  console.log(data);
 
   return (
     <li className="group sm:p-1 relative flex flex-col gap-4 sm:flex-row transition-button active:bg-grey-e8 active:border-grey-e8 rounded-2xl cursor-pointer">
@@ -18,7 +16,7 @@ const SearchedVideoCard = ({ data, channelData }) => {
       >
         <img
           crossOrigin="anonymous"
-          src={thumbnails.high.url}
+          src={thumbnails?.standard.url ?? thumbnails?.high.url}
           className="w-full h-full object-cover"
           alt="video thumbnail"
         />
@@ -44,7 +42,7 @@ const SearchedVideoCard = ({ data, channelData }) => {
           </button>
         </div>
         <Link
-          to={`/channel/${channelData?.id}`}
+          to={`/channel/${channelData?.id?.videoId}`}
           className="flex gap-2 items-center self-start"
           title={channelTitle}
         >
@@ -62,9 +60,9 @@ const SearchedVideoCard = ({ data, channelData }) => {
     </li>
   );
 };
-export default SearchedVideoCard;
+export default SearchResultCard;
 
-export const SearchedVideoCardShimmer = () => {
+export const SearchResultCardShimmer = () => {
   return (
     <li
       className="relative flex flex-col sm:flex-row animate-pulse gap-4 sm:p-1"

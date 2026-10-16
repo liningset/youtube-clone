@@ -1,12 +1,9 @@
 import { useState } from "react";
 import YoutubeIcon from "./YoutubeIcon";
-// import { extractColorsFromImage } from "extract-colors";
 import { toDuration, toViews, toPublishedDate } from "../utils/functions";
 import extractColor from "../utils/extract-color";
 
 const VideoCard = ({ data, channelData }) => {
-  // console.log(data);
-
   const { thumbnails, title, channelTitle, publishedAt } = data.snippet;
   const { duration } = data.contentDetails;
   const { viewCount } = data.statistics;

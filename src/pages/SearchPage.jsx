@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router";
 import { updateCurrentPage } from "../utils/appSlice";
 import usePaginatedList from "../hooks/usePaginatedList";
 import PaginationContext from "../utils/PaginationContext";
-import VideoCardsList from "../components/VideoCardsList";
+import SearchResultsList from "../components/SearchResultsList";
 import usePaginatedSearch from "../hooks/usePaginatedSearch";
 
 const SearchPage = () => {
@@ -17,30 +17,37 @@ const SearchPage = () => {
     part: "snippet",
     maxResults: 50,
   });
-  // const { pagination, fetchNext } = usePaginatedList(
-  //   "videos",
-  //   {
-  //     regionCode: "US",
-  //     chart: "mostPopular",
-  //     part: "snippet,statistics,contentDetails",
-  //     maxResults: 15,
-  //   },
-  //   { title: "All" },
-  // );
+
+  // const searchState = { videos: [], status: "idle", trigger: 0, nextPage: 0 };
+
+  //this is to make sure that the identity of params stays the same unless only one paramater changes
+  const params = useMemo(() => {
+    const searchResultIds = searchState.videos.map((v) => v?.id?.videoId);
+    return {
+      id: searchResultIds.join(","),
+      part: "snippet,statistics,contentDetails",
+      maxResults: 50,
+    };
+  }, [searchState.videos]);
+
+  const { pagination, fetchNext } = usePaginatedList("videos", params, {
+    title: "All",
+  });
 
   useEffect(() => {
     document.title = query + " - YouTube-clone";
     dispatch(updateCurrentPage());
   }, []);
 
-  // useEffect(() => {
-  //   fetchNext();
-  // }, searchState.videos);
+  useEffect(() => {
+    if (searchState.videos.length === 0) return;
+    fetchNext();
+  }, [searchState.videos]);
 
   return (
-    <PaginationContext.Provider value={{ searchState }}>
+    <PaginationContext.Provider value={{ pagination, searchState }}>
       <main className="w-full min-w-0 max-w-350 mx-auto flex flex-col gap-4 mb-10">
-        <VideoCardsList />
+        <SearchResultsList />;
       </main>
     </PaginationContext.Provider>
   );
