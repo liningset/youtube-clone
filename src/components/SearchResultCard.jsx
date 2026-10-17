@@ -16,7 +16,7 @@ const SearchResultCard = ({ data, channelData }) => {
       >
         <img
           crossOrigin="anonymous"
-          src={thumbnails?.standard.url ?? thumbnails?.high.url}
+          src={thumbnails?.standard?.url ?? thumbnails?.high?.url}
           className="w-full h-full object-cover"
           alt="video thumbnail"
         />

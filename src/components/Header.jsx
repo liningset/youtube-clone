@@ -4,6 +4,7 @@ import SearchField, { WithMobile } from "./SearchField";
 import SignInButton from "./SignInButton";
 import YoutubeIcon from "./YoutubeIcon";
 import useBreakpoint from "../hooks/useBreakpoint";
+import useDebounce from "../hooks/useDebounce";
 
 const MobileSearchField = WithMobile(SearchField);
 
@@ -12,13 +13,18 @@ const Header = () => {
   const [mobileSearchTabIsOpen, setMobileSearchTabIsOpen] = useState(false);
   const onMobileSearchClick = () => setMobileSearchTabIsOpen((prev) => !prev);
 
+  const debounceState = useDebounce();
+
   return (
     <header className="pe-5 h-[10dvh] flex justify-between items-center sticky top-0 z-20 bg-bg-primary-low-op backdrop-blur-lg">
       {mobileSearchTabIsOpen && !screenIsLarge && (
-        <MobileSearchField setIsOpen={setMobileSearchTabIsOpen} />
+        <MobileSearchField
+          setIsOpen={setMobileSearchTabIsOpen}
+          debounceState={debounceState}
+        />
       )}
       <LogoAndBurgerButton />
-      {screenIsLarge && <SearchField />}
+      {screenIsLarge && <SearchField debounceState={debounceState} />}
       <div className="flex items-center gap-2 md:gap-4">
         {!screenIsLarge && (
           <button

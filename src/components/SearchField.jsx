@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import SearchSuggestions from "./SearchSuggestions";
 import YoutubeIcon from "./YoutubeIcon";
-import useDebounce from "../hooks/useDebounce";
+import { useNavigate } from "react-router";
 
-const SearchField = () => {
+const SearchField = ({ debounceState }) => {
   const [suggestTabOpen, setSuggestTabOpen] = useState(false);
+  const [submitTrigger, setSubmitTrigger] = useState(0);
 
-  const { search, suggested, resetSearch, updateSearch } = useDebounce();
+  const { search, suggested, resetSearch, updateSearch } = debounceState;
+
+  const navigate = useNavigate();
 
   const handleKeyStrokes = (e) =>
     updateSearch({ search: e.target.value, fetch: true });
@@ -16,9 +19,14 @@ const SearchField = () => {
     resetSearch();
   };
 
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+    setSubmitTrigger((prev) => prev + 1);
+  };
+
   useEffect(() => {
     const onSearchChange = () => {
-      if (search.search.trim() === "") setSuggestTabOpen(false);
+      if (!search.search?.trim()) setSuggestTabOpen(false);
       else {
         if (!suggestTabOpen) setSuggestTabOpen(true);
       }
@@ -26,12 +34,26 @@ const SearchField = () => {
     onSearchChange();
   }, [search.search]);
 
+  useEffect(() => {
+    if (submitTrigger === 0) return;
+    const submitForm = () => {
+      navigate(
+        "/results?" + new URLSearchParams({ q: search.search }).toString(),
+      );
+      setSuggestTabOpen(false);
+      resetSearch();
+    };
+    submitForm();
+  }, [submitTrigger]);
+
   return (
     <form
+      id="searchbar"
       className="flex w-9/12 sm:w-4/12 md:w-1/2 relative z-20"
       onFocus={() => {
         if (search.search.trim() !== "") setSuggestTabOpen(true);
       }}
+      onSubmit={onSubmitForm}
     >
       <div className="group border border-border-clr bg-bg-primary focus-within:border-dark-blue shadow-border-clr focus-within:shadow-inset w-full rounded-s-full flex items-center">
         <YoutubeIcon
@@ -51,6 +73,7 @@ const SearchField = () => {
             search={search}
             updateSearch={updateSearch}
             showTab={setSuggestTabOpen}
+            submitForm={setSubmitTrigger}
           />
         )}
 
@@ -75,7 +98,7 @@ const SearchField = () => {
 };
 
 export const WithMobile = (SearchField) => {
-  return ({ setIsOpen }) => {
+  return ({ setIsOpen, debounceState }) => {
     const clickHandler = () => setIsOpen(false);
 
     return (
@@ -87,7 +110,7 @@ export const WithMobile = (SearchField) => {
         >
           <YoutubeIcon icon="back" tailwindStyles="w-6 h-6" />
         </button>
-        <SearchField />
+        <SearchField debounceState={debounceState} />
       </div>
     );
   };
