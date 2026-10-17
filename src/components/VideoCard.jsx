@@ -22,7 +22,7 @@ const VideoCard = ({ data, channelData }) => {
     <li className="group relative">
       <div
         style={color}
-        className={`absolute pointer-events-none inset-10 opacity-0 transition-all duration-300 ease rounded-2xl group-hover:opacity-100 group-hover:bg-(--prominent) group-hover:-inset-2 ${color != null ? "" : " border-2 border-grey-a8"}`}
+        className={`absolute pointer-events-none inset-3 opacity-0 transition-all duration-300 ease rounded-2xl group-hover:opacity-100 group-hover:bg-(--prominent) group-hover:-inset-3 ${color != null ? "" : " border border-grey-a8"}`}
       ></div>
       <div
         className={`bg-bg-primary aspect-video relative overflow-hidden rounded-2xl`}
@@ -35,7 +35,7 @@ const VideoCard = ({ data, channelData }) => {
           onLoad={(e) => onLoad(e)}
         />
         {duration && (
-          <span className="absolute right-4 bottom-4 text-xs bg-grey-31 text-bg-primary p-0.5 rounded-xs opacity-75">
+          <span className="absolute right-4 bottom-4 text-xs bg-grey-31 text-bg-primary font-bold p-0.5 rounded-xs opacity-85">
             {toDuration(duration)}
           </span>
         )}

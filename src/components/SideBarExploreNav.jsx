@@ -5,8 +5,8 @@ const SideBarExploreNav = () => {
   const [collapsed, setCollapsed] = useState(true);
   return (
     <>
-      <h3 className="p-5">Explore</h3>
-      <ul className="px-4">
+      <h3 className="p-4">Explore</h3>
+      <ul className="px-4 pb-4">
         <NavItem iconID="music" title="Music" />
         <NavItem iconID="live" title="Live" />
         <NavItem iconID="gaming" title="Gaming" />

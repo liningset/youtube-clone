@@ -9,7 +9,7 @@ const SideBar = () => {
   const { expanded, outOfModal } = useContext(SideBarContext);
   return (
     <nav
-      className={`h-[90dvh] bg-bg-primary overflow-auto sticky top-[10dvh] ${!expanded ? "w-fit" : "w-66"}`}
+      className={`h-[90dvh] bg-bg-primary overflow-auto shrink-0 sticky top-[10dvh] ${!expanded ? "w-fit" : "w-60"}`}
     >
       {!expanded && outOfModal ? (
         <SideBarMainNav />
