@@ -7,8 +7,7 @@ import PaginationContext from "../utils/PaginationContext";
 import SearchResultsList from "../components/SearchResultsList";
 import usePaginatedSearch from "../hooks/usePaginatedSearch";
 
-const SearchPage = () => {
-  const query = useSearchParams()[0].get("q");
+const SearchPage = ({ query }) => {
   const dispatch = useDispatch();
 
   const { searchState } = usePaginatedSearch({
@@ -17,8 +16,6 @@ const SearchPage = () => {
     part: "snippet",
     maxResults: 50,
   });
-
-  // const searchState = { videos: [], status: "idle", trigger: 0, nextPage: 0 };
 
   //this is to make sure that the identity of params stays the same unless only one paramater changes
   const params = useMemo(() => {
@@ -53,4 +50,9 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
+const SearchRoute = () => {
+  const query = useSearchParams()[0].get("q");
+  return <SearchPage query={query} key={query} />;
+};
+
+export default SearchRoute;

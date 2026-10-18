@@ -5,8 +5,6 @@ import { useNavigate } from "react-router";
 
 const SearchField = ({ debounceState }) => {
   const [suggestTabOpen, setSuggestTabOpen] = useState(false);
-  const [submitTrigger, setSubmitTrigger] = useState(0);
-
   const { search, suggested, resetSearch, updateSearch } = debounceState;
 
   const navigate = useNavigate();
@@ -14,14 +12,17 @@ const SearchField = ({ debounceState }) => {
   const handleKeyStrokes = (e) =>
     updateSearch({ search: e.target.value, fetch: true });
 
-  const clearSearchHandler = (e) => {
-    e.preventDefault();
+  const navigateToSearched = (query) => {
+    if (!query) return;
+    const param = new URLSearchParams({ q: query });
+    navigate("/results?" + param.toString());
+    setSuggestTabOpen(false);
     resetSearch();
   };
 
   const onSubmitForm = (e) => {
     e.preventDefault();
-    setSubmitTrigger((prev) => prev + 1);
+    navigateToSearched(search.search);
   };
 
   useEffect(() => {
@@ -33,18 +34,6 @@ const SearchField = ({ debounceState }) => {
     };
     onSearchChange();
   }, [search.search]);
-
-  useEffect(() => {
-    if (submitTrigger === 0) return;
-    const submitForm = () => {
-      navigate(
-        "/results?" + new URLSearchParams({ q: search.search }).toString(),
-      );
-      setSuggestTabOpen(false);
-      resetSearch();
-    };
-    submitForm();
-  }, [submitTrigger]);
 
   return (
     <form
@@ -66,6 +55,7 @@ const SearchField = ({ debounceState }) => {
           className="py-2 px-4 group-focus-within:ps-0 w-full border-0 outline-0"
           onChange={(e) => handleKeyStrokes(e)}
           value={search.search}
+          required
         />
         {suggestTabOpen && (
           <SearchSuggestions
@@ -73,13 +63,14 @@ const SearchField = ({ debounceState }) => {
             search={search}
             updateSearch={updateSearch}
             showTab={setSuggestTabOpen}
-            submitForm={setSubmitTrigger}
+            navigateToSearched={navigateToSearched}
           />
         )}
 
         {search.search && (
           <button
-            onClick={(e) => clearSearchHandler(e)}
+            type="button"
+            onClick={resetSearch}
             className="absolute right-16 flex items-center justify-center hover:bg-border-clr rounded-full w-10 aspect-square"
           >
             <YoutubeIcon icon="times" />

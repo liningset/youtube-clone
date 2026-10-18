@@ -26,7 +26,7 @@ const SearchSuggestions = ({
   search,
   updateSearch,
   showTab,
-  submitForm,
+  navigateToSearched,
 }) => {
   const [active, updateActive] = useReducer(reducer, -1);
   const ulRef = useRef(null);
@@ -48,10 +48,6 @@ const SearchSuggestions = ({
         showTab(false);
         break;
 
-      case "Enter":
-        submitForm((prev) => prev + 1);
-        break;
-
       default:
         updateActive({ operation: "reset" });
         break;
@@ -66,11 +62,8 @@ const SearchSuggestions = ({
 
   const suggestionOnClick = (e) => {
     e.stopPropagation();
-    updateSearch((prev) => ({
-      search: e.target?.dataset?.suggestion ?? prev.search,
-      fetch: false,
-    }));
-    submitForm((prev) => prev + 1);
+    const suggestion = e.currentTarget.dataset.suggestion;
+    if (suggestion) navigateToSearched(suggestion);
   };
 
   useEffect(() => {

@@ -2,9 +2,9 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import App from "./App.jsx";
-import ErrorPage from "./pages/ErrorPage.jsx";
+// import ErrorPage from "./pages/ErrorPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import SearchPage from "./pages/SearchPage.jsx";
+import SearchRoute from "./pages/SearchPage.jsx";
 import store from "./utils/store.js";
 import { Provider } from "react-redux";
 
@@ -15,7 +15,7 @@ const routerConfig = createBrowserRouter([
     // errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/results/", element: <SearchPage /> },
+      { path: "/results/", element: <SearchRoute /> },
     ],
   },
 ]);
