@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage.jsx";
 import SearchRoute from "./pages/SearchPage.jsx";
 import store from "./utils/store.js";
 import { Provider } from "react-redux";
+import WatchPage from "./pages/WatchPage.jsx";
 
 const routerConfig = createBrowserRouter([
   {
@@ -15,7 +16,8 @@ const routerConfig = createBrowserRouter([
     // errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/results/", element: <SearchRoute /> },
+      { path: "/results", element: <SearchRoute /> },
+      { path: "/watch", element: <WatchPage /> },
     ],
   },
 ]);

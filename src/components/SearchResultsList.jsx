@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import PaginationContext from "../utils/PaginationContext";
 import SearchResultCard, { SearchResultCardShimmer } from "./SearchResultCard";
+import { Link } from "react-router";
 
 export const SearchResultsListShimmer = ({ count }) => {
   return (
@@ -30,15 +31,16 @@ const SearchResultsList = () => {
         );
 
         return (
-          <SearchResultCard
-            key={video?.id?.videoId}
-            data={{
-              ...video,
-              statistics: videoExtra?.statistics,
-              contentDetails: videoExtra?.contentDetails,
-            }}
-            channelData={channel}
-          />
+          <Link to={`/watch?v=${video?.id?.videoId}`} key={video?.id?.videoId}>
+            <SearchResultCard
+              data={{
+                ...video,
+                statistics: videoExtra?.statistics,
+                contentDetails: videoExtra?.contentDetails,
+              }}
+              channelData={channel}
+            />
+          </Link>
         );
       })}
     </ul>

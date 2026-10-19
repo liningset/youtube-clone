@@ -19,7 +19,7 @@ function App() {
     >
       <Header />
       <div className="flex w-screen">
-        {outOfModal ? <SideBar /> : <SideBarModal />}
+        {/* {outOfModal ? <SideBar /> : <SideBarModal />} */}
         <Outlet />
       </div>
     </SideBarContext.Provider>
