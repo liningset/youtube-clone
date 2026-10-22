@@ -1,16 +1,19 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router";
 import { updateCurrentPage } from "../utils/appSlice";
 import usePaginatedList from "../hooks/usePaginatedList";
 import PaginationContext from "../utils/PaginationContext";
-import SearchResultsList from "../components/SearchResultsList";
+import SearchResultsList, {
+  SearchResultsListShimmer,
+} from "../components/SearchResultsList";
 import usePaginatedSearch from "../hooks/usePaginatedSearch";
+import YoutubeIcon from "../components/YoutubeIcon";
 
 const SearchPage = ({ query }) => {
   const dispatch = useDispatch();
 
-  const { searchState } = usePaginatedSearch({
+  const { searchState, fetchNextSearch } = usePaginatedSearch({
     q: query,
     type: "video",
     part: "snippet",
@@ -20,8 +23,9 @@ const SearchPage = ({ query }) => {
   //this is to make sure that the identity of params stays the same unless only one paramater changes
   const params = useMemo(() => {
     const searchResultIds = searchState.videos.map((v) => v?.id?.videoId);
+    const sliced = searchResultIds.slice(-50);
     return {
-      id: searchResultIds.join(","),
+      id: sliced.join(","),
       part: "snippet,statistics,contentDetails",
       maxResults: 50,
     };
@@ -44,7 +48,16 @@ const SearchPage = ({ query }) => {
   return (
     <PaginationContext.Provider value={{ pagination, searchState }}>
       <main className="w-full min-w-0 max-w-350 mx-auto flex flex-col gap-4 mb-10">
-        <SearchResultsList />;
+        <SearchResultsList />
+        {searchState.status === "pending" && (
+          <SearchResultsListShimmer count={6} />
+        )}
+        <button
+          onClick={() => fetchNextSearch()}
+          className="mx-auto p-2 rounded-full border-bg-primary hover:bg-grey-d8 hover:border-grey-d8 active:bg-grey-a8 active:border-grey-a8 transition-button cursor-pointer"
+        >
+          <YoutubeIcon icon="showMore" />
+        </button>
       </main>
     </PaginationContext.Provider>
   );

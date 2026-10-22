@@ -16,8 +16,16 @@ const reducer = (state, action) => {
 
   if (action.type === "sync-with-fetched-data") {
     if (!action?.data) return state;
+
+    const uniqueResults = new Map(
+      [...state.videos, ...action.data.items].map((video) => [
+        video.id.videoId,
+        video,
+      ]),
+    );
+
     return {
-      videos: [...state.videos, ...action.data.items],
+      videos: [...uniqueResults.values()],
       nextPage: action.data.nextPageToken ?? null,
       status: "idle",
       trigger: state.trigger,
@@ -59,7 +67,7 @@ const usePaginatedSearch = (params) => {
 
   return {
     searchState: state,
-    fetchNext: () => dispatch({ type: "trigger-next-fetch" }),
+    fetchNextSearch: () => dispatch({ type: "trigger-next-fetch" }),
   };
 };
 

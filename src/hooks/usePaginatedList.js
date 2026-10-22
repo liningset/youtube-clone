@@ -100,7 +100,6 @@ const usePaginatedList = (type, params, category) => {
   useEffect(() => {
     if (params?.id?.length === 0) return;
     dispatch({ type: "trigger-next-fetch" });
-    console.log("params changed");
   }, [params]);
 
   return {
