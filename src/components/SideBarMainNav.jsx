@@ -1,19 +1,19 @@
-import { useContext } from "react";
 import NavItem from "./NavItem";
-import SideBarContext from "../utils/SideBarContext";
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
 
 const SideBarMainNav = () => {
-  const { expanded, outOfModal } = useContext(SideBarContext);
+  const { type, opened } = useSelector((store) => store.sideBar);
+
   return (
-    <ul className={expanded || !outOfModal ? "px-4" : ""}>
+    <ul className={opened || type === "modal" ? "px-4" : ""}>
       <Link to="/">
         <NavItem iconID="home" title="Home" isActive={true} />
       </Link>
       <NavItem iconID="shorts" title="Shorts" />
       <NavItem iconID="subscriptions" title="Subscriptions" />
       <NavItem iconID="you" title="You" />
-      {(expanded || !outOfModal) && (
+      {(opened || type === "modal") && (
         <NavItem iconID="history" title="History" />
       )}
     </ul>

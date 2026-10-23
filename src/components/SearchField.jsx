@@ -93,7 +93,7 @@ export const WithMobile = (SearchField) => {
     const clickHandler = () => setIsOpen(false);
 
     return (
-      <div className="py-2 px-5 flex items-center justify-between absolute top-0 left-0 w-full bg-bg-primary-low-op backdrop-blur-lg z-20">
+      <div className="py-2 px-5 h-[10dvh] flex items-center justify-between absolute top-0 left-0 w-full bg-bg-primary-low-op backdrop-blur-lg z-20">
         <button
           title="Back"
           className="rounded-full p-2 cursor-pointer hover:bg-grey-d8"

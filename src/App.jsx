@@ -1,28 +1,22 @@
 import { Outlet } from "react-router";
 import Header from "./components/Header";
-import SideBarContext from "./utils/SideBarContext";
-import useBreakpoint from "./hooks/useBreakpoint";
 import SideBar from "./components/SideBar";
 import SideBarModal from "./components/SideBarModal";
+import useMediaQueries from "./hooks/useMediaQueries";
+import { useSelector } from "react-redux";
 
 function App() {
-  const { state: expanded, dispatch: setExpanded } = useBreakpoint(
-    "760px",
-    false,
-  );
-  const { state: outOfModal, dispatch: setOutOfModal } =
-    useBreakpoint("1100px");
+  useMediaQueries();
+  const sideBarType = useSelector((store) => store.sideBar.type);
 
   return (
-    <SideBarContext.Provider
-      value={{ expanded, setExpanded, outOfModal, setOutOfModal }}
-    >
+    <>
       <Header />
       <div className="flex w-screen">
-        {outOfModal ? <SideBar /> : <SideBarModal />}
+        {sideBarType === "regular" ? <SideBar /> : <SideBarModal />}
         <Outlet />
       </div>
-    </SideBarContext.Provider>
+    </>
   );
 }
 

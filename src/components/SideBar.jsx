@@ -1,17 +1,16 @@
-import { useContext } from "react";
 import SideBarExploreNav from "./SideBarExploreNav";
 import SideBarMainNav from "./SideBarMainNav";
 import SignInButton from "./SignInButton";
-import SideBarContext from "../utils/SideBarContext";
 import SideBarFooter from "./SideBarFooter";
+import { useSelector } from "react-redux";
 
 const SideBar = () => {
-  const { expanded, outOfModal } = useContext(SideBarContext);
+  const { type, opened } = useSelector((store) => store.sideBar);
   return (
     <nav
-      className={`h-[90dvh] bg-bg-primary overflow-auto shrink-0 sticky top-[10dvh] ${!expanded ? "w-fit" : "w-60"}`}
+      className={`h-[90dvh] bg-bg-primary overflow-auto shrink-0 sticky top-[10dvh] ${!opened ? "w-fit" : "w-60"}`}
     >
-      {!expanded && outOfModal ? (
+      {!opened && type === "regular" ? (
         <SideBarMainNav />
       ) : (
         <>

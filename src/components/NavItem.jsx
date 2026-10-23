@@ -1,13 +1,13 @@
-import { useContext } from "react";
 import YoutubeIcon from "./YoutubeIcon";
-import SideBarContext from "../utils/SideBarContext";
+import { useSelector } from "react-redux";
 
 const NavItem = ({ iconID, title, isActive = false }) => {
-  const { expanded, outOfModal } = useContext(SideBarContext);
+  const { type, opened } = useSelector((store) => store.sideBar);
+
   const determineStyles = () => {
     const shared =
       "cursor-pointer flex items-center rounded-lg transition-button p-2 mx-1";
-    if (!expanded && outOfModal)
+    if (!opened && type === "regular")
       return shared.concat(
         " flex-col gap-1 hover:bg-grey-e8 hover:border-grey-e8 active:bg-grey-d8 active:border-grey-d8 px-1",
       );
@@ -20,7 +20,7 @@ const NavItem = ({ iconID, title, isActive = false }) => {
     <li title={title} className={`border-bg-primary ${determineStyles()}`}>
       <YoutubeIcon icon={iconID} />
       <span
-        className={`${!expanded && outOfModal ? "text-[0.7rem]" : "text-sm"}`}
+        className={`${!opened && type === "regular" ? "text-[0.7rem]" : "text-sm"}`}
       >
         {title}
       </span>
