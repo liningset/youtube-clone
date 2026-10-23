@@ -1,11 +1,12 @@
 import { useSearchParams } from "react-router";
-import { useEffect, useMemo, Suspense } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { updateCurrentPage } from "../utils/appSlice";
 import useFetch from "../hooks/useFetch";
 import usePaginatedList from "../hooks/usePaginatedList";
 import VideoCardsList from "../components/VideoCardsList";
 import PaginationContext from "../utils/PaginationContext";
+import LoadingWheel from "../components/LoadingWheel";
 
 const params = {
   regionCode: "US",
@@ -37,11 +38,11 @@ const WatchPage = () => {
   }, []);
 
   return (
-    <div className="flex gap-4 px-4">
-      <main className="flex-3">
-        <section className="aspect-video relative">
+    <div className="w-full max-w-350 mx-auto flex gap-4 px-4">
+      <main className="flex-4">
+        <section className="aspect-video rounded-xl overflow-hidden bg-grey-a8 relative">
           <iframe
-            className="w-full aspect-video rounded-xl"
+            className="w-full h-full"
             src={`https://www.youtube.com/embed/${query}`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -51,9 +52,10 @@ const WatchPage = () => {
         </section>
         <section>comments</section>
       </main>
-      <PaginationContext.Provider value={{ pagination }}>
-        <aside className="flex-1">
+      <PaginationContext.Provider value={{ pagination, fetchNext }}>
+        <aside className="w-87.5">
           <VideoCardsList />
+          {pagination.nextPage && <LoadingWheel />}
         </aside>
       </PaginationContext.Provider>
     </div>

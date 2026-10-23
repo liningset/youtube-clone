@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router";
 import { updateCurrentPage } from "../utils/appSlice";

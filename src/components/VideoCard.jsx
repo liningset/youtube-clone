@@ -26,10 +26,10 @@ const VideoCard = ({ data, channelData }) => {
     >
       <div
         style={color}
-        className={`absolute pointer-events-none inset-3 opacity-0 transition-all duration-300 ease rounded-2xl group-hover:opacity-100 group-hover:bg-(--prominent) group-hover:-inset-3 ${color != null ? "" : " border border-grey-a8"}`}
+        className={`absolute pointer-events-none inset-3 opacity-0 transition-all duration-300 ease group-hover:opacity-100 group-hover:bg-(--prominent) ${page === "watchpage" ? "group-hover:-inset-1 rounded-lg" : "group-hover:-inset-3 rounded-2xl"} ${color != null ? "" : " border border-grey-a8"}`}
       ></div>
       <div
-        className={`bg-bg-primary aspect-video relative overflow-hidden rounded-2xl ${page === "watchpage" ? "w-[60%]" : ""}`}
+        className={`bg-bg-primary aspect-video relative overflow-hidden ${page === "watchpage" ? " rounded-lg flex-2" : "rounded-2xl"}`}
       >
         <img
           crossOrigin="anonymous"
@@ -53,12 +53,12 @@ const VideoCard = ({ data, channelData }) => {
         <div className="w-full">
           <div className="flex w-full justify-between items-center">
             <h3
-              className={`font-bold line-clamp-2 ${page === "watchpage" ? "text-md" : "text-lg"}`}
+              className={`font-bold line-clamp-2 ${page === "watchpage" ? "text-sm" : "text-lg"}`}
             >
               {title}
             </h3>
             <button
-              className={`p-2 rounded-full self-start cursor-pointer ${page === "watchpage" ? "absolute bottom-0 right-0" : ""} transition-button border-bg-primary active:bg-grey-e8  active:border-grey-e8`}
+              className={`p-2 rounded-full self-start cursor-pointer ${page === "watchpage" ? "absolute bottom-0 right-0 hidden group-hover:block" : ""} transition-button border-bg-primary active:bg-grey-e8  active:border-grey-e8`}
             >
               <YoutubeIcon icon="threeDots" />
             </button>
@@ -84,20 +84,30 @@ export const VideoCardShimmer = () => {
 
   return (
     <li
-      className={`relative animate-pulse ${page === "watchpage" ? "flex gap-2" : ""}`}
+      className={`relative animate-pulse ${page === "watchpage" ? "flex gap-2 items-start" : ""}`}
       aria-hidden="true"
     >
       <div
-        className={`bg-grey-a8 aspect-video relative rounded-2xl flex-1`}
+        className={`bg-grey-a8 aspect-video relative ${page === "watchpage" ? "rounded-lg w-175" : "rounded-2xl flex-1"}`}
       ></div>
-      <div className="flex items-center gap-2 mt-2">
-        <div className="w-16 aspect-square rounded-full bg-grey-a8"></div>
+      <div
+        className={`flex items-center gap-2 ${page === "watchpage" ? "" : "mt-2"}`}
+      >
+        {page !== "watchpage" && (
+          <div className="w-16 aspect-square rounded-full bg-grey-a8"></div>
+        )}
         <div className="w-full flex flex-col gap-2">
           <div className="h-6 w-9/12 mt-2 rounded-sm bg-grey-a8"></div>
+
+          {page === "watchpage" && (
+            <div className="h-4 w-[60%] mt-2 rounded-sm bg-grey-a8"></div>
+          )}
           <div className="flex w-7/12 gap-2">
             <div className="h-4 w-14 flex-1 rounded-sm bg-grey-a8"></div>
             <div className="h-4 w-14 flex-1 rounded-sm bg-grey-a8"></div>
-            <div className="h-4 w-14 flex-1 rounded-sm bg-grey-a8"></div>
+            {page !== "watchpage" && (
+              <div className="h-4 w-14 flex-1 rounded-sm bg-grey-a8"></div>
+            )}
           </div>
         </div>
       </div>
