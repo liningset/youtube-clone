@@ -9,6 +9,7 @@ import SearchResultsList, {
 } from "../components/SearchResultsList";
 import usePaginatedSearch from "../hooks/usePaginatedSearch";
 import YoutubeIcon from "../components/YoutubeIcon";
+import { closeSideBar } from "../utils/sideBarSlice";
 
 const SearchPage = ({ query }) => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const SearchPage = ({ query }) => {
   useEffect(() => {
     document.title = query + " - YouTube-clone";
     dispatch(updateCurrentPage());
+    dispatch(closeSideBar({ asUser: true }));
   }, []);
 
   useEffect(() => {

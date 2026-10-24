@@ -7,6 +7,7 @@ import usePaginatedList from "../hooks/usePaginatedList";
 import VideoCardsList from "../components/VideoCardsList";
 import PaginationContext from "../utils/PaginationContext";
 import LoadingWheel from "../components/LoadingWheel";
+import { changeType, closeSideBar } from "../utils/sideBarSlice";
 
 const params = {
   regionCode: "US",
@@ -35,6 +36,8 @@ const WatchPage = () => {
 
   useEffect(() => {
     dispatch(updateCurrentPage());
+    dispatch(changeType("modal"));
+    dispatch(closeSideBar({ asUser: true }));
   }, []);
 
   return (

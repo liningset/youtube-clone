@@ -10,7 +10,8 @@ const SideBarModal = () => {
   const overlayRef = useRef(null);
 
   const overlayClickHandler = (e) => {
-    if (e.target === overlayRef.current) dispatch(closeSideBar());
+    if (e.target === overlayRef.current)
+      dispatch(closeSideBar({ asUser: true }));
   };
 
   useEffect(() => {
