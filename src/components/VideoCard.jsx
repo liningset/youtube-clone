@@ -1,6 +1,10 @@
 import { useState } from "react";
 import YoutubeIcon from "./YoutubeIcon";
-import { toDuration, toViews, toPublishedDate } from "../utils/functions";
+import {
+  formatToDuration,
+  formatToViewsSummary,
+  formatToTimeAgo,
+} from "../utils/formatting";
 import extractColor from "../utils/extract-color";
 import { useSelector } from "react-redux";
 
@@ -40,7 +44,7 @@ const VideoCard = ({ data, channelData }) => {
         />
         {duration && (
           <span className="absolute right-4 bottom-4 text-xs bg-grey-31 text-bg-primary font-bold p-0.5 rounded-xs opacity-85">
-            {toDuration(duration)}
+            {formatToDuration(duration)}
           </span>
         )}
       </div>
@@ -68,8 +72,8 @@ const VideoCard = ({ data, channelData }) => {
           >
             <span>{channelTitle}</span>
             <div className="flex gap-2">
-              <span>{toViews(viewCount)}</span> •{" "}
-              <span>{toPublishedDate(publishedAt)}</span>
+              <span>{formatToViewsSummary(viewCount)}</span> •{" "}
+              <span>{formatToTimeAgo(publishedAt)}</span>
             </div>
           </div>
         </div>

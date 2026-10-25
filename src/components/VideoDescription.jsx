@@ -1,7 +1,13 @@
 import useFetch from "../hooks/useFetch";
 import YoutubeIcon from "./YoutubeIcon";
 import { useState } from "react";
-import { toViews, toPublishedDate } from "../utils/functions";
+import {
+  formatToViewsSummary,
+  formatToTimeAgo,
+  formatToDate,
+  formatToDescription,
+} from "../utils/formatting";
+import extractColor from "../utils/extract-color";
 
 const VideoDescription = ({ video }) => {
   const { title, channelTitle, channelId, description, publishedAt } =
@@ -9,6 +15,7 @@ const VideoDescription = ({ video }) => {
   const { viewCount } = video.statistics;
 
   const [collapsed, setCollapsed] = useState(true);
+  const [color, setColor] = useState(null);
 
   const onDescriptionClick = () => {
     if (!collapsed) return;
@@ -17,12 +24,26 @@ const VideoDescription = ({ video }) => {
 
   const { data } = useFetch("channels", {
     id: channelId,
-    part: "snippet",
+    part: "snippet,statistics",
   });
-  const channelAvatar = data?.items[0].snippet?.thumbnails?.default?.url;
+  const channelAvatar = data?.items[0]?.snippet?.thumbnails?.default?.url;
+  const subscriberCount = data?.items[0]?.statistics?.subscriberCount;
 
   return (
     <div>
+      <img
+        src={video?.snippet?.thumbnails?.default.url}
+        aria-hidden="true"
+        className="hidden"
+        crossOrigin="anonymous"
+        onLoad={(e) => {
+          const prominent = extractColor(e.target);
+
+          setColor({
+            "--prominent": prominent,
+          });
+        }}
+      />
       <h1 className="text-2xl text-fg-primary font-bold my-2">{title}</h1>
       <div className="flex w-full justify-between items-center">
         <div className="flex gap-2 items-center">
@@ -31,7 +52,10 @@ const VideoDescription = ({ video }) => {
           </div>
           <div className="flex flex-col">
             <h3 className="font-semibold text-md">{channelTitle}</h3>
-            <span className="text-xs opacity-85">110M subscribers</span>
+            <span className="text-xs opacity-85">
+              {subscriberCount && formatToViewsSummary(subscriberCount)}{" "}
+              subscribers
+            </span>
           </div>
           <button className="bg-fg-primary text-bg-primary cursor-pointer py-2 px-4 rounded-4xl">
             Subscribe
@@ -73,21 +97,26 @@ const VideoDescription = ({ video }) => {
 
       <div
         onClick={onDescriptionClick}
-        className={`w-full mt-4 transition-button overflow-hidden p-3 scroll-mt-[25vh] bg-grey-e8 rounded-xl ${collapsed ? "cursor-pointer active:bg-grey-d8  active:border-grey-d8" : ""}`}
+        style={color}
+        className={`w-full mt-4 transition-button overflow-hidden p-3 scroll-mt-[25vh] bg-grey-e8 rounded-xl ${collapsed ? "cursor-pointer hover:bg-(--prominent) active:bg-grey-d8 active:border-grey-d8" : ""}`}
       >
         <div className="flex gap-2 text-sm font-medium">
           <span>
             {collapsed
-              ? toViews(viewCount)
+              ? formatToViewsSummary(viewCount)
               : Number(viewCount).toLocaleString()}{" "}
             views
           </span>
-          <span>{toPublishedDate(publishedAt)}</span>
+          <span>
+            {collapsed
+              ? formatToTimeAgo(publishedAt)
+              : formatToDate(publishedAt)}
+          </span>
         </div>
         <pre
           className={`whitespace-pre-wrap text-sm font-roboto ${collapsed ? "line-clamp-3" : ""}`}
         >
-          {description}
+          {formatToDescription(description)}
         </pre>
         {!collapsed && (
           <button

@@ -1,5 +1,9 @@
 import YoutubeIcon from "./YoutubeIcon";
-import { toDuration, toViews, toPublishedDate } from "../utils/functions";
+import {
+  formatToDuration,
+  formatToViewsSummary,
+  formatToTimeAgo,
+} from "../utils/formatting";
 import { Link } from "react-router";
 
 const SearchResultCard = ({ data, channelData }) => {
@@ -22,7 +26,7 @@ const SearchResultCard = ({ data, channelData }) => {
         />
         {duration && (
           <span className="absolute right-4 bottom-4 text-xs bg-grey-31 text-bg-primary p-0.5 font-bold rounded-xs opacity-85">
-            {toDuration(duration)}
+            {formatToDuration(duration)}
           </span>
         )}
       </div>
@@ -33,8 +37,8 @@ const SearchResultCard = ({ data, channelData }) => {
               {title}
             </h3>
             <div className="text-xs opacity-70 text-grey-31">
-              <span>{toViews(viewCount)}</span> •{" "}
-              <span>{toPublishedDate(publishedAt)}</span>
+              <span>{formatToViewsSummary(viewCount)}</span> •{" "}
+              <span>{formatToTimeAgo(publishedAt)}</span>
             </div>
           </div>
           <button className="p-2 rounded-full self-start cursor-pointer transition-button border-bg-primary active:bg-grey-e8  active:border-grey-e8">

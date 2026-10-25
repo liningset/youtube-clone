@@ -1,4 +1,4 @@
-export const toDuration = (string) => {
+export const formatToDuration = (string) => {
   let result = [];
   [/\d+(?=D)/, /\d+(?=H)/, /\d+(?=M)/, /\d+(?=S)/].forEach((regex, i) => {
     const matched = string.match(regex);
@@ -11,7 +11,7 @@ export const toDuration = (string) => {
   return result.length === 1 ? "0:" + result.join(":") : result.join(":");
 };
 
-export const toViews = (number) => {
+export const formatToViewsSummary = (number) => {
   const format = (m, l) => (number / m).toFixed(1).concat(l);
   if (number > 1000000000)
     return format(1000000000, "B").replace(/(?<=\d+)\.0(?=[KMB])/, "");
@@ -23,7 +23,7 @@ export const toViews = (number) => {
   return number.toString();
 };
 
-export const toPublishedDate = (datetime) => {
+export const formatToTimeAgo = (datetime) => {
   const diff = new Date() - new Date(datetime);
   const inSecs = Math.floor(diff / 1000);
   const inMins = Math.floor(inSecs / 60);
@@ -40,4 +40,27 @@ export const toPublishedDate = (datetime) => {
   if (inHours) return `${inHours}h ago`;
   if (inMins) return `${inMins}mins ago`;
   if (inSecs) return `${inSecs}s ago`;
+};
+
+export const formatToDate = (datetime) => {
+  const date = new Date(datetime);
+  return date
+    .toDateString()
+    .replace(/^\w+\s/, "")
+    .replace(/\s(?=\w+$)/, ", ");
+};
+
+export const formatToDescription = (text) => {
+  const URLRegex = /(https?:\/\/[^\s]+)/gi;
+  const parts = text.split(URLRegex);
+
+  return parts.map((part) => {
+    return /^https?:\/\//i.test(part) ? (
+      <a className="text-blue-500 hover:underline" href={part}>
+        {part}
+      </a>
+    ) : (
+      part
+    );
+  });
 };
