@@ -8,6 +8,7 @@ import VideoCardsList from "../components/VideoCardsList";
 import PaginationContext from "../utils/PaginationContext";
 import LoadingWheel from "../components/LoadingWheel";
 import { changeType, closeSideBar } from "../utils/sideBarSlice";
+import VideoDescription from "../components/VideoDescription";
 
 const params = {
   regionCode: "US",
@@ -24,6 +25,8 @@ const WatchPage = () => {
     id: query,
     part: "snippet,contentDetails,statistics",
   });
+
+  console.log(data);
 
   const { pagination, fetchNext } = usePaginatedList("videos", params, {
     title: "All",
@@ -43,15 +46,18 @@ const WatchPage = () => {
   return (
     <div className="w-full max-w-350 mx-auto flex gap-4 px-4">
       <main className="flex-4">
-        <section className="aspect-video rounded-xl overflow-hidden bg-grey-a8 relative">
-          <iframe
-            className="w-full h-full"
-            src={`https://www.youtube.com/embed/${query}`}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
+        <section>
+          <div className="aspect-video rounded-xl overflow-hidden bg-grey-a8 relative">
+            <iframe
+              className="w-full h-full"
+              src={`https://www.youtube.com/embed/${query}`}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+          {data?.items && <VideoDescription video={data.items[0]} />}
         </section>
         <section>comments</section>
       </main>
