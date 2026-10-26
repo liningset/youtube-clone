@@ -10,6 +10,7 @@ import LoadingWheel from "../components/LoadingWheel";
 import { changeType, closeSideBar } from "../utils/sideBarSlice";
 import VideoDescription from "../components/VideoDescription";
 import CommentsSection from "../components/CommentsSection";
+import WatchPageContext from "../utils/WatchPageContext";
 
 const params = {
   regionCode: "US",
@@ -60,7 +61,9 @@ const WatchPage = () => {
           </div>
           {data?.items && <VideoDescription video={data.items[0]} />}
         </section>
-        <CommentsSection count={data?.items[0]?.statistics?.commentCount} />
+        <WatchPageContext.Provider value={query}>
+          <CommentsSection count={data?.items[0]?.statistics?.commentCount} />
+        </WatchPageContext.Provider>
       </main>
       <PaginationContext.Provider value={{ pagination, fetchNext }}>
         <aside className="w-87.5">
