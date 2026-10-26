@@ -9,6 +9,7 @@ import PaginationContext from "../utils/PaginationContext";
 import LoadingWheel from "../components/LoadingWheel";
 import { changeType, closeSideBar } from "../utils/sideBarSlice";
 import VideoDescription from "../components/VideoDescription";
+import CommentsSection from "../components/CommentsSection";
 
 const params = {
   regionCode: "US",
@@ -45,7 +46,7 @@ const WatchPage = () => {
 
   return (
     <div className="w-full max-w-350 mx-auto flex gap-4 px-4">
-      <main className="flex-4">
+      <main className="flex-4 flex flex-col gap-6">
         <section>
           <div className="aspect-video rounded-xl overflow-hidden bg-grey-a8 relative">
             <iframe
@@ -59,7 +60,7 @@ const WatchPage = () => {
           </div>
           {data?.items && <VideoDescription video={data.items[0]} />}
         </section>
-        <section>comments</section>
+        <CommentsSection count={data?.items[0]?.statistics?.commentCount} />
       </main>
       <PaginationContext.Provider value={{ pagination, fetchNext }}>
         <aside className="w-87.5">
