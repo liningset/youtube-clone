@@ -1,26 +1,19 @@
 import CommentThread from "./CommentThread";
-import useFetch from "../hooks/useFetch";
-import { useEffect } from "react";
+import usePaginatedComments from "../hooks/usePaginatedComments";
 
 const RepliesList = ({ parentCommentId }) => {
-  const { data } = useFetch("comments", {
+  const { commentState } = usePaginatedComments({
     part: "snippet",
     parentId: parentCommentId,
+    maxResults: 10,
   });
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
   return (
-    <div className="mt-4">
-      {data?.items?.map((comment) => (
-        <CommentThread
-          data={{
-            canReply: true,
-            totalReplyCount: 0,
-            snippet: { topLevelComment: comment },
-          }}
-        />
+    <div
+      className={`${commentState.comments.length > 0 && "mt-4"} flex flex-col gap-2`}
+    >
+      {commentState.comments.map((comment) => (
+        <CommentThread key={comment.id} data={comment} />
       ))}
     </div>
   );
