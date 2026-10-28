@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import RepliesList from "./RepliesList";
 import LoadRepliesButton from "./LoadRepliesButton";
 import usePaginatedComments from "../hooks/usePaginatedComments";
+import { CommentThreadsListShimmer } from "./CommentThreadsList";
 
 const RepliesContainer = ({
   toThread,
@@ -27,6 +28,9 @@ const RepliesContainer = ({
   return (
     <div>
       <RepliesList replies={visibleReplies} />
+      {commentState.status === "pending" && (
+        <CommentThreadsListShimmer count={3} />
+      )}
       <LoadRepliesButton
         replyCount={replyCount}
         visibleReplyCount={visibleReplies.length}

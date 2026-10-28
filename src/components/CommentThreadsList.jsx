@@ -1,19 +1,31 @@
-import { useContext, useEffect } from "react";
-import CommentThread from "./CommentThread";
+import { useContext } from "react";
+import CommentThread, { CommentThreadShimmer } from "./CommentThread";
 import WatchPageContext from "../utils/WatchPageContext";
 import useFetch from "../hooks/useFetch";
 
+export const CommentThreadsListShimmer = ({ count, topLevel = false }) => {
+  return (
+    <ul
+      className={`w-full flex flex-col gap-4 animate-pulse${!topLevel && " mt-2"}`}
+    >
+      {Array.from({ length: count }, (_, i) => (
+        <CommentThreadShimmer key={i} topLevel={topLevel} />
+      ))}
+    </ul>
+  );
+};
+
 const CommentThreadsList = () => {
   const videoId = useContext(WatchPageContext);
-  const { data } = useFetch("commentThreads", {
+  const { data, status } = useFetch("commentThreads", {
     part: "snippet",
     videoId,
     order: "relevance",
   });
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  if (status === "pending")
+    return <CommentThreadsListShimmer count={10} topLevel={true} />;
+
   return (
     <div className="flex flex-col gap-4">
       {data?.items.map((thread) => (
