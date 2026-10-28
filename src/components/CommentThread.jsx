@@ -1,10 +1,9 @@
 import YoutubeIcon from "./YoutubeIcon";
-import RepliesList from "./RepliesList";
-import { useState } from "react";
 import CommentBody from "./CommentBody";
 import CommentActions from "./CommentActions";
 import CommentHeading from "./CommentHeading";
-import LoadRepliesButton from "./LoadRepliesButton";
+import RepliesContainer from "./RepliesContainer";
+import { useState } from "react";
 
 const CommentThread = ({
   data,
@@ -23,10 +22,22 @@ const CommentThread = ({
   } = data.snippet;
 
   const [showReplies, setShowReplies] = useState(false);
+  const onHitboxClick = (e) => {
+    if (e.target.alt != undefined) return;
+
+    setShowReplies((prev) => !prev);
+
+    if (!showReplies) return;
+    const toBeScrolled = e.target.closest(".thread");
+    toBeScrolled.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   return (
-    <div className="flex gap-4">
-      <div className="relative cursor-pointer">
+    <div className="thread flex gap-4 scroll-mt-[10vh]">
+      <div className="relative cursor-pointer" onClick={onHitboxClick}>
         <div>
           {!topLevel && (
             <YoutubeIcon
@@ -56,13 +67,14 @@ const CommentThread = ({
           canReply={canReply}
           likeCount={likeCount}
         />
-        {showReplies && data?.id && topLevel && (
-          <RepliesList parentCommentId={data?.id} />
+        {topLevel && totalReplyCount > 0 && (
+          <RepliesContainer
+            toThread={data}
+            replyCount={totalReplyCount}
+            showReplies={showReplies}
+            setShowReplies={setShowReplies}
+          />
         )}
-        <LoadRepliesButton
-          replyCount={totalReplyCount}
-          clickHandler={() => setShowReplies(true)}
-        />
       </div>
     </div>
   );

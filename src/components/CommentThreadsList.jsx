@@ -6,7 +6,7 @@ import useFetch from "../hooks/useFetch";
 const CommentThreadsList = () => {
   const videoId = useContext(WatchPageContext);
   const { data } = useFetch("commentThreads", {
-    part: "snippet,replies",
+    part: "snippet",
     videoId,
     order: "relevance",
   });

@@ -38,7 +38,7 @@ const reducer = (state, action) => {
   return state;
 };
 
-const usePaginatedComments = (params) => {
+const usePaginatedComments = (start, params) => {
   const [state, dispatch] = useReducer(reducer, {
     comments: [],
     nextPage: 0,
@@ -48,6 +48,8 @@ const usePaginatedComments = (params) => {
 
   useEffect(() => {
     if (state.status === "pending") return;
+    if (!params.parentId) return;
+    if (start === false) return;
 
     const controller = new AbortController();
     const fullParams = { ...params };
@@ -56,11 +58,11 @@ const usePaginatedComments = (params) => {
     fetchFromYoutube("comments", fullParams, controller.signal, dispatch);
 
     return () => controller.abort();
-  }, [state.trigger]);
+  }, [state.trigger, params, start]);
 
   return {
     commentState: state,
-    fetchNextSearch: () => dispatch({ type: "trigger-next-fetch" }),
+    fetchNext: () => dispatch({ type: "trigger-next-fetch" }),
   };
 };
 export default usePaginatedComments;
