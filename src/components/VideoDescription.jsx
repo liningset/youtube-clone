@@ -1,6 +1,6 @@
 import useFetch from "../hooks/useFetch";
 import YoutubeIcon from "./YoutubeIcon";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   formatToViewsSummary,
   formatToTimeAgo,
@@ -17,6 +17,8 @@ const VideoDescription = ({ video }) => {
   const [collapsed, setCollapsed] = useState(true);
   const [color, setColor] = useState(null);
 
+  const preRef = useRef(null);
+
   const onDescriptionClick = () => {
     if (!collapsed) return;
     setCollapsed(false);
@@ -28,6 +30,10 @@ const VideoDescription = ({ video }) => {
   });
   const channelAvatar = data?.items[0]?.snippet?.thumbnails?.default?.url;
   const subscriberCount = data?.items[0]?.statistics?.subscriberCount;
+
+  useEffect(() => {
+    preRef.current.innerHTML = formatToDescription(description);
+  }, []);
 
   return (
     <div>
@@ -101,23 +107,34 @@ const VideoDescription = ({ video }) => {
         className={`w-full mt-4 transition-button overflow-hidden p-3 scroll-mt-[25vh] bg-grey-e8 rounded-xl ${collapsed ? "cursor-pointer hover:bg-(--prominent) active:bg-grey-d8 active:border-grey-d8" : ""}`}
       >
         <div className="flex gap-2 text-sm font-medium">
-          <span>
+          <span className="whitespace-nowrap">
             {collapsed
               ? formatToViewsSummary(viewCount)
               : Number(viewCount).toLocaleString()}{" "}
             views
           </span>
-          <span>
+          <span className="whitespace-nowrap">
             {collapsed
               ? formatToTimeAgo(publishedAt)
               : formatToDate(publishedAt)}
           </span>
+          <ul className="flex gap-1 items-center overflow-hidden flex-wrap">
+            {/((?<=\s)#[^\s#]+)/gi.test(description) &&
+              description.match(/((?<=\s)#[^\s#]+)/gi).map((found, i) => (
+                <a
+                  className="text-blue-500 cursor-pointer"
+                  href={"/results?q=" + found.replace("#", "")}
+                  key={i}
+                >
+                  {found}
+                </a>
+              ))}
+          </ul>
         </div>
         <pre
+          ref={preRef}
           className={`whitespace-pre-wrap text-sm font-roboto ${collapsed ? "line-clamp-3" : ""}`}
-        >
-          {formatToDescription(description)}
-        </pre>
+        ></pre>
         {!collapsed && (
           <button
             className="mt-8 cursor-pointer font-medium text-sm"

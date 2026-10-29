@@ -51,16 +51,22 @@ export const formatToDate = (datetime) => {
 };
 
 export const formatToDescription = (text) => {
-  const URLRegex = /(https?:\/\/[^\s]+)/gi;
-  const parts = text.split(URLRegex);
+  let mutated = text;
 
-  return parts.map((part) => {
-    return /^https?:\/\//i.test(part) ? (
-      <a className="text-blue-500 hover:underline" href={part}>
-        {part}
-      </a>
-    ) : (
-      part
-    );
-  });
+  //this is crazyy, i didn't know you could do such things with String.prototype.replace
+  mutated = mutated.replace(
+    /(https?:\/\/[^\s]+)|((?<![^\s])#[^\s#]+)|(\d{1,2}(:\d{1,2})+)/gi,
+    (_, url, hashtag, time) => {
+      if (url)
+        return `<a class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer" href="${url}">${url}</a>`;
+
+      if (hashtag)
+        return `<a class="text-blue-500 hover:underline" href="/results?q=${hashtag.replace("#", "")}">${hashtag}</a>`;
+
+      if (time)
+        return `<span class="text-blue-500 hover:underline">${time}</span>`;
+    },
+  );
+
+  return mutated;
 };
