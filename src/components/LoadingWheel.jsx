@@ -1,7 +1,7 @@
-import LoadingImage from "../../public/Loading_icon_cropped.gif";
 import { useContext, useEffect, useRef } from "react";
 import PaginationContext from "../utils/PaginationContext";
 import { VideoCardsListShimmer } from "./VideoCardsList";
+import Spinner from "./Spinner";
 
 const LoadingWheel = () => {
   const { fetchNext } = useContext(PaginationContext);
@@ -27,9 +27,7 @@ const LoadingWheel = () => {
   return (
     <div ref={containerRef} className="flex flex-col gap-8">
       <VideoCardsListShimmer count={3} />
-      <div className="self-center">
-        <img className="w-8" src={LoadingImage} alt="Loading..." />
-      </div>
+      <Spinner />
     </div>
   );
 };

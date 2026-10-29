@@ -2,15 +2,17 @@ import { useContext } from "react";
 import CommentThread, { CommentThreadShimmer } from "./CommentThread";
 import WatchPageContext from "../utils/WatchPageContext";
 import useFetch from "../hooks/useFetch";
+import Spinner from "./Spinner";
 
 export const CommentThreadsListShimmer = ({ count, topLevel = false }) => {
   return (
     <ul
-      className={`w-full flex flex-col gap-4 animate-pulse${!topLevel && " mt-2"}`}
+      className={`w-full flex flex-col gap-4 animate-pulse${!topLevel && " mt-4"}`}
     >
       {Array.from({ length: count }, (_, i) => (
         <CommentThreadShimmer key={i} topLevel={topLevel} />
       ))}
+      <Spinner />
     </ul>
   );
 };

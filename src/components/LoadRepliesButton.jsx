@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import YoutubeIcon from "./YoutubeIcon";
+import RepliesContext from "../utils/RepliesContext";
 
 const LoadRepliesButton = ({
   replyCount,
   visibleReplyCount,
   loadedReplyCount,
-  setStart,
-  setShowReplies,
-  fetchNext,
-  showReplies,
 }) => {
   const [buttonText, setButtonText] = useState(
     `${replyCount} Repl${replyCount > 1 ? "ies" : "y"}`,
   );
+
+  const { setStart, fetchNext, showReplies, setShowReplies } =
+    useContext(RepliesContext);
 
   useEffect(() => {
     const updateButtonText = () => {
@@ -24,7 +24,7 @@ const LoadRepliesButton = ({
         setButtonText("Hide replies");
     };
     updateButtonText();
-  }, [showReplies, loadedReplyCount]);
+  }, [showReplies, loadedReplyCount, replyCount]);
 
   const onLoadRepliesClick = (e) => {
     if (visibleReplyCount === 0) {

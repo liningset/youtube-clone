@@ -1,44 +1,22 @@
-import { useMemo, useState } from "react";
+import { useContext } from "react";
 import RepliesList from "./RepliesList";
 import LoadRepliesButton from "./LoadRepliesButton";
-import usePaginatedComments from "../hooks/usePaginatedComments";
 import { CommentThreadsListShimmer } from "./CommentThreadsList";
+import RepliesContext from "../utils/RepliesContext";
 
-const RepliesContainer = ({
-  toThread,
-  replyCount,
-  showReplies,
-  setShowReplies,
-}) => {
-  const [start, setStart] = useState(false);
+const RepliesContainer = ({ replyCount }) => {
+  const { loadedReplies, status, showReplies } = useContext(RepliesContext);
 
-  const params = useMemo(
-    () => ({
-      part: "snippet",
-      parentId: toThread.id,
-      maxResults: 10,
-    }),
-    [toThread.id],
-  );
-
-  const { commentState, fetchNext } = usePaginatedComments(start, params);
-
-  const visibleReplies = showReplies ? [...commentState.comments] : [];
+  const visibleReplies = showReplies ? [...loadedReplies] : [];
 
   return (
     <div>
       <RepliesList replies={visibleReplies} />
-      {commentState.status === "pending" && (
-        <CommentThreadsListShimmer count={3} />
-      )}
+      {status === "pending" && <CommentThreadsListShimmer count={3} />}
       <LoadRepliesButton
         replyCount={replyCount}
         visibleReplyCount={visibleReplies.length}
-        loadedReplyCount={commentState.comments.length}
-        setStart={setStart}
-        setShowReplies={setShowReplies}
-        fetchNext={fetchNext}
-        showReplies={showReplies}
+        loadedReplyCount={loadedReplies.length}
       />
     </div>
   );
