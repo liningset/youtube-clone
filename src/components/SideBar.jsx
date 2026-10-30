@@ -1,6 +1,6 @@
 import SideBarExploreNav from "./SideBarExploreNav";
 import SideBarMainNav from "./SideBarMainNav";
-import SignInButton from "./SignInButton";
+import BlueSpecialButton from "./BlueSpecialButton";
 import SideBarFooter from "./SideBarFooter";
 import { useSelector } from "react-redux";
 
@@ -19,7 +19,7 @@ const SideBar = () => {
             <span className="text-sm">
               Sign in to like videos, comment and subscribe.
             </span>
-            <SignInButton />
+            <BlueSpecialButton text="Sign in" />
           </div>
           <SideBarExploreNav />
           <SideBarFooter />

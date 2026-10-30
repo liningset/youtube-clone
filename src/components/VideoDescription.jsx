@@ -38,7 +38,7 @@ const VideoDescription = ({ video }) => {
   }, []);
 
   return (
-    <div>
+    <div className="px-4 lg:px-0">
       <img
         src={video?.snippet?.thumbnails?.default.url}
         aria-hidden="true"
@@ -53,8 +53,8 @@ const VideoDescription = ({ video }) => {
         }}
       />
       <h1 className="text-2xl text-fg-primary font-bold my-2">{title}</h1>
-      <div className="flex w-full justify-between items-center">
-        <div className="flex gap-2 items-center">
+      <div className="flex flex-col sm:flex-row gap-4 w-full justify-between items-center">
+        <div className="flex self-start gap-2 items-center">
           <div className="w-12 aspect-square rounded-full overflow-hidden bg-border-clr">
             <img src={channelAvatar} alt="avatar" />
           </div>
@@ -69,7 +69,7 @@ const VideoDescription = ({ video }) => {
             Subscribe
           </button>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-full sm:w-auto">
           <div className="flex h-10 rounded-4xl overflow-hidden">
             <button
               title="I like this"
@@ -89,7 +89,7 @@ const VideoDescription = ({ video }) => {
           </div>
           <button
             title="Share"
-            className="h-10 flex justify-center items-center aspect-square rounded-full bg-grey-e8 cursor-pointer hover:bg-grey-d8"
+            className="h-10 ms-auto flex justify-center items-center aspect-square rounded-full bg-grey-e8 cursor-pointer hover:bg-grey-d8"
           >
             <YoutubeIcon icon="share" />
           </button>

@@ -13,7 +13,7 @@ const useBreakpoint = (value, attachOnChange = true) => {
 
       return () => (breakpoint.onchange = null);
     }
-  });
+  }, []);
 
   return { state, dispatch };
 };

@@ -33,14 +33,14 @@ const VideoCard = ({ data, channelData }) => {
   return (
     <li
       onClick={onCardClick}
-      className={`group relative cursor-pointer ${page === "watchpage" ? "flex gap-2 items-start" : ""}`}
+      className={`group relative cursor-pointer ${page === "watchpage" ? "flex flex-col lg:flex-row w-full gap-2 items-start" : ""}`}
     >
       <div
         style={color}
         className={`absolute pointer-events-none inset-3 opacity-0 transition-all duration-300 ease group-hover:opacity-100 group-hover:bg-(--prominent) ${page === "watchpage" ? "group-hover:-inset-1 rounded-lg" : "group-hover:-inset-3 rounded-2xl"} ${color != null ? "" : " border border-grey-a8"}`}
       ></div>
       <div
-        className={`bg-bg-primary aspect-video relative overflow-hidden ${page === "watchpage" ? " rounded-lg flex-2" : "rounded-2xl"}`}
+        className={`bg-bg-primary aspect-video relative overflow-hidden ${page === "watchpage" ? " rounded-lg flex-2 w-full shrink-0" : "rounded-2xl"}`}
       >
         <img
           crossOrigin="anonymous"
@@ -95,11 +95,11 @@ export const VideoCardShimmer = () => {
 
   return (
     <li
-      className={`relative animate-pulse ${page === "watchpage" ? "flex gap-2 items-start" : ""}`}
+      className={`relative animate-pulse ${page === "watchpage" ? "flex flex-col lg:flex-row gap-2 items-start" : ""}`}
       aria-hidden="true"
     >
       <div
-        className={`bg-grey-a8 aspect-video relative ${page === "watchpage" ? "rounded-lg w-175" : "rounded-2xl flex-1"}`}
+        className={`bg-grey-a8 aspect-video relative ${page === "watchpage" ? "rounded-lg lg:w-175" : "rounded-2xl flex-1"}`}
       ></div>
       <div
         className={`flex items-center gap-2 ${page === "watchpage" ? "" : "mt-2"}`}

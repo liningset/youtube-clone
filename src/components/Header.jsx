@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LogoAndBurgerButton from "./LogoAndBurgerButton";
 import SearchField, { WithMobile } from "./SearchField";
-import SignInButton from "./SignInButton";
+import BlueSpecialButton from "./BlueSpecialButton";
 import YoutubeIcon from "./YoutubeIcon";
 import useDebounce from "../hooks/useDebounce";
 import { useSelector } from "react-redux";
@@ -41,7 +41,7 @@ const Header = () => {
           <YoutubeIcon icon="threeDots" />
         </button>
 
-        <SignInButton />
+        <BlueSpecialButton text="Sign in" />
       </div>
     </header>
   );

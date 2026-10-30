@@ -4,12 +4,11 @@ import { useDispatch } from "react-redux";
 import { updateCurrentPage } from "../utils/appSlice";
 import useFetch from "../hooks/useFetch";
 import usePaginatedList from "../hooks/usePaginatedList";
-import VideoCardsList from "../components/VideoCardsList";
 import PaginationContext from "../utils/PaginationContext";
-import LoadingWheel from "../components/LoadingWheel";
 import { changeType, closeSideBar } from "../utils/sideBarSlice";
 import VideoDescription from "../components/VideoDescription";
 import CommentsSection from "../components/CommentsSection";
+import RelatedVideosSection from "../components/RelatedVideosSection";
 import WatchPageContext from "../utils/WatchPageContext";
 
 const params = {
@@ -27,8 +26,6 @@ const WatchPage = ({ query }) => {
     part: "snippet,contentDetails,statistics",
   });
 
-  console.log(data);
-
   const { pagination, fetchNext } = usePaginatedList("videos", params, {
     title: "All",
   });
@@ -45,30 +42,26 @@ const WatchPage = ({ query }) => {
   }, []);
 
   return (
-    <div className="w-full max-w-350 mx-auto flex gap-4 px-4">
-      <main className="flex-4 flex flex-col gap-6">
-        <section>
-          <div className="aspect-video rounded-xl overflow-hidden bg-grey-a8 relative">
-            <iframe
-              className="w-full h-full"
-              src={`https://www.youtube.com/embed/${query}`}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
-          {data?.items && <VideoDescription video={data.items[0]} />}
-        </section>
-        <WatchPageContext.Provider value={query}>
-          <CommentsSection count={data?.items[0]?.statistics?.commentCount} />
-        </WatchPageContext.Provider>
-      </main>
+    <div className="w-full [overflow-anchor:none] max-w-350 pt-1 mx-auto lg:px-4 grid gap-8 lg:gap-4 grid-rows-[auto_1fr] lg:grid-cols-[1fr_350px] [grid-template-areas:'video''related''comments'] lg:[grid-template-areas:'video_related''comments_related']">
+      <section className="[grid-area:video] w-full">
+        <div className="aspect-video w-full lg:rounded-xl lg:overflow-hidden bg-grey-a8 relative">
+          <iframe
+            className="w-full h-full"
+            src={`https://www.youtube.com/embed/${query}`}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+        {data?.items && <VideoDescription video={data.items[0]} />}
+      </section>
+      <WatchPageContext.Provider value={query}>
+        <CommentsSection count={data?.items[0]?.statistics?.commentCount} />
+      </WatchPageContext.Provider>
+
       <PaginationContext.Provider value={{ pagination, fetchNext }}>
-        <aside className="w-87.5">
-          <VideoCardsList />
-          {pagination.nextPage && <LoadingWheel />}
-        </aside>
+        <RelatedVideosSection />
       </PaginationContext.Provider>
     </div>
   );
