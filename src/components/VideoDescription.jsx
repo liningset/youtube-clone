@@ -12,7 +12,7 @@ import extractColor from "../utils/extract-color";
 const VideoDescription = ({ video }) => {
   const { title, channelTitle, channelId, description, publishedAt } =
     video.snippet;
-  const { viewCount } = video.statistics;
+  const { viewCount, likeCount } = video.statistics;
 
   const [collapsed, setCollapsed] = useState(true);
   const [color, setColor] = useState(null);
@@ -32,7 +32,9 @@ const VideoDescription = ({ video }) => {
   const subscriberCount = data?.items[0]?.statistics?.subscriberCount;
 
   useEffect(() => {
-    preRef.current.innerHTML = formatToDescription(description);
+    preRef.current.innerHTML = !description
+      ? '<span class="opacity-75">No description has been added to this video<span>'
+      : formatToDescription(description);
   }, []);
 
   return (
@@ -68,34 +70,36 @@ const VideoDescription = ({ video }) => {
           </button>
         </div>
         <div className="flex gap-2">
-          <div className="flex rounded-4xl overflow-hidden">
+          <div className="flex h-10 rounded-4xl overflow-hidden">
             <button
               title="I like this"
-              className="px-4 py-2 bg-grey-e8 cursor-pointer hover:bg-grey-d8"
+              className="flex items-center gap-2 px-4 bg-grey-e8 cursor-pointer hover:bg-grey-d8"
             >
               <YoutubeIcon icon="like" />
+              <span className="text-sm">{formatToViewsSummary(likeCount)}</span>
             </button>
 
             <button
               title="I dislike this"
-              className="px-4 py-2 bg-grey-e8 cursor-pointer hover:bg-grey-d8"
+              className="h-10 px-4 bg-grey-e8 cursor-pointer hover:bg-grey-d8 relative"
             >
+              <div className="w-px h-[70%] top-1/2 -translate-y-1/2 absolute left-0 bg-grey-a8"></div>
               <YoutubeIcon icon="dislike" />
             </button>
           </div>
           <button
             title="Share"
-            className="w-12 flex justify-center items-center aspect-square rounded-full bg-grey-e8 cursor-pointer hover:bg-grey-d8"
+            className="h-10 flex justify-center items-center aspect-square rounded-full bg-grey-e8 cursor-pointer hover:bg-grey-d8"
           >
             <YoutubeIcon icon="share" />
           </button>
           <button
             title="Save"
-            className="w-12 flex justify-center items-center aspect-square rounded-full bg-grey-e8 cursor-pointer hover:bg-grey-d8"
+            className="h-10 flex justify-center items-center aspect-square rounded-full bg-grey-e8 cursor-pointer hover:bg-grey-d8"
           >
             <YoutubeIcon icon="save" />
           </button>
-          <button className="w-12 flex justify-center items-center rounded-full bg-grey-e8 cursor-pointer hover:bg-grey-d8">
+          <button className="h-10 aspect-square flex justify-center items-center rounded-full bg-grey-e8 cursor-pointer hover:bg-grey-d8">
             <YoutubeIcon icon="threeDots" tailwindStyles="rotate-90" />
           </button>
         </div>
