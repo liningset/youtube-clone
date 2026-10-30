@@ -1,8 +1,8 @@
-import { useContext } from "react";
 import CommentThread, { CommentThreadShimmer } from "./CommentThread";
-import WatchPageContext from "../utils/WatchPageContext";
-import useFetch from "../hooks/useFetch";
 import Spinner from "./Spinner";
+import LoadingWheel from "./LoadingWheel";
+import { useContext } from "react";
+import ThreadsContext from "../utils/ThreadsContext";
 
 export const CommentThreadsListShimmer = ({ count, topLevel = false }) => {
   return (
@@ -18,19 +18,14 @@ export const CommentThreadsListShimmer = ({ count, topLevel = false }) => {
 };
 
 const CommentThreadsList = () => {
-  const videoId = useContext(WatchPageContext);
-  const { data, status } = useFetch("commentThreads", {
-    part: "snippet",
-    videoId,
-    order: "relevance",
-  });
+  const { threads, status, nextPage } = useContext(ThreadsContext);
 
-  if (status === "pending")
-    return <CommentThreadsListShimmer count={10} topLevel={true} />;
+  if (status === "pending" && threads.length === 0)
+    return <CommentThreadsListShimmer count={5} topLevel={true} />;
 
   return (
     <div className="flex flex-col gap-4">
-      {data?.items.map((thread) => (
+      {threads.map((thread) => (
         <CommentThread
           key={thread?.id}
           data={thread?.snippet?.topLevelComment}
@@ -39,6 +34,7 @@ const CommentThreadsList = () => {
           topLevel={true}
         />
       ))}
+      {nextPage && <LoadingWheel type="comments" />}
     </div>
   );
 };

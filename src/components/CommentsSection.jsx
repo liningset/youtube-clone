@@ -1,5 +1,6 @@
 import YoutubeIcon from "./YoutubeIcon";
 import CommentThreadsList from "./CommentThreadsList";
+import ThreadsContextProvider from "../utils/ThreadsContextProvider";
 
 const CommentsSection = ({ count }) => {
   return (
@@ -28,7 +29,9 @@ const CommentsSection = ({ count }) => {
           className="border-b border-grey-a8 focus:border-fg-primary outline-0 flex-1"
         />
       </form>
-      <CommentThreadsList />
+      <ThreadsContextProvider>
+        <CommentThreadsList />
+      </ThreadsContextProvider>
     </section>
   );
 };

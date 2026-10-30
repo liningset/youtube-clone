@@ -11,7 +11,11 @@ const RepliesContextProvider = ({ parentId, children }) => {
     [parentId],
   );
 
-  const { commentState, fetchNext } = usePaginatedComments(start, params);
+  const { commentState, fetchNext } = usePaginatedComments(
+    start,
+    params,
+    "comments",
+  );
 
   const values = useMemo(
     () => ({

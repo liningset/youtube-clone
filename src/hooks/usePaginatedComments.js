@@ -38,7 +38,7 @@ const reducer = (state, action) => {
   return state;
 };
 
-const usePaginatedComments = (start, params) => {
+const usePaginatedComments = (start, params, resource) => {
   const [state, dispatch] = useReducer(reducer, {
     comments: [],
     nextPage: 0,
@@ -48,14 +48,15 @@ const usePaginatedComments = (start, params) => {
 
   useEffect(() => {
     if (state.status === "pending") return;
-    if (!params.parentId) return;
+    if (resource === "comments" && !params.parentId) return;
+    if (resource === "commentThreads" && !params.videoId) return;
     if (start === false) return;
 
     const controller = new AbortController();
     const fullParams = { ...params };
     if (state.nextPage) fullParams.pageToken = state.nextPage;
 
-    fetchFromYoutube("comments", fullParams, controller.signal, dispatch);
+    fetchFromYoutube(resource, fullParams, controller.signal, dispatch);
 
     return () => controller.abort();
   }, [state.trigger, params, start]);

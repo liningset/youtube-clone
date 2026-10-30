@@ -2,9 +2,13 @@ import { useContext, useEffect, useRef } from "react";
 import PaginationContext from "../utils/PaginationContext";
 import { VideoCardsListShimmer } from "./VideoCardsList";
 import Spinner from "./Spinner";
+import { CommentThreadsListShimmer } from "./CommentThreadsList";
+import ThreadsContext from "../utils/ThreadsContext";
 
-const LoadingWheel = () => {
-  const { fetchNext } = useContext(PaginationContext);
+const LoadingWheel = ({ type = "videos" }) => {
+  const { fetchNext } = useContext(
+    type === "videos" ? PaginationContext : ThreadsContext,
+  );
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -26,8 +30,14 @@ const LoadingWheel = () => {
 
   return (
     <div ref={containerRef} className="flex flex-col gap-8">
-      <VideoCardsListShimmer count={3} />
-      <Spinner />
+      {type === "comments" ? (
+        <CommentThreadsListShimmer count={3} />
+      ) : (
+        <>
+          <VideoCardsListShimmer count={3} />
+          <Spinner />
+        </>
+      )}
     </div>
   );
 };

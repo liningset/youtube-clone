@@ -22,7 +22,7 @@ const RelatedVideosSection = () => {
   };
 
   return (
-    <aside className="flex flex-col mb-4 px-4 lg:px-0 lg:w-87.5 [grid-area:related]">
+    <aside className="flex flex-col px-4 lg:px-0 lg:w-87.5 [grid-area:related]">
       <RelatedVideoCardsList videos={visibleVideos} />
 
       {pagination.nextPage ? (

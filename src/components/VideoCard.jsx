@@ -55,7 +55,7 @@ const VideoCard = ({ data, channelData }) => {
           </span>
         )}
       </div>
-      <div className="flex items-center gap-2 mt-2 flex-1">
+      <div className="flex items-center gap-2 mt-2 flex-1 min-w-0">
         {page !== "watchpage" && (
           <div className="w-16 aspect-square rounded-full overflow-hidden bg-border-clr">
             <img src={channelThumbnails?.default?.url} alt="channel profile" />
@@ -77,7 +77,7 @@ const VideoCard = ({ data, channelData }) => {
           <div
             className={`text-grey-31 ${page === "watchpage" ? "text-xs" : "text-sm flex gap-1"}`}
           >
-            <span>{channelTitle}</span>
+            <span className="line-clamp-1">{channelTitle}</span>
             <div className="flex gap-2">
               <span>{formatToViewsSummary(viewCount)}</span> •{" "}
               <span>{formatToTimeAgo(publishedAt)}</span>
