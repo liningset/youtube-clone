@@ -4,7 +4,7 @@ import {
   formatToViewsSummary,
   formatToTimeAgo,
 } from "../utils/formatting";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const SearchResultCard = ({ data, channelData }) => {
   const { thumbnails, title, channelTitle, publishedAt, description } =
@@ -12,9 +12,23 @@ const SearchResultCard = ({ data, channelData }) => {
   const { duration } = data?.contentDetails ?? { duration: "" };
   const { viewCount } = data?.statistics ?? { viewCount: "" };
   const { thumbnails: channelThumbnails } = channelData?.snippet ?? {};
+  const navigate = useNavigate();
+
+  const onCardClick = (e) => {
+    if (!e.target.classList.contains("more"))
+      navigate("/watch?v=" + data.id.videoId);
+  };
+
+  const parse = (input) => {
+    const parser = new DOMParser();
+    return parser.parseFromString(input, "text/html").body.textContent;
+  };
 
   return (
-    <li className="group sm:p-1 relative flex flex-col gap-4 sm:flex-row transition-button active:bg-grey-e8 active:border-grey-e8 rounded-2xl cursor-pointer">
+    <li
+      onClick={onCardClick}
+      className="group sm:p-1 relative flex flex-col gap-4 sm:flex-row transition-button active:not-has-[.more:active]:bg-grey-e8 active:not-has-[.more:active]:border-grey-e8 rounded-2xl cursor-pointer"
+    >
       <div
         className={`bg-bg-primary flex-4 aspect-video relative overflow-hidden sm:rounded-2xl w-full min-w-50 sm:w-5/12`}
       >
@@ -33,8 +47,8 @@ const SearchResultCard = ({ data, channelData }) => {
       <div className="flex flex-6 flex-col gap-4 px-5 sm:px-0">
         <div className="w-full flex justify-between ">
           <div className="flex flex-col">
-            <h3 className="font-bold line-clamp-2 text-lg" title={title}>
-              {title}
+            <h3 className="font-bold line-clamp-2 text-lg" title={parse(title)}>
+              {parse(title)}
             </h3>
             <div className="text-xs opacity-70 text-grey-31">
               <span>{formatToViewsSummary(viewCount)}</span> •{" "}
@@ -54,11 +68,11 @@ const SearchResultCard = ({ data, channelData }) => {
             <img src={channelThumbnails?.default?.url} alt="Avatar" />
           </div>
           <span className="opacity-70 hover:opacity-100 text-xs">
-            {channelTitle}
+            {parse(channelTitle)}
           </span>
         </Link>
         <p className="text-xs opacity-70" title="From the video description">
-          {description}
+          {parse(description)}
         </p>
       </div>
     </li>

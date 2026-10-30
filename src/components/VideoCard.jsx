@@ -7,6 +7,7 @@ import {
 } from "../utils/formatting";
 import extractColor from "../utils/extract-color";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 const VideoCard = ({ data, channelData }) => {
   const { thumbnails, title, channelTitle, publishedAt } = data.snippet;
@@ -15,6 +16,7 @@ const VideoCard = ({ data, channelData }) => {
   const { thumbnails: channelThumbnails } = channelData?.snippet ?? {};
   const [color, setColor] = useState(null);
   const page = useSelector((store) => store.app.currentPage);
+  const navigate = useNavigate();
 
   const onLoad = async (e) => {
     const prominentColor = extractColor(e.target);
@@ -24,9 +26,14 @@ const VideoCard = ({ data, channelData }) => {
     });
   };
 
+  const onCardClick = (e) => {
+    if (!e.target.classList.contains("more")) navigate("/watch?v=" + data.id);
+  };
+
   return (
     <li
-      className={`group relative ${page === "watchpage" ? "flex gap-2 items-start" : ""}`}
+      onClick={onCardClick}
+      className={`group relative cursor-pointer ${page === "watchpage" ? "flex gap-2 items-start" : ""}`}
     >
       <div
         style={color}
@@ -62,7 +69,7 @@ const VideoCard = ({ data, channelData }) => {
               {title}
             </h3>
             <button
-              className={`p-2 rounded-full self-start cursor-pointer ${page === "watchpage" ? "absolute bottom-0 right-0 hidden group-hover:block" : ""} transition-button border-bg-primary active:bg-grey-e8  active:border-grey-e8`}
+              className={`more p-2 rounded-full self-start cursor-pointer ${page === "watchpage" ? "absolute bottom-0 right-0 hidden group-hover:block" : ""} transition-button border-bg-primary active:bg-grey-e8  active:border-grey-e8`}
             >
               <YoutubeIcon icon="threeDots" />
             </button>

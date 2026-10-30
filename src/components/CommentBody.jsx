@@ -12,7 +12,7 @@ const CommentBody = ({ text }) => {
     preRef.current
       .querySelectorAll("a")
       .forEach((tag) => tag.classList.add("text-blue-500", "hover:underline"));
-  }, []);
+  }, [text]);
   return (
     <div>
       <pre

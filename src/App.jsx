@@ -4,6 +4,7 @@ import SideBar from "./components/SideBar";
 import SideBarModal from "./components/SideBarModal";
 import useMediaQueries from "./hooks/useMediaQueries";
 import { useSelector } from "react-redux";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   useMediaQueries();
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Header />
       <div className="flex w-screen">
         {sideBarType === "regular" ? <SideBar /> : <SideBarModal />}

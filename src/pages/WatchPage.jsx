@@ -19,8 +19,7 @@ const params = {
   maxResults: 50,
 };
 
-const WatchPage = () => {
-  const query = useSearchParams()[0].get("v");
+const WatchPage = ({ query }) => {
   const dispatch = useDispatch();
 
   const { data } = useFetch("videos", {
@@ -75,4 +74,9 @@ const WatchPage = () => {
   );
 };
 
-export default WatchPage;
+const WatchRoute = () => {
+  const query = useSearchParams()[0].get("v");
+  return <WatchPage query={query} key={query} />;
+};
+
+export default WatchRoute;
