@@ -1,8 +1,9 @@
-import { useRouteError } from "react-router";
+import Error from "../components/Error";
 
 const ErrorPage = () => {
-  const error = useRouteError();
-  return <h1>Error {error.message}</h1>;
+  return (
+    <Error message="The page you're looking for does not exist on our site." />
+  );
 };
 
 export default ErrorPage;

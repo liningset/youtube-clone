@@ -10,6 +10,7 @@ import SearchResultsList, {
 import usePaginatedSearch from "../hooks/usePaginatedSearch";
 import YoutubeIcon from "../components/YoutubeIcon";
 import { closeSideBar } from "../utils/sideBarSlice";
+import Error from "../components/Error";
 
 const SearchPage = ({ query }) => {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ const SearchPage = ({ query }) => {
     fetchNext();
   }, [searchState.videos]);
 
+  if (searchState.nextPage == null && searchState.videos.length === 0)
+    return <Error message={`No results for:\n${query}`} />;
+
   return (
     <PaginationContext.Provider value={{ pagination, searchState }}>
       <main className="w-full min-w-0 max-w-350 mx-auto flex flex-col gap-4 mb-10">
@@ -54,12 +58,14 @@ const SearchPage = ({ query }) => {
         {searchState.status === "pending" && (
           <SearchResultsListShimmer count={6} />
         )}
-        <button
-          onClick={() => fetchNextSearch()}
-          className="mx-auto p-2 rounded-full border-bg-primary hover:bg-grey-d8 hover:border-grey-d8 active:bg-grey-a8 active:border-grey-a8 transition-button cursor-pointer"
-        >
-          <YoutubeIcon icon="showMore" />
-        </button>
+        {searchState.nextPage && (
+          <button
+            onClick={() => fetchNextSearch()}
+            className="mx-auto p-2 rounded-full border-bg-primary hover:bg-grey-d8 hover:border-grey-d8 active:bg-grey-a8 active:border-grey-a8 transition-button cursor-pointer"
+          >
+            <YoutubeIcon icon="showMore" />
+          </button>
+        )}
       </main>
     </PaginationContext.Provider>
   );

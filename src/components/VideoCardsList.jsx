@@ -2,6 +2,7 @@ import VideoCard, { VideoCardShimmer } from "./VideoCard";
 import { useContext } from "react";
 import PaginationContext from "../utils/PaginationContext";
 import { useSelector } from "react-redux";
+import Error from "./Error";
 
 export const VideoCardsListShimmer = ({ count }) => {
   const page = useSelector((store) => store.app.currentPage);
@@ -22,7 +23,9 @@ const VideoCardsList = () => {
   const { videos, channels } = pagination.data;
 
   if (/not (found|available|supported)/i.test(pagination.status.videos))
-    return <div>this category is not available</div>;
+    return (
+      <Error message="This category does not have any videos at the moment" />
+    );
 
   return pagination.nextPage === 0 ? (
     <VideoCardsListShimmer count={9} />

@@ -46,7 +46,9 @@ const HomePage = () => {
           changeCategory={changeCategory}
         />
         <VideoCardsList />
-        {pagination.nextPage && <LoadingWheel />}
+        {pagination.nextPage !== 0 && pagination.nextPage !== null && (
+          <LoadingWheel />
+        )}
       </main>
     </PaginationContext.Provider>
   );
