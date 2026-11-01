@@ -8,16 +8,16 @@ const START = true;
 const ThreadsContextProvider = ({ children }) => {
   const videoId = useContext(WatchPageContext);
 
+  //order param is managed internally
   const params = useMemo(
     () => ({
       part: "snippet",
       videoId,
-      order: "relevance",
     }),
     [videoId],
   );
 
-  const { commentState, fetchNext } = usePaginatedComments(
+  const { commentState, fetchNext, changeOrder } = usePaginatedComments(
     START,
     params,
     "commentThreads",
@@ -25,12 +25,14 @@ const ThreadsContextProvider = ({ children }) => {
 
   const values = useMemo(
     () => ({
+      order: commentState.order,
+      changeOrder,
       threads: commentState.comments,
       status: commentState.status,
       nextPage: commentState.nextPage,
       fetchNext,
     }),
-    [commentState, fetchNext],
+    [commentState, fetchNext, changeOrder],
   );
 
   return (
