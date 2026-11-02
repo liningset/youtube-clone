@@ -12,7 +12,7 @@ const PopoverContent = ({ closePopover }) => {
   };
 
   return (
-    <div className="flex flex-col w-max py-2">
+    <div className="flex flex-col w-max">
       <button
         onClick={() => onButtonClick("relevance")}
         className={`text-start cursor-pointer p-4 ${order === "relevance" ? "bg-grey-d8" : "hover:bg-grey-e8"}`}
@@ -36,20 +36,25 @@ const PopoverContent = ({ closePopover }) => {
 
 const SortByButton = () => {
   const [showPopover, setShowPopover] = useState(false);
+  const closePopover = () => setShowPopover(false);
+
   return (
     <>
-      <div className="relative popover-container">
+      <div
+        data-container-id="sort-by-button"
+        className="relative popover-container"
+      >
         <button
           onClick={() => setShowPopover((prev) => !prev)}
           title="Sort comments"
-          className="flex items-center gap-2 cursor-pointer font-medium "
+          className="flex hover:bg-grey-e8 active:bg-grey-d8 transition-button items-center gap-2 cursor-pointer font-medium "
         >
           <YoutubeIcon icon="sortBy" /> Sort by
         </button>
 
         {showPopover && (
-          <Popover setShowPopover={setShowPopover}>
-            <PopoverContent closePopover={() => setShowPopover(false)} />
+          <Popover closePopover={closePopover} parentId="sort-by-button">
+            <PopoverContent closePopover={closePopover} />
           </Popover>
         )}
       </div>

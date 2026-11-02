@@ -1,8 +1,13 @@
 import Error from "../components/Error";
+import { useRouteError } from "react-router";
 
 const ErrorPage = () => {
-  return (
+  const error = useRouteError();
+
+  return error?.status === 404 ? (
     <Error message="The page you're looking for does not exist on our site." />
+  ) : (
+    <h1>{error.message}</h1>
   );
 };
 

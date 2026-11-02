@@ -59,6 +59,7 @@ const CommentThread = ({
             authorName={authorDisplayName}
             publishedAt={publishedAt}
             updatedAt={updatedAt}
+            commentId={data.id}
           />
           <CommentBody text={textDisplay} />
           <CommentActions

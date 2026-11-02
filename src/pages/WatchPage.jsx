@@ -45,14 +45,14 @@ const WatchPage = ({ query }) => {
     <div className="w-full [overflow-anchor:none] max-w-350 pt-1 mb-4 mx-auto lg:px-4 grid gap-8 lg:gap-4 grid-rows-[auto_1fr] lg:grid-cols-[1fr_350px] [grid-template-areas:'video''related''comments'] lg:[grid-template-areas:'video_related''comments_related']">
       <section className="[grid-area:video] w-full">
         <div className="aspect-video w-full lg:rounded-xl lg:overflow-hidden bg-grey-a8 relative">
-          <iframe
+          {/* <iframe
             className="w-full h-full"
             src={`https://www.youtube.com/embed/${query}`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-          />
+          /> */}
         </div>
         {data?.items && <VideoDescription video={data.items[0]} />}
       </section>

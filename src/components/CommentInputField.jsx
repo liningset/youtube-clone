@@ -1,4 +1,9 @@
+import { useState } from "react";
+import Popover from "./Popover";
+import AskSigninPopoverContent from "./AskSigninPopoverContent";
+
 const CommentInputField = () => {
+  const [showPopover, setShowPopover] = useState(false);
   return (
     <form className="flex gap-4 text-sm">
       <div className="w-8 aspect-square overflow-hidden rounded-full">
@@ -7,11 +12,28 @@ const CommentInputField = () => {
           alt="default user profile"
         />
       </div>
-      <input
-        type="text"
-        placeholder="Add a comment..."
-        className="border-b border-grey-a8 focus:border-fg-primary outline-0 flex-1"
-      />
+      <div
+        className="popover-container relative flex-1 cursor-text"
+        data-container-id="write-comments"
+        onClick={() => setShowPopover(true)}
+      >
+        <input
+          type="text"
+          placeholder="Add a comment..."
+          className="border-b border-grey-a8 focus:border-fg-primary outline-0 h-full w-full pointer-events-none"
+        />
+        {showPopover && (
+          <Popover
+            closePopover={() => setShowPopover(false)}
+            parentId="write-comments"
+          >
+            <AskSigninPopoverContent
+              heading="Want to join the conversation?"
+              sub="Sign in to continue"
+            />
+          </Popover>
+        )}
+      </div>
     </form>
   );
 };
