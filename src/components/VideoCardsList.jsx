@@ -5,11 +5,8 @@ import { useSelector } from "react-redux";
 import Error from "./Error";
 
 export const VideoCardsListShimmer = ({ count }) => {
-  const page = useSelector((store) => store.app.currentPage);
   return (
-    <ul
-      className={`grid ${page === "watchpage" ? "grid-cols-1 gap-2 mt-2" : "px-5 sm:grid-cols-2 lg:grid-cols-3 gap-4"} items-start`}
-    >
+    <ul className="grid px-5 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
       {Array.from({ length: count }, (_, i) => (
         <VideoCardShimmer key={i} />
       ))}

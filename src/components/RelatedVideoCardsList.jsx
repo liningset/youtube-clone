@@ -4,7 +4,9 @@ import PaginationContext from "../utils/PaginationContext";
 
 export const RelatedVideoCardsListShimmer = ({ count }) => {
   return (
-    <ul className={`grid grid-cols-1 gap-2 mt-2 items-start`}>
+    <ul
+      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1 gap-2 items-start`}
+    >
       {Array.from({ length: count }, (_, i) => (
         <VideoCardShimmer key={i} />
       ))}

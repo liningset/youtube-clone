@@ -57,7 +57,7 @@ const SearchField = ({ debounceState }) => {
           value={search.search}
           required
         />
-        {suggestTabOpen && (
+        {suggestTabOpen && suggested.length > 0 && (
           <SearchSuggestions
             items={suggested}
             search={search}

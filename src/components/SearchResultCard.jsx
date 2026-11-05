@@ -4,7 +4,7 @@ import {
   formatToViewsSummary,
   formatToTimeAgo,
 } from "../utils/formatting";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 const SearchResultCard = ({ data, channelData }) => {
   const { thumbnails, title, channelTitle, publishedAt, description } =
@@ -55,12 +55,11 @@ const SearchResultCard = ({ data, channelData }) => {
               <span>{formatToTimeAgo(publishedAt)}</span>
             </div>
           </div>
-          <button className="p-2 rounded-full self-start cursor-pointer transition-button border-bg-primary active:bg-grey-e8  active:border-grey-e8">
+          <button className="more p-2 rounded-full self-start cursor-pointer transition-button border-bg-primary active:bg-grey-e8  active:border-grey-e8">
             <YoutubeIcon icon="threeDots" />
           </button>
         </div>
-        <Link
-          to={`/channel/${channelData?.id?.videoId}`}
+        <div
           className="flex gap-2 items-center self-start"
           title={channelTitle}
         >
@@ -70,8 +69,11 @@ const SearchResultCard = ({ data, channelData }) => {
           <span className="opacity-70 hover:opacity-100 text-xs">
             {parse(channelTitle)}
           </span>
-        </Link>
-        <p className="text-xs opacity-70" title="From the video description">
+        </div>
+        <p
+          className="text-xs hidden sm:block opacity-70"
+          title="From the video description"
+        >
           {parse(description)}
         </p>
       </div>

@@ -31,6 +31,7 @@ const SearchResultsList = () => {
 
         return (
           <SearchResultCard
+            key={video?.id?.videoId}
             data={{
               ...video,
               statistics: videoExtra?.statistics,

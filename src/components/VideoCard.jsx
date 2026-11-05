@@ -95,14 +95,14 @@ export const VideoCardShimmer = () => {
 
   return (
     <li
-      className={`relative animate-pulse ${page === "watchpage" ? "flex flex-col lg:flex-row gap-2 items-start" : ""}`}
+      className={`relative animate-pulse ${page === "watchpage" && "flex flex-col w-full lg:flex-row gap-2 items-start"}`}
       aria-hidden="true"
     >
       <div
-        className={`bg-grey-a8 aspect-video relative ${page === "watchpage" ? "rounded-lg lg:w-175" : "rounded-2xl flex-1"}`}
+        className={`bg-grey-a8 aspect-video relative ${page === "watchpage" ? "rounded-lg w-full lg:w-175" : "rounded-2xl flex-1"}`}
       ></div>
       <div
-        className={`flex items-center gap-2 ${page === "watchpage" ? "" : "mt-2"}`}
+        className={`flex w-full items-center gap-2 ${page !== "watchpage" && "mt-2"}`}
       >
         {page !== "watchpage" && (
           <div className="w-16 aspect-square rounded-full bg-grey-a8"></div>

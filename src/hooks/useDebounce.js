@@ -31,7 +31,7 @@ const useDebounce = () => {
         }
       };
       fetchSuggestions(search.search);
-    }, 400);
+    }, 300);
 
     return () => {
       clearTimeout(id);
