@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import SearchRoute from "./pages/SearchPage.jsx";
-import store from "./utils/store.js";
+import store from "./data/store.js";
 import { Provider } from "react-redux";
 import WatchRoute from "./pages/WatchPage.jsx";
 

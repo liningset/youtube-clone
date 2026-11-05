@@ -1,10 +1,10 @@
 import { Outlet } from "react-router";
-import Header from "./components/Header";
-import SideBar from "./components/SideBar";
-import SideBarModal from "./components/SideBarModal";
+import Header from "./components/header/Header";
+import SideBar from "./components/sidebar-menu/SideBar";
+import SideBarModal from "./components/sidebar-menu/SideBarModal";
 import useMediaQueries from "./hooks/useMediaQueries";
 import { useSelector } from "react-redux";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 function App() {
   useMediaQueries();

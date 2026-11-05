@@ -1,16 +1,16 @@
 import { useEffect, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router";
-import { updateCurrentPage } from "../utils/appSlice";
-import usePaginatedList from "../hooks/usePaginatedList";
-import PaginationContext from "../utils/PaginationContext";
+import { updateCurrentPage } from "../data/appSlice";
+import usePaginatedVideos from "../hooks/usePaginatedVideos";
+import PaginationContext from "../data/PaginationContext";
 import SearchResultsList, {
   SearchResultsListShimmer,
-} from "../components/SearchResultsList";
+} from "../components/search-results/SearchResultsList";
 import usePaginatedSearch from "../hooks/usePaginatedSearch";
-import YoutubeIcon from "../components/YoutubeIcon";
-import { closeSideBar } from "../utils/sideBarSlice";
-import Error from "../components/Error";
+import YoutubeIcon from "../components/common/YoutubeIcon";
+import { closeSideBar } from "../data/sideBarSlice";
+import Error from "../components/common/Error";
 
 const SearchPage = ({ query }) => {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const SearchPage = ({ query }) => {
     };
   }, [searchState.videos]);
 
-  const { pagination, fetchNext } = usePaginatedList("videos", params, {
+  const { pagination, fetchNext } = usePaginatedVideos("videos", params, {
     title: "All",
   });
 

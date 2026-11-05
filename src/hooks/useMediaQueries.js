@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateMatchingMedia } from "../utils/appSlice";
-import { changeType, closeSideBar, openSideBar } from "../utils/sideBarSlice";
+import { updateMatchingMedia } from "../data/appSlice";
+import { changeType, closeSideBar, openSideBar } from "../data/sideBarSlice";
 
 const useMediaQueries = () => {
   const dispatch = useDispatch();

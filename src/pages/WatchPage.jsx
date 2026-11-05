@@ -1,15 +1,15 @@
 import { useSearchParams } from "react-router";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { updateCurrentPage } from "../utils/appSlice";
+import { updateCurrentPage } from "../data/appSlice";
 import useFetch from "../hooks/useFetch";
-import usePaginatedList from "../hooks/usePaginatedList";
-import PaginationContext from "../utils/PaginationContext";
-import { changeType, closeSideBar } from "../utils/sideBarSlice";
-import VideoDescription from "../components/VideoDescription";
-import CommentsSection from "../components/CommentsSection";
-import RelatedVideosSection from "../components/RelatedVideosSection";
-import WatchPageContext from "../utils/WatchPageContext";
+import usePaginatedVideos from "../hooks/usePaginatedVideos";
+import PaginationContext from "../data/PaginationContext";
+import { changeType, closeSideBar } from "../data/sideBarSlice";
+import VideoDescription from "../components/watch-video/VideoDescription";
+import CommentsSection from "../components/comments/CommentsSection";
+import RelatedVideosSection from "../components/related-videos/RelatedVideosSection";
+import WatchPageContext from "../data/WatchPageContext";
 
 const params = {
   regionCode: "US",
@@ -26,7 +26,7 @@ const WatchPage = ({ query }) => {
     part: "snippet,contentDetails,statistics",
   });
 
-  const { pagination, fetchNext } = usePaginatedList("videos", params, {
+  const { pagination, fetchNext } = usePaginatedVideos("videos", params, {
     title: "All",
   });
 

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import CategoryKeywords from "../components/CategoryKeywords";
-import VideoCardsList from "../components/VideoCardsList";
-import LoadingWheel from "../components/LoadingWheel";
-import PaginationContext from "../utils/PaginationContext";
-import usePaginatedList from "../hooks/usePaginatedList";
+import CategoryKeywords from "../components/home-feed/CategoryKeywords";
+import VideoCardsList from "../components/home-feed/VideoCardsList";
+import LoadingWheel from "../components/common/LoadingWheel";
+import PaginationContext from "../data/PaginationContext";
+import usePaginatedVideos from "../hooks/usePaginatedVideos";
 import { useDispatch } from "react-redux";
-import { updateCurrentPage } from "../utils/appSlice";
+import { updateCurrentPage } from "../data/appSlice";
 
 const params = {
   regionCode: "US",
@@ -20,7 +20,7 @@ const HomePage = () => {
     title: "All",
   });
 
-  const { pagination, fetchNext, switchInState } = usePaginatedList(
+  const { pagination, fetchNext, switchInState } = usePaginatedVideos(
     "videos",
     params,
     activeCategory,
