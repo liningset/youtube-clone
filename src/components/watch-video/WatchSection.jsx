@@ -1,11 +1,14 @@
 import VideoPlayer from "./VideoPlayer";
 import VideoDetails from "./VideoDetails";
+import { useContext } from "react";
+import WatchPageContext from "../../data/WatchPageContext";
 
-const WatchSection = ({ query, data }) => {
+const WatchSection = () => {
+  const { dataExists } = useContext(WatchPageContext);
   return (
     <section className="[grid-area:video] w-full">
-      <VideoPlayer query={query} />
-      {data?.items && <VideoDetails video={data?.items[0]} />}
+      <VideoPlayer />
+      {dataExists && <VideoDetails />}
     </section>
   );
 };

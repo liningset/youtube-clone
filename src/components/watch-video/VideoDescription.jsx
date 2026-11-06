@@ -1,11 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  formatToViewsSummary,
-  formatToTimeAgo,
-  formatToDate,
-  formatToDescription,
-} from "../../utils/formatting";
+import { formatToDescription } from "../../utils/formatting";
 import extractColor from "../../utils/extract-color";
+import VideoViewsAndDate from "./VideoViewsAndDate";
 
 const VideoDescription = ({ video }) => {
   const { description, publishedAt } = video.snippet;
@@ -25,7 +21,7 @@ const VideoDescription = ({ video }) => {
     preRef.current.innerHTML = !description
       ? '<span class="opacity-75">No description has been added to this video<span>'
       : formatToDescription(description);
-  }, []);
+  }, [description]);
 
   return (
     <div
@@ -38,37 +34,14 @@ const VideoDescription = ({ video }) => {
         aria-hidden="true"
         className="hidden"
         crossOrigin="anonymous"
-        onLoad={(e) => {
-          const prominent = extractColor(e.target);
-
-          setColor({
-            "--prominent": prominent,
-          });
-        }}
+        onLoad={(e) => setColor({ "--prominent": extractColor(e.target) })}
       />
-      <div className="flex gap-2 text-sm font-medium">
-        <span className="whitespace-nowrap">
-          {collapsed
-            ? formatToViewsSummary(viewCount)
-            : Number(viewCount).toLocaleString()}{" "}
-          views
-        </span>
-        <span className="whitespace-nowrap">
-          {collapsed ? formatToTimeAgo(publishedAt) : formatToDate(publishedAt)}
-        </span>
-        <ul className="flex gap-1 items-center overflow-hidden flex-wrap">
-          {/((?<=\s)#[^\s#]+)/gi.test(description) &&
-            description.match(/((?<=\s)#[^\s#]+)/gi).map((found, i) => (
-              <a
-                className="text-blue-500 cursor-pointer"
-                href={"/results?q=" + found.replace("#", "")}
-                key={i}
-              >
-                {found}
-              </a>
-            ))}
-        </ul>
-      </div>
+      <VideoViewsAndDate
+        viewCount={viewCount}
+        publishedAt={publishedAt}
+        collapsed={collapsed}
+        description={description}
+      />
       <pre
         ref={preRef}
         className={`whitespace-pre-wrap text-sm font-roboto ${collapsed ? "line-clamp-3" : ""}`}

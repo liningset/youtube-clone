@@ -6,7 +6,7 @@ import WatchPageContext from "../../data/WatchPageContext";
 const START = true;
 
 const ThreadsContextProvider = ({ children }) => {
-  const videoId = useContext(WatchPageContext);
+  const { query: videoId } = useContext(WatchPageContext);
 
   //order param is managed internally
   const params = useMemo(

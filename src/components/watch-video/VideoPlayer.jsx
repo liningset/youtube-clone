@@ -1,4 +1,8 @@
-const VideoPlayer = ({ query }) => {
+import { useContext } from "react";
+import WatchPageContext from "../../data/WatchPageContext";
+
+const VideoPlayer = () => {
+  const { query } = useContext(WatchPageContext);
   return (
     <div className="aspect-video w-full lg:rounded-xl lg:overflow-hidden bg-grey-a8 relative">
       <iframe

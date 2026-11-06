@@ -7,7 +7,7 @@ import ThreadsContext from "../../data/ThreadsContext";
 export const CommentThreadsListShimmer = ({ count, topLevel = false }) => {
   return (
     <ul
-      className={`w-full flex flex-col gap-4 animate-pulse${!topLevel && " mt-4"}`}
+      className={`w-full flex flex-col gap-4 animate-pulse ${!topLevel && " mt-4"}`}
     >
       {Array.from({ length: count }, (_, i) => (
         <CommentThreadShimmer key={i} topLevel={topLevel} />
