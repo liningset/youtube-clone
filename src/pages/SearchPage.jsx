@@ -33,9 +33,7 @@ const SearchPage = ({ query }) => {
     };
   }, [searchState.videos]);
 
-  const { pagination, fetchNext } = usePaginatedVideos("videos", params, {
-    title: "All",
-  });
+  const { pagination, fetchNext } = usePaginatedVideos(params);
 
   useEffect(() => {
     document.title = query + " - YouTube-clone";

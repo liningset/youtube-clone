@@ -2,13 +2,12 @@ import { useSearchParams } from "react-router";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { updateCurrentPage } from "../data/appSlice";
-import PaginationContext from "../data/PaginationContext";
+import PaginationContextProvider from "../components/providers/PaginationContextProvider";
 import { changeType, closeSideBar } from "../data/sideBarSlice";
 import CommentsSection from "../components/comments/CommentsSection";
 import RelatedVideosSection from "../components/related-videos/RelatedVideosSection";
 import WatchPageContextProvider from "../components/providers/WatchPageContextProvider";
 import WatchSection from "../components/watch-video/WatchSection";
-import usePaginatedVideos from "../hooks/usePaginatedVideos";
 
 const params = {
   regionCode: "US",
@@ -19,10 +18,6 @@ const params = {
 
 const WatchPage = ({ query }) => {
   const dispatch = useDispatch();
-
-  const { pagination, fetchNext } = usePaginatedVideos("videos", params, {
-    title: "All",
-  });
 
   useEffect(() => {
     dispatch(updateCurrentPage());
@@ -37,9 +32,9 @@ const WatchPage = ({ query }) => {
         <CommentsSection />
       </WatchPageContextProvider>
 
-      <PaginationContext.Provider value={{ pagination, fetchNext }}>
+      <PaginationContextProvider params={params}>
         <RelatedVideosSection />
-      </PaginationContext.Provider>
+      </PaginationContextProvider>
     </div>
   );
 };

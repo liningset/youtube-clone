@@ -3,8 +3,10 @@ import fetchFromYoutube from "../utils/fetchFromYoutube";
 
 const reducer = (state, action) => {
   if (action.type === "switch-category") {
+    if (!action.category) return state;
     return {
       data: { videos: [], channels: [] },
+      category: action.category,
       nextPage: 0,
       status: { videos: "idle", channels: "idle" },
       trigger: state.trigger + 1,
@@ -16,6 +18,7 @@ const reducer = (state, action) => {
     if (action.status === state.status[action.resource]) return state;
     const newState = {
       data: { ...state.data },
+      category: { ...state.category },
       nextPage: state.nextPage,
       status: { ...state.status },
       trigger: state.trigger,
@@ -27,6 +30,7 @@ const reducer = (state, action) => {
   if (action.type === "sync-with-fetched-data") {
     const newState = {
       data: { ...state.data },
+      category: { ...state.category },
       nextPage:
         action.resource === "videos"
           ? (action.data.nextPageToken ?? null)
@@ -46,6 +50,7 @@ const reducer = (state, action) => {
     if (state.status.videos === "pending") return state;
     return {
       data: { videos: state.data.videos, channels: state.data.channels },
+      category: { ...state.category },
       nextPage: state.nextPage,
       status: { ...state.status },
       trigger: state.trigger + 1,
@@ -55,9 +60,10 @@ const reducer = (state, action) => {
   return state;
 };
 
-const usePaginatedVideos = (type, params, category) => {
+const usePaginatedVideos = (params) => {
   const [state, dispatch] = useReducer(reducer, {
     data: { videos: [], channels: [] },
+    category: { name: "All", id: 0 },
     nextPage: 0,
     status: { videos: "idle", channels: "idle" },
     trigger: 0,
@@ -70,11 +76,11 @@ const usePaginatedVideos = (type, params, category) => {
     const controller = new AbortController();
     const fullParams = { ...params };
     if (state.nextPage) fullParams.pageToken = state.nextPage;
-    if (category.title !== "All") {
-      fullParams.videoCategoryId = category.id;
+    if (state.category.title !== "All") {
+      fullParams.videoCategoryId = state.category.id;
     }
 
-    fetchFromYoutube(type, fullParams, controller.signal, dispatch);
+    fetchFromYoutube("videos", fullParams, controller.signal, dispatch);
 
     return () => controller.abort();
   }, [state.trigger]);
@@ -105,7 +111,8 @@ const usePaginatedVideos = (type, params, category) => {
   return {
     pagination: state,
     fetchNext: () => dispatch({ type: "trigger-next-fetch" }),
-    switchInState: () => dispatch({ type: "switch-category" }),
+    changeCategory: (category) =>
+      dispatch({ type: "switch-category", category }),
   };
 };
 

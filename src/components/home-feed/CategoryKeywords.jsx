@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import useFetch from "../../hooks/useFetch";
+import PaginationContext from "../../data/PaginationContext";
 
 const CategoryKeywordsShimmer = () => {
   return (
@@ -13,7 +15,9 @@ const CategoryKeywordsShimmer = () => {
   );
 };
 
-const CategoryKeywords = ({ active, changeCategory }) => {
+const CategoryKeywords = () => {
+  const { pagination, changeCategory } = useContext(PaginationContext);
+
   const { data: categories, status } = useFetch("videoCategories", {
     part: "snippet",
     regionCode: "US",
@@ -22,14 +26,14 @@ const CategoryKeywords = ({ active, changeCategory }) => {
   const clickHandler = (e) => {
     if (e.target.dataset.clickable === "true") {
       const targetText = e.target.textContent;
-      if (active.title === targetText) return;
+      if (pagination.category.title === targetText) return;
 
       const categoryDetails = categories?.items?.find(
         (c) => c?.snippet?.title === targetText,
       );
       changeCategory(
         targetText === "All"
-          ? { id: "0", title: "All" }
+          ? { id: 0, title: "All" }
           : { id: categoryDetails?.id, title: categoryDetails?.snippet?.title },
       );
     }
@@ -47,7 +51,7 @@ const CategoryKeywords = ({ active, changeCategory }) => {
     >
       <li
         data-clickable="true"
-        className={`py-2 px-3 whitespace-nowrap rounded-lg ${active.title === "All" ? "text-grey-e8 bg-fg-primary" : "text-fg-primary bg-grey-e8"} font-semibold  text-sm cursor-pointer`}
+        className={`py-2 px-3 whitespace-nowrap rounded-lg ${pagination.category.title === "All" ? "text-grey-e8 bg-fg-primary" : "text-fg-primary bg-grey-e8"} font-semibold  text-sm cursor-pointer`}
       >
         All
       </li>
@@ -55,7 +59,7 @@ const CategoryKeywords = ({ active, changeCategory }) => {
         <li
           data-clickable="true"
           key={category?.id}
-          className={`py-2 px-3 whitespace-nowrap rounded-lg ${active.title === category?.snippet?.title ? "text-grey-e8 bg-fg-primary" : "text-fg-primary bg-grey-e8"} font-semibold  text-sm cursor-pointer`}
+          className={`py-2 px-3 whitespace-nowrap rounded-lg ${pagination.category.title === category?.snippet?.title ? "text-grey-e8 bg-fg-primary" : "text-fg-primary bg-grey-e8"} font-semibold  text-sm cursor-pointer`}
         >
           {category?.snippet?.title}
         </li>
