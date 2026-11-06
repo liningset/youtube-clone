@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import RepliesList from "./RepliesList";
 import LoadRepliesButton from "./LoadRepliesButton";
-import { CommentThreadsListShimmer } from "./CommentThreadsList";
 import RepliesContext from "../../data/RepliesContext";
+import LoadingMoreComments from "./LoadingMoreComments";
 
 const RepliesContainer = ({ replyCount }) => {
   const { loadedReplies, status, showReplies } = useContext(RepliesContext);
@@ -12,7 +12,7 @@ const RepliesContainer = ({ replyCount }) => {
   return (
     <div>
       <RepliesList replies={visibleReplies} />
-      {status === "pending" && <CommentThreadsListShimmer count={3} />}
+      {status === "pending" && <LoadingMoreComments />}
       <LoadRepliesButton
         replyCount={replyCount}
         visibleReplyCount={visibleReplies.length}

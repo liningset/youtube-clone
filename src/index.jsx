@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import App from "./App.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
-import HomePage from "./pages/HomePage.jsx";
+import HomeRoute from "./pages/HomePage.jsx";
 import SearchRoute from "./pages/SearchPage.jsx";
 import store from "./data/store.js";
 import { Provider } from "react-redux";
@@ -15,7 +15,7 @@ const routerConfig = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <HomePage /> },
+      { path: "/", element: <HomeRoute /> },
       { path: "/results", element: <SearchRoute /> },
       { path: "/watch", element: <WatchRoute /> },
     ],

@@ -1,10 +1,10 @@
-import LoadingWheel from "../common/LoadingWheel";
 import RelatedVideoCardsList from "./RelatedVideoCardsList";
 import { useContext, useState } from "react";
 import PaginationContext from "../../data/PaginationContext";
 import BlueSpecialButton from "../common/BlueSpecialButton";
 import Spinner from "../common/Spinner";
 import useBreakpoint from "../../hooks/useBreakpoint";
+import LoadingMoreVideos from "./LoadingMoreVideos";
 
 const RelatedVideosSection = () => {
   const { pagination, fetchNext } = useContext(PaginationContext);
@@ -22,12 +22,12 @@ const RelatedVideosSection = () => {
   };
 
   return (
-    <aside className="flex flex-col px-4 lg:px-0 lg:w-87.5 [grid-area:related]">
+    <aside className="flex flex-col px-4 gap-2 lg:px-0 lg:w-87.5 [grid-area:related]">
       <RelatedVideoCardsList videos={visibleVideos} />
 
       {pagination.nextPage ? (
         screenIsLG ? (
-          <LoadingWheel />
+          <LoadingMoreVideos />
         ) : pagination.status.videos === "pending" ? (
           <Spinner />
         ) : (

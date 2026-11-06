@@ -1,8 +1,7 @@
 import CommentThread, { CommentThreadShimmer } from "./CommentThread";
-import Spinner from "../common/Spinner";
-import LoadingWheel from "../common/LoadingWheel";
 import { useContext } from "react";
 import ThreadsContext from "../../data/ThreadsContext";
+import LoadingMoreComments, { WithObserver } from "./LoadingMoreComments";
 
 export const CommentThreadsListShimmer = ({ count, topLevel = false }) => {
   return (
@@ -12,10 +11,11 @@ export const CommentThreadsListShimmer = ({ count, topLevel = false }) => {
       {Array.from({ length: count }, (_, i) => (
         <CommentThreadShimmer key={i} topLevel={topLevel} />
       ))}
-      <Spinner />
     </ul>
   );
 };
+
+const ObservantLoadingMoreComments = WithObserver(LoadingMoreComments);
 
 const CommentThreadsList = () => {
   const { threads, status, nextPage } = useContext(ThreadsContext);
@@ -34,7 +34,7 @@ const CommentThreadsList = () => {
           topLevel={true}
         />
       ))}
-      {nextPage && <LoadingWheel type="comments" />}
+      {nextPage && <ObservantLoadingMoreComments />}
     </div>
   );
 };
