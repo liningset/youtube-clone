@@ -1,4 +1,4 @@
-const SideBarFooter = () => {
+const Footer = () => {
   return (
     <footer className="p-4 flex flex-col gap-6 border-t border-border-clr">
       <ul className="flex text-sm gap-1 flex-wrap text-grey-31">
@@ -22,4 +22,4 @@ const SideBarFooter = () => {
     </footer>
   );
 };
-export default SideBarFooter;
+export default Footer;

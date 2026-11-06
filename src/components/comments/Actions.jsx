@@ -27,7 +27,7 @@ const ButtonWrapper = ({ children, id }) => {
   );
 };
 
-const CommentActions = ({ canRate, canReply, likeCount }) => {
+const Actions = ({ canRate, canReply, likeCount }) => {
   return (
     <div
       className="popover-container flex items-center gap-2 text-sm mt-2 relative"
@@ -69,4 +69,4 @@ const CommentActions = ({ canRate, canReply, likeCount }) => {
   );
 };
 
-export default CommentActions;
+export default Actions;

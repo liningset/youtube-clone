@@ -1,6 +1,6 @@
 import CommentThreadsList from "./CommentThreadsList";
 import ThreadsContextProvider from "../providers/ThreadsContextProvider";
-import CommentInputField from "./CommentInputField";
+import WriteCommentField from "./WriteCommentField";
 import SortByButton from "./SortByButton";
 
 const CommentsSection = ({ count }) => {
@@ -13,7 +13,7 @@ const CommentsSection = ({ count }) => {
           </h3>
           <SortByButton />
         </div>
-        <CommentInputField />
+        <WriteCommentField />
 
         <CommentThreadsList />
       </section>

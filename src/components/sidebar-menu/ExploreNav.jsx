@@ -1,7 +1,7 @@
 import NavItem from "./NavItem";
 import { useState } from "react";
 
-const SideBarExploreNav = () => {
+const ExploreNav = () => {
   const [collapsed, setCollapsed] = useState(true);
   return (
     <>
@@ -31,4 +31,4 @@ const SideBarExploreNav = () => {
     </>
   );
 };
-export default SideBarExploreNav;
+export default ExploreNav;

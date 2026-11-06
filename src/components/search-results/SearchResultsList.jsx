@@ -17,9 +17,9 @@ const SearchResultsList = () => {
   const { videos: videosExtra, channels } = pagination.data;
   const videos = searchState.videos;
 
-  return searchState.nextPage === 0 ? (
-    <SearchResultsListShimmer count={9} />
-  ) : (
+  if (searchState.nextPage === 0) return <SearchResultsListShimmer count={9} />;
+
+  return (
     <ul className={`grid items-start sm:px-5 grid-cols-1 gap-6 sm:gap-4`}>
       {videos.map((video) => {
         const channel = channels.find(

@@ -2,7 +2,7 @@ import NavItem from "./NavItem";
 import { Link } from "react-router";
 import { useSelector } from "react-redux";
 
-const SideBarMainNav = () => {
+const MainNav = () => {
   const { type, opened } = useSelector((store) => store.sideBar);
 
   return (
@@ -19,4 +19,4 @@ const SideBarMainNav = () => {
     </ul>
   );
 };
-export default SideBarMainNav;
+export default MainNav;

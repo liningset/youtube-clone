@@ -2,7 +2,7 @@ import { useState } from "react";
 import Popover from "../common/Popover";
 import AskSigninPopoverContent from "../common/AskSigninPopoverContent";
 
-const CommentInputField = () => {
+const WriteCommentField = () => {
   const [showPopover, setShowPopover] = useState(false);
   return (
     <form className="flex gap-4 text-sm">
@@ -38,4 +38,4 @@ const CommentInputField = () => {
   );
 };
 
-export default CommentInputField;
+export default WriteCommentField;

@@ -3,7 +3,7 @@ import { formatToTimeAgo } from "../../utils/formatting";
 import Popover from "../common/Popover";
 import YoutubeIcon from "../common/YoutubeIcon";
 
-const CommentHeading = ({ authorName, publishedAt, updatedAt, commentId }) => {
+const Heading = ({ authorName, publishedAt, updatedAt, commentId }) => {
   const [showPopover, setShowPopover] = useState(false);
   const closePopover = () => setShowPopover(false);
 
@@ -36,4 +36,4 @@ const CommentHeading = ({ authorName, publishedAt, updatedAt, commentId }) => {
   );
 };
 
-export default CommentHeading;
+export default Heading;

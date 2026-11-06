@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const CommentBody = ({ text }) => {
+const Body = ({ text }) => {
   // const [collapsed, setCollapsed] = useState(true);
 
   const preRef = useRef(null);
@@ -26,4 +26,4 @@ const CommentBody = ({ text }) => {
   );
 };
 
-export default CommentBody;
+export default Body;

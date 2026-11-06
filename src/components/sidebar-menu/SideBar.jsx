@@ -1,7 +1,7 @@
-import SideBarExploreNav from "./SideBarExploreNav";
-import SideBarMainNav from "./SideBarMainNav";
+import ExploreNav from "./ExploreNav";
+import MainNav from "./MainNav";
 import BlueSpecialButton from "../common/BlueSpecialButton";
-import SideBarFooter from "./SideBarFooter";
+import Footer from "./Footer";
 import { useSelector } from "react-redux";
 
 const SideBar = () => {
@@ -11,18 +11,18 @@ const SideBar = () => {
       className={`h-[90dvh] bg-bg-primary overflow-auto shrink-0 sticky top-[10dvh] ${!opened ? "w-fit" : "w-60"}`}
     >
       {!opened && type === "regular" ? (
-        <SideBarMainNav />
+        <MainNav />
       ) : (
         <>
-          <SideBarMainNav />
+          <MainNav />
           <div className="flex flex-col gap-2 items-start border-y my-2 p-5 border-border-clr">
             <span className="text-sm">
               Sign in to like videos, comment and subscribe.
             </span>
             <BlueSpecialButton text="Sign in" />
           </div>
-          <SideBarExploreNav />
-          <SideBarFooter />
+          <ExploreNav />
+          <Footer />
         </>
       )}
     </nav>

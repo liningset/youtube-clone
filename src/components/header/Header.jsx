@@ -41,7 +41,7 @@ const Header = () => {
           <YoutubeIcon icon="threeDots" />
         </button>
 
-        <BlueSpecialButton text="Sign in" />
+        {screenMatchesSM && <BlueSpecialButton text="Sign in" />}
       </div>
     </header>
   );

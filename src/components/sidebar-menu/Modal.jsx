@@ -1,10 +1,9 @@
 import { useEffect, useRef } from "react";
 import LogoAndBurgerButton from "../header/LogoAndBurgerButton";
-import SideBar from "./SideBar";
 import { closeSideBar } from "../../data/sideBarSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const SideBarModal = () => {
+const Modal = ({ children }) => {
   const dispatch = useDispatch();
   const opened = useSelector((store) => store.sideBar.opened);
   const overlayRef = useRef(null);
@@ -31,9 +30,9 @@ const SideBarModal = () => {
         className={`flex flex-col bg-bg-primary duration-200 left-0 w-60 absolute ${!opened ? "-translate-x-60" : "translate-x-0"}`}
       >
         <LogoAndBurgerButton />
-        <SideBar />
+        {children}
       </aside>
     </div>
   );
 };
-export default SideBarModal;
+export default Modal;

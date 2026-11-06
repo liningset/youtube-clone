@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
 import Header from "./components/header/Header";
 import SideBar from "./components/sidebar-menu/SideBar";
-import SideBarModal from "./components/sidebar-menu/SideBarModal";
+import Modal from "./components/sidebar-menu/Modal";
 import useMediaQueries from "./hooks/useMediaQueries";
 import { useSelector } from "react-redux";
 import ScrollToTop from "./components/common/ScrollToTop";
@@ -15,7 +15,13 @@ function App() {
       <ScrollToTop />
       <Header />
       <div className="flex w-screen">
-        {sideBarType === "regular" ? <SideBar /> : <SideBarModal />}
+        {sideBarType === "regular" ? (
+          <SideBar />
+        ) : (
+          <Modal>
+            <SideBar />
+          </Modal>
+        )}
         <Outlet />
       </div>
     </>

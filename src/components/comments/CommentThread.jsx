@@ -1,7 +1,7 @@
 import YoutubeIcon from "../common/YoutubeIcon";
-import CommentBody from "./CommentBody";
-import CommentActions from "./CommentActions";
-import CommentHeading from "./CommentHeading";
+import Body from "./Body";
+import Actions from "./Actions";
+import Heading from "./Heading";
 import RepliesContainer from "./RepliesContainer";
 import RepliesContextProvider from "../providers/RepliesContextProvider";
 import ThreadHitbox from "./ThreadHitbox";
@@ -55,14 +55,14 @@ const CommentThread = ({
           topLevel={topLevel}
         />
         <div className="w-full">
-          <CommentHeading
+          <Heading
             authorName={authorDisplayName}
             publishedAt={publishedAt}
             updatedAt={updatedAt}
             commentId={data.id}
           />
-          <CommentBody text={textDisplay} />
-          <CommentActions
+          <Body text={textDisplay} />
+          <Actions
             canRate={canRate}
             canReply={canReply}
             likeCount={likeCount}
