@@ -63,7 +63,7 @@ const reducer = (state, action) => {
 const usePaginatedVideos = (params) => {
   const [state, dispatch] = useReducer(reducer, {
     data: { videos: [], channels: [] },
-    category: { name: "All", id: 0 },
+    category: { title: "All", id: 0 },
     nextPage: 0,
     status: { videos: "idle", channels: "idle" },
     trigger: 0,
