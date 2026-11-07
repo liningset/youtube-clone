@@ -1,39 +1,19 @@
-import { useEffect, useMemo } from "react";
+import { useContext, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router";
 import { updateCurrentPage } from "../data/appSlice";
-import usePaginatedVideos from "../hooks/usePaginatedVideos";
-import PaginationContext from "../data/PaginationContext";
 import SearchResultsList, {
   SearchResultsListShimmer,
 } from "../components/search-results/SearchResultsList";
-import usePaginatedSearch from "../hooks/usePaginatedSearch";
 import YoutubeIcon from "../components/common/YoutubeIcon";
 import { closeSideBar } from "../data/sideBarSlice";
 import Error from "../components/common/Error";
+import SearchPageContext from "../data/SearchPageContext";
+import SearchPageContextProvider from "../components/providers/SearchPageContextProvider";
 
-const SearchPage = ({ query }) => {
+const SearchPage = () => {
+  const { searchState, fetchNextSearch, query } = useContext(SearchPageContext);
   const dispatch = useDispatch();
-
-  const { searchState, fetchNextSearch } = usePaginatedSearch({
-    q: query,
-    type: "video",
-    part: "snippet",
-    maxResults: 50,
-  });
-
-  //this is to make sure that the identity of params stays the same unless only one paramater changes
-  const params = useMemo(() => {
-    const searchResultIds = searchState.videos.map((v) => v?.id?.videoId);
-    const sliced = searchResultIds.slice(-50);
-    return {
-      id: sliced.join(","),
-      part: "snippet,statistics,contentDetails",
-      maxResults: 50,
-    };
-  }, [searchState.videos]);
-
-  const { pagination, fetchNext } = usePaginatedVideos(params);
 
   useEffect(() => {
     document.title = query + " - YouTube-clone";
@@ -41,37 +21,34 @@ const SearchPage = ({ query }) => {
     dispatch(closeSideBar({ asUser: true }));
   }, []);
 
-  useEffect(() => {
-    if (searchState.videos.length === 0) return;
-    fetchNext();
-  }, [searchState.videos]);
-
   if (searchState.nextPage == null && searchState.videos.length === 0)
     return <Error message={`No results for:\n${query}`} />;
 
   return (
-    <PaginationContext.Provider value={{ pagination, searchState }}>
-      <main className="w-full min-w-0 max-w-350 mx-auto flex flex-col gap-4 mb-10">
-        <SearchResultsList />
-        {searchState.status === "pending" && (
-          <SearchResultsListShimmer count={6} />
-        )}
-        {searchState.nextPage && (
-          <button
-            onClick={() => fetchNextSearch()}
-            className="mx-auto p-2 rounded-full border-bg-primary hover:bg-grey-d8 hover:border-grey-d8 active:bg-grey-a8 active:border-grey-a8 transition-button cursor-pointer"
-          >
-            <YoutubeIcon icon="showMore" />
-          </button>
-        )}
-      </main>
-    </PaginationContext.Provider>
+    <main className="w-full min-w-0 max-w-350 mx-auto flex flex-col gap-4 mb-10">
+      <SearchResultsList />
+      {searchState.status === "pending" && (
+        <SearchResultsListShimmer count={6} />
+      )}
+      {searchState.nextPage && (
+        <button
+          onClick={() => fetchNextSearch()}
+          className="mx-auto p-2 rounded-full border-bg-primary hover:bg-grey-d8 hover:border-grey-d8 active:bg-grey-a8 active:border-grey-a8 transition-button cursor-pointer"
+        >
+          <YoutubeIcon icon="showMore" />
+        </button>
+      )}
+    </main>
   );
 };
 
 const SearchRoute = () => {
   const query = useSearchParams()[0].get("q");
-  return <SearchPage query={query} key={query} />;
+  return (
+    <SearchPageContextProvider key={query} query={query}>
+      <SearchPage />
+    </SearchPageContextProvider>
+  );
 };
 
 export default SearchRoute;

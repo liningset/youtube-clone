@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import PaginationContext from "../../data/PaginationContext";
 import SearchResultCard, { SearchResultCardShimmer } from "./SearchResultCard";
+import SearchPageContext from "../../data/SearchPageContext";
 
 export const SearchResultsListShimmer = ({ count }) => {
   return (
@@ -13,7 +13,7 @@ export const SearchResultsListShimmer = ({ count }) => {
 };
 
 const SearchResultsList = () => {
-  const { pagination, searchState } = useContext(PaginationContext);
+  const { searchState, pagination } = useContext(SearchPageContext);
   const { videos: videosExtra, channels } = pagination.data;
   const videos = searchState.videos;
 
