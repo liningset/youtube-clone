@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { updateCurrentPage } from "../data/appSlice";
 import PaginationContextProvider from "../components/providers/PaginationContextProvider";
@@ -8,6 +8,8 @@ import CommentsSection from "../components/comments/CommentsSection";
 import RelatedVideosSection from "../components/related-videos/RelatedVideosSection";
 import WatchPageContextProvider from "../components/providers/WatchPageContextProvider";
 import WatchSection from "../components/watch-video/WatchSection";
+import WatchPageContext from "../data/WatchPageContext";
+import LiveChatPanel from "../components/live-chat/LiveChatPanel";
 
 const params = {
   regionCode: "US",
@@ -16,8 +18,9 @@ const params = {
   maxResults: 50,
 };
 
-const WatchPage = ({ query }) => {
+const WatchPage = () => {
   const dispatch = useDispatch();
+  const { isLive } = useContext(WatchPageContext);
 
   useEffect(() => {
     dispatch(updateCurrentPage());
@@ -26,11 +29,12 @@ const WatchPage = ({ query }) => {
   }, []);
 
   return (
-    <div className="w-full [overflow-anchor:none] max-w-350 pt-1 mb-4 mx-auto lg:px-4 grid gap-8 lg:gap-4 grid-rows-[auto_1fr] lg:grid-cols-[1fr_350px] [grid-template-areas:'video''related''comments'] lg:[grid-template-areas:'video_related''comments_related']">
-      <WatchPageContextProvider query={query}>
-        <WatchSection />
-        <CommentsSection />
-      </WatchPageContextProvider>
+    <div
+      className={`mx-auto mb-4 grid w-full max-w-350 grid-cols-1 grid-rows-[auto_1fr] gap-8 pt-1 ${isLive ? "[grid-template-areas:'video''livechat''related'] lg:grid-cols-[1fr_375px] lg:[grid-template-areas:'video_livechat''comments_related']" : "[grid-template-areas:'video''related''comments'] lg:grid-cols-[1fr_350px] lg:[grid-template-areas:'video_related''comments_related']"} [overflow-anchor:none] lg:gap-4 lg:px-4`}
+    >
+      <WatchSection />
+
+      {isLive ? <LiveChatPanel /> : <CommentsSection />}
 
       <PaginationContextProvider params={params}>
         <RelatedVideosSection />
@@ -41,7 +45,11 @@ const WatchPage = ({ query }) => {
 
 const WatchRoute = () => {
   const query = useSearchParams()[0].get("v");
-  return <WatchPage query={query} key={query} />;
+  return (
+    <WatchPageContextProvider query={query} key={query}>
+      <WatchPage />
+    </WatchPageContextProvider>
+  );
 };
 
 export default WatchRoute;

@@ -1,11 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { formatToDescription } from "../../utils/formatting";
 import extractColor from "../../utils/extract-color";
 import VideoViewsAndDate from "./VideoViewsAndDate";
+import WatchPageContext from "../../data/WatchPageContext";
 
 const VideoDescription = ({ video }) => {
   const { description, publishedAt } = video.snippet;
   const { viewCount } = video.statistics;
+  const { isLive } = useContext(WatchPageContext);
 
   const [collapsed, setCollapsed] = useState(true);
   const [color, setColor] = useState(null);
@@ -27,7 +29,7 @@ const VideoDescription = ({ video }) => {
     <div
       onClick={onDescriptionClick}
       style={color}
-      className={`w-full mt-4 transition-button overflow-hidden p-3 scroll-mt-[25vh] bg-grey-e8 rounded-xl ${collapsed ? "cursor-pointer hover:bg-(--prominent) active:bg-grey-d8 active:border-grey-d8" : ""}`}
+      className={`transition-button bg-grey-f8 scroll-mt-[25vh] overflow-hidden rounded-xl p-3 ${collapsed ? `active:bg-grey-d8 active:border-grey-d8 cursor-pointer hover:bg-(--prominent) ${isLive ? "md:w-1/2" : "md:w-full"}` : "w-full"}`}
     >
       <img
         src={video?.snippet?.thumbnails?.default.url}
@@ -44,11 +46,11 @@ const VideoDescription = ({ video }) => {
       />
       <pre
         ref={preRef}
-        className={`whitespace-pre-wrap text-sm font-roboto ${collapsed ? "line-clamp-3" : ""}`}
+        className={`font-roboto text-sm whitespace-pre-wrap ${collapsed ? "line-clamp-3" : ""}`}
       ></pre>
       {!collapsed && (
         <button
-          className="mt-8 cursor-pointer font-medium text-sm"
+          className="mt-8 cursor-pointer text-sm font-medium"
           onClick={(e) => {
             setCollapsed(true);
             const toBeScrolled = e.target.closest("div");

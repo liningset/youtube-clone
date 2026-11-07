@@ -3,20 +3,24 @@ import VideoAssociatedChannel from "./VideoAssociatedChannel";
 import VideoActions from "./VideoActions";
 import { useContext } from "react";
 import WatchPageContext from "../../data/WatchPageContext";
+import LiveChatOpener from "../live-chat/LiveChatOpener";
 
 const VideoDetails = () => {
-  const { watchVideo } = useContext(WatchPageContext);
+  const { watchVideo, isLive } = useContext(WatchPageContext);
   const { title, channelId } = watchVideo.snippet;
   const { likeCount } = watchVideo.statistics;
 
   return (
     <div className="px-4 lg:px-0">
-      <h1 className="text-2xl text-fg-primary font-bold my-2">{title}</h1>
-      <div className="flex flex-col sm:flex-row gap-4 w-full justify-between items-center">
+      <h1 className="text-fg-primary my-2 text-2xl font-bold">{title}</h1>
+      <div className="flex w-full flex-col items-center justify-between gap-4 sm:flex-row">
         <VideoAssociatedChannel channelId={channelId} />
         <VideoActions likeCount={likeCount} />
       </div>
-      <VideoDescription video={watchVideo} />
+      <div className="mt-4 flex flex-col flex-wrap gap-2 md:flex-row">
+        <VideoDescription video={watchVideo} />
+        {isLive && <LiveChatOpener />}
+      </div>
     </div>
   );
 };

@@ -13,6 +13,7 @@ const WatchPageContextProvider = ({ children, query }) => {
       query,
       watchVideo: data?.items[0],
       dataExists: data?.items[0] != null,
+      isLive: data?.items[0]?.snippet?.liveBroadcastContent === "live" || false,
     }),
     [data, query],
   );

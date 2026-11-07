@@ -11,7 +11,7 @@ const CommentsSection = () => {
 
   return (
     <ThreadsContextProvider>
-      <section className="px-4 lg:px-0 flex flex-col gap-6 [grid-area:comments]">
+      <section className="flex flex-col gap-6 px-4 [grid-area:comments] lg:px-0">
         <div className="flex gap-8">
           <h3 className="text-xl font-semibold">
             {Number(commentCount)?.toLocaleString()} Comments

@@ -11,7 +11,7 @@ const Thumbnail = ({ isWatchPage, thumbnails, setColor, duration }) => {
   };
   return (
     <div
-      className={`bg-bg-primary aspect-video relative overflow-hidden ${isWatchPage ? " rounded-lg flex-2 w-full shrink-0" : "rounded-2xl"}`}
+      className={`bg-bg-primary aspect-video relative overflow-hidden ${isWatchPage ? " rounded-lg lg:flex-2 w-full shrink-0" : "rounded-2xl"}`}
     >
       <img
         crossOrigin="anonymous"
@@ -21,7 +21,7 @@ const Thumbnail = ({ isWatchPage, thumbnails, setColor, duration }) => {
         onLoad={(e) => onLoad(e)}
       />
       {duration && (
-        <span className="absolute right-4 bottom-4 text-xs bg-grey-31 text-bg-primary font-bold p-0.5 rounded-xs opacity-85">
+        <span className="absolute right-2 bottom-2 text-xs bg-grey-31 text-bg-primary font-bold p-0.5 rounded-xs opacity-85">
           {formatToDuration(duration)}
         </span>
       )}
