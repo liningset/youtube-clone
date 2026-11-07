@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { cacheSuggestions } from "../data/autoSuggestionsSlice";
 
 const useDebounce = () => {
   const [search, setSearch] = useState({ search: "", fetch: true });
   const [suggested, setSuggested] = useState([]);
+  const cachedResults = useSelector((store) => store.autoSuggestions);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (search.search?.trim() === "") {
@@ -11,6 +15,17 @@ const useDebounce = () => {
       return;
     }
     if (!search.fetch) return;
+
+    const checkIfCached = () => {
+      const itemInCache = cachedResults[search.search];
+
+      if (itemInCache != null) {
+        setSuggested(cachedResults[search.search]);
+        return true;
+      } else return false;
+    };
+    if (checkIfCached()) return;
+
     const controller = new AbortController();
     const id = setTimeout(() => {
       const fetchSuggestions = async (query) => {
@@ -23,6 +38,11 @@ const useDebounce = () => {
           if (!res.ok) throw new Error("res not ok");
           const data = await res.json();
           setSuggested(data[1]);
+
+          //cache
+          dispatch(
+            cacheSuggestions({ search: search.search, suggestions: data[1] }),
+          );
         } catch (err) {
           if (err.name === "AbortError") return;
           console.error(
@@ -37,7 +57,7 @@ const useDebounce = () => {
       clearTimeout(id);
       controller.abort();
     };
-  }, [search]);
+  }, [search, cachedResults, dispatch]);
 
   return {
     search,
