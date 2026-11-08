@@ -4,9 +4,9 @@ import WatchPageContext from "../../data/WatchPageContext";
 const VideoPlayer = () => {
   const { query } = useContext(WatchPageContext);
   return (
-    <div className="aspect-video w-full lg:rounded-xl lg:overflow-hidden bg-grey-a8 relative">
+    <div className="bg-grey-a8 relative aspect-video w-full [grid-area:video] lg:overflow-hidden lg:rounded-xl">
       <iframe
-        className="w-full h-full"
+        className="h-full w-full"
         src={`https://www.youtube.com/embed/${query}`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -11,7 +11,7 @@ const VideoDetails = () => {
   const { likeCount } = watchVideo.statistics;
 
   return (
-    <div className="px-4 lg:px-0">
+    <div className="-mt-8 px-4 [grid-area:videodetails] lg:-mt-4 lg:px-0">
       <h1 className="text-fg-primary my-2 text-2xl font-bold">{title}</h1>
       <div className="flex w-full flex-col items-center justify-between gap-4 sm:flex-row">
         <VideoAssociatedChannel channelId={channelId} />

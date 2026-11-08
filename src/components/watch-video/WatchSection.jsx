@@ -6,9 +6,9 @@ import WatchPageContext from "../../data/WatchPageContext";
 const WatchSection = () => {
   const { dataExists } = useContext(WatchPageContext);
   return (
-    <section className="[grid-area:video] w-full">
-      <VideoPlayer />
-      {dataExists && <VideoDetails />}
+    <section className="w-full [grid-area:video]">
+      {/* <VideoPlayer />
+      {dataExists && <VideoDetails />} */}
     </section>
   );
 };
