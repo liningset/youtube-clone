@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import usePaginatedComments from "../../hooks/usePaginatedComments";
 import RepliesContext from "../../data/RepliesContext";
 
@@ -16,6 +16,16 @@ const RepliesContextProvider = ({ parentId, children }) => {
     params,
     "comments",
   );
+
+  useEffect(() => {
+    const resetIfErrored = () => {
+      if (commentState.status.includes("error")) {
+        setShowReplies(false);
+        setStart(false);
+      }
+    };
+    resetIfErrored();
+  }, [commentState.status]);
 
   const values = useMemo(
     () => ({

@@ -74,7 +74,7 @@ const usePaginatedComments = (start, params, resource) => {
     if (state.nextPage) fullParams.pageToken = state.nextPage;
     if (resource === "commentThreads") fullParams.order = state.order;
 
-    fetchFromYoutube(resource, fullParams, controller.signal, dispatch);
+    fetchFromYoutube(resource, fullParams, controller, dispatch);
 
     return () => controller.abort();
   }, [state.trigger, params, start]);

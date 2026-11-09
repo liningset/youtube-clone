@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Popover from "../common/Popover";
 import AskSigninPopoverContent from "../common/AskSigninPopoverContent";
+import ThreadsContext from "../../data/ThreadsContext";
 
 const WriteCommentField = () => {
+  const { status } = useContext(ThreadsContext);
   const [showPopover, setShowPopover] = useState(false);
+
+  if (status === "pending")
+    return (
+      <div className="h-6 w-full bg-grey-a8 animate-pulse rounded-lg"></div>
+    );
+
   return (
     <form className="flex gap-4 text-sm">
       <div className="w-8 aspect-square overflow-hidden rounded-full">

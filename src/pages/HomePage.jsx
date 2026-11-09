@@ -6,6 +6,7 @@ import { updateCurrentPage } from "../data/appSlice";
 import PaginationContextProvider from "../components/providers/PaginationContextProvider";
 import LoadingMoreVideos from "../components/home-feed/LoadingMoreVideos";
 import PaginationContext from "../data/PaginationContext";
+import renderErrors from "../utils/renderErrors";
 
 const params = {
   regionCode: "US",
@@ -23,6 +24,10 @@ const HomePage = () => {
     document.title = "YouTube-clone";
     dispatch(updateCurrentPage());
   }, []);
+
+  // if true stops right here
+  if (pagination.status.videos.includes("error"))
+    return renderErrors(pagination.status.videos);
 
   return (
     <main className="w-full min-w-0 max-w-350 mx-auto flex flex-col gap-4 mb-10">

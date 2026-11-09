@@ -27,7 +27,7 @@ const WatchPage = () => {
     dispatch(updateCurrentPage());
     dispatch(changeType("modal"));
     dispatch(closeSideBar({ asUser: true }));
-  }, []);
+  }, [dispatch]);
 
   return (
     <main

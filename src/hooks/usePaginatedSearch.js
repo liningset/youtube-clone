@@ -60,7 +60,7 @@ const usePaginatedSearch = (params) => {
     const fullParams = { ...params };
     if (state.nextPage) fullParams.pageToken = state.nextPage;
 
-    fetchFromYoutube("search", fullParams, controller.signal, dispatch);
+    fetchFromYoutube("search", fullParams, controller, dispatch);
 
     return () => controller.abort();
   }, [state.trigger]);

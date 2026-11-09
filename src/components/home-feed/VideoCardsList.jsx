@@ -19,7 +19,10 @@ const VideoCardsList = () => {
 
   if (/not (found|available|supported)/i.test(pagination.status.videos))
     return (
-      <Error message="This category does not have any videos at the moment" />
+      <Error
+        message="This category does not have any videos at the moment"
+        retry={false}
+      />
     );
 
   if (pagination.nextPage === 0) return <VideoCardsListShimmer count={9} />;

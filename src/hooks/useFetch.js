@@ -29,10 +29,12 @@ const useFetch = (type, params) => {
     if (!params) return;
     const controller = new AbortController();
 
-    fetchFromYoutube(type, params, controller.signal, dispatch);
+    fetchFromYoutube(type, params, controller, dispatch);
 
     return () => controller.abort();
   }, []);
+
+  useEffect(() => {});
 
   return { data: state.data, status: state.status };
 };

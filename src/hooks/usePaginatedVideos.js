@@ -80,7 +80,7 @@ const usePaginatedVideos = (params) => {
       fullParams.videoCategoryId = state.category.id;
     }
 
-    fetchFromYoutube("videos", fullParams, controller.signal, dispatch);
+    fetchFromYoutube("videos", fullParams, controller, dispatch);
 
     return () => controller.abort();
   }, [state.trigger]);
@@ -98,7 +98,7 @@ const usePaginatedVideos = (params) => {
     const controller = new AbortController();
     const params = { part: "snippet", id: excludedPrevIDs.join(",") };
 
-    fetchFromYoutube("channels", params, controller.signal, dispatch);
+    fetchFromYoutube("channels", params, controller, dispatch);
 
     return () => controller.abort();
   }, [state.data.videos]);

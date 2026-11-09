@@ -2,6 +2,7 @@ import CommentThread, { CommentThreadShimmer } from "./CommentThread";
 import { useContext } from "react";
 import ThreadsContext from "../../data/ThreadsContext";
 import LoadingMoreComments, { WithObserver } from "./LoadingMoreComments";
+import renderErrors from "../../utils/renderErrors";
 
 export const CommentThreadsListShimmer = ({ count, topLevel = false }) => {
   return (
@@ -23,6 +24,8 @@ const CommentThreadsList = () => {
   if (status === "pending" && threads.length === 0)
     return <CommentThreadsListShimmer count={5} topLevel={true} />;
 
+  if (status.includes("error")) return renderErrors(status);
+
   return (
     <div className="flex flex-col gap-4">
       {threads.map((thread) => (
@@ -34,7 +37,7 @@ const CommentThreadsList = () => {
           topLevel={true}
         />
       ))}
-      {nextPage && <ObservantLoadingMoreComments />}
+      {nextPage != null && <ObservantLoadingMoreComments />}
     </div>
   );
 };

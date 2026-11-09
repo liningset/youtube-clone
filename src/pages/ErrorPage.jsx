@@ -5,7 +5,7 @@ const ErrorPage = () => {
   const error = useRouteError();
 
   return error?.status === 404 ? (
-    <Error message="The page you're looking for does not exist on our site." />
+    <Error message="404: Page not found." retry={false} />
   ) : (
     <h1>{error.message}</h1>
   );

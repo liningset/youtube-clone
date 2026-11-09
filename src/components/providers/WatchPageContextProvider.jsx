@@ -3,7 +3,9 @@ import WatchPageContext from "../../data/WatchPageContext";
 import useFetch from "../../hooks/useFetch";
 
 const WatchPageContextProvider = ({ children, query }) => {
-  const { data } = useFetch("videos", {
+  console.log(query);
+
+  const { data, status } = useFetch("videos", {
     id: query,
     part: "snippet,contentDetails,statistics",
   });
@@ -14,8 +16,9 @@ const WatchPageContextProvider = ({ children, query }) => {
       watchVideo: data?.items[0],
       dataExists: data?.items[0] != null,
       isLive: data?.items[0]?.snippet?.liveBroadcastContent === "live" || false,
+      watchVideoStatus: status,
     }),
-    [data, query],
+    [data, query, status],
   );
 
   useEffect(() => {

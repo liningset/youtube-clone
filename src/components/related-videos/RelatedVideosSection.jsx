@@ -5,6 +5,7 @@ import BlueSpecialButton from "../common/BlueSpecialButton";
 import Spinner from "../common/Spinner";
 import useBreakpoint from "../../hooks/useBreakpoint";
 import LoadingMoreVideos from "./LoadingMoreVideos";
+import renderErrors from "../../utils/renderErrors";
 
 const RelatedVideosSection = () => {
   const { pagination, fetchNext } = useContext(PaginationContext);
@@ -20,6 +21,9 @@ const RelatedVideosSection = () => {
     if (visibleVideos.length === loadedVideos.length) fetchNext();
     setMultiplier((prev) => prev + 1);
   };
+
+  if (pagination.status.videos.includes("error"))
+    return renderErrors(pagination.status.videos);
 
   return (
     <aside className="flex flex-col gap-2 px-4 [grid-area:related] lg:px-0">

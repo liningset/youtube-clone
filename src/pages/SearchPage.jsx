@@ -10,6 +10,7 @@ import { closeSideBar } from "../data/sideBarSlice";
 import Error from "../components/common/Error";
 import SearchPageContext from "../data/SearchPageContext";
 import SearchPageContextProvider from "../components/providers/SearchPageContextProvider";
+import renderErrors from "../utils/renderErrors";
 
 const SearchPage = () => {
   const { searchState, fetchNextSearch, query } = useContext(SearchPageContext);
@@ -21,8 +22,11 @@ const SearchPage = () => {
     dispatch(closeSideBar({ asUser: true }));
   }, []);
 
+  if (searchState.status.includes("error"))
+    return renderErrors(searchState.status);
+
   if (searchState.nextPage == null && searchState.videos.length === 0)
-    return <Error message={`No results for:\n${query}`} />;
+    return <Error message={`No results for:\n${query}`} retry={false} />;
 
   return (
     <main className="w-full min-w-0 max-w-350 mx-auto flex flex-col gap-4 mb-10">
