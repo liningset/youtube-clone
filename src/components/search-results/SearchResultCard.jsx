@@ -3,8 +3,14 @@ import CardDetails from "./CardDetails";
 import Thumbnail from "./Thumbnail";
 
 const SearchResultCard = ({ data, channelData }) => {
-  const { thumbnails, title, channelTitle, publishedAt, description } =
-    data.snippet;
+  const {
+    thumbnails,
+    title,
+    channelTitle,
+    publishedAt,
+    description,
+    liveBroadcastContent,
+  } = data.snippet;
   const { duration } = data?.contentDetails ?? { duration: "" };
   const { viewCount } = data?.statistics ?? { viewCount: "" };
   const { thumbnails: channelThumbnails } = channelData?.snippet ?? {};
@@ -20,7 +26,11 @@ const SearchResultCard = ({ data, channelData }) => {
       onClick={onCardClick}
       className="group sm:p-1 relative flex flex-col gap-4 sm:flex-row transition-button active:not-has-[.more:active]:bg-grey-e8 active:not-has-[.more:active]:border-grey-e8 rounded-2xl cursor-pointer"
     >
-      <Thumbnail thumbnails={thumbnails} duration={duration} />
+      <Thumbnail
+        thumbnails={thumbnails}
+        duration={duration}
+        liveStatus={liveBroadcastContent}
+      />
       <CardDetails
         title={title}
         channelTitle={channelTitle}
@@ -28,6 +38,8 @@ const SearchResultCard = ({ data, channelData }) => {
         viewCount={viewCount}
         channelThumbnails={channelThumbnails}
         description={description}
+        liveStatus={liveBroadcastContent}
+        liveDetails={data?.liveStreamingDetails}
       />
     </li>
   );

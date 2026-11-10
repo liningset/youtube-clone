@@ -17,7 +17,7 @@ const SearchPageContextProvider = ({ children, query }) => {
     const sliced = searchResultIds.slice(-50);
     return {
       id: sliced.join(","),
-      part: "snippet,statistics,contentDetails",
+      part: "snippet,statistics,contentDetails,liveStreamingDetails",
       maxResults: 50,
     };
   }, [searchState.videos]);

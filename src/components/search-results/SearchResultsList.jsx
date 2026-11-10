@@ -36,6 +36,7 @@ const SearchResultsList = () => {
               ...video,
               statistics: videoExtra?.statistics,
               contentDetails: videoExtra?.contentDetails,
+              liveStreamingDetails: videoExtra?.liveStreamingDetails,
             }}
             channelData={channel}
           />

@@ -5,7 +5,8 @@ import Thumbnail from "./Thumbnail";
 import CardDetails from "./CardDetails";
 
 const VideoCard = ({ data, channelData }) => {
-  const { thumbnails, title, channelTitle, publishedAt } = data.snippet;
+  const { thumbnails, title, channelTitle, publishedAt, liveBroadcastContent } =
+    data.snippet;
   const { duration } = data.contentDetails;
   const { viewCount } = data.statistics;
   const { thumbnails: channelThumbnails } = channelData?.snippet ?? {};
@@ -13,6 +14,7 @@ const VideoCard = ({ data, channelData }) => {
   const isWatchPage = useSelector(
     (store) => store.app.currentPage === "watchpage",
   );
+  const isLive = liveBroadcastContent === "live";
   const navigate = useNavigate();
 
   const onCardClick = (e) => {
@@ -33,6 +35,7 @@ const VideoCard = ({ data, channelData }) => {
         thumbnails={thumbnails}
         setColor={setColor}
         duration={duration}
+        isLive={isLive}
       />
       <CardDetails
         isWatchPage={isWatchPage}
@@ -41,6 +44,8 @@ const VideoCard = ({ data, channelData }) => {
         publishedAt={publishedAt}
         viewCount={viewCount}
         channelThumbnails={channelThumbnails}
+        liveDetails={data.liveStreamingDetails}
+        isLive={isLive}
       />
     </li>
   );

@@ -7,7 +7,7 @@ const WatchPageContextProvider = ({ children, query }) => {
 
   const { data, status } = useFetch("videos", {
     id: query,
-    part: "snippet,contentDetails,statistics",
+    part: "snippet,contentDetails,statistics,liveStreamingDetails",
   });
 
   const values = useMemo(

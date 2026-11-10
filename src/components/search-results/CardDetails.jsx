@@ -1,8 +1,10 @@
-import { formatToViewsSummary, formatToTimeAgo } from "../../utils/formatting";
+import { formatToDate } from "../../utils/formatting";
+import LiveTag from "../common/LiveTag";
 import YoutubeIcon from "../common/YoutubeIcon";
+import CardViewsAndDate from "./CardViewsAndDate";
 
-//prettier-ignore
-const CardDetails = ({title, viewCount, publishedAt, channelTitle, channelThumbnails, description}) => {
+// prettier-ignore
+const CardDetails = ({title, viewCount, liveDetails, publishedAt, channelTitle, channelThumbnails, description, liveStatus}) => {
 
     const parse = (input) => {
     const parser = new DOMParser();
@@ -16,10 +18,7 @@ const CardDetails = ({title, viewCount, publishedAt, channelTitle, channelThumbn
             <h3 className="font-bold line-clamp-2 text-lg" title={parse(title)}>
               {parse(title)}
             </h3>
-            <div className="text-xs opacity-70 text-grey-31">
-              <span>{formatToViewsSummary(viewCount)}</span> •{" "}
-              <span>{formatToTimeAgo(publishedAt)}</span>
-            </div>
+            <CardViewsAndDate liveStatus={liveStatus} liveDetails={liveDetails} publishedAt={publishedAt} viewCount={viewCount}/>
           </div>
           <button className="more p-2 rounded-full self-start cursor-pointer transition-button border-bg-primary active:bg-grey-e8  active:border-grey-e8">
             <YoutubeIcon icon="threeDots" />
@@ -42,6 +41,8 @@ const CardDetails = ({title, viewCount, publishedAt, channelTitle, channelThumbn
         >
           {parse(description)}
         </p>
+        {liveStatus !== "none" && (liveStatus === "live" ? <LiveTag /> : <span className="text-xs font-semibold">scheduled to start at {liveDetails && formatToDate(liveDetails.scheduledStartTime)}</span>)
+        }
       </div>
   )
 }

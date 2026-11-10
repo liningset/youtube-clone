@@ -1,7 +1,8 @@
 import { formatToDuration } from "../../utils/formatting";
 import extractColor from "../../utils/extract-color";
+import LiveTag from "../common/LiveTag";
 
-const Thumbnail = ({ isWatchPage, thumbnails, setColor, duration }) => {
+const Thumbnail = ({ isWatchPage, thumbnails, setColor, duration, isLive }) => {
   const onLoad = async (e) => {
     const prominentColor = extractColor(e.target);
 
@@ -20,10 +21,16 @@ const Thumbnail = ({ isWatchPage, thumbnails, setColor, duration }) => {
         alt="video thumbnail"
         onLoad={(e) => onLoad(e)}
       />
-      {duration && (
-        <span className="absolute right-2 bottom-2 text-xs bg-grey-31 text-bg-primary font-bold p-0.5 rounded-xs opacity-85">
-          {formatToDuration(duration)}
-        </span>
+      {isLive ? (
+        <div className="absolute right-2 bottom-2">
+          <LiveTag />
+        </div>
+      ) : (
+        duration && (
+          <span className="absolute right-2 bottom-2 text-xs bg-grey-31 text-bg-primary font-bold p-0.5 rounded-xs opacity-85">
+            {formatToDuration(duration)}
+          </span>
+        )
       )}
     </div>
   );

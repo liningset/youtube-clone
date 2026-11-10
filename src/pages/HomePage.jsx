@@ -11,7 +11,7 @@ import renderErrors from "../utils/renderErrors";
 const params = {
   regionCode: "US",
   chart: "mostPopular",
-  part: "snippet,statistics,contentDetails",
+  part: "snippet,statistics,contentDetails,liveStreamingDetails",
   maxResults: 15,
 };
 

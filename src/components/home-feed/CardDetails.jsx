@@ -8,6 +8,8 @@ const CardDetails = ({
   channelTitle,
   viewCount,
   publishedAt,
+  isLive,
+  liveDetails,
 }) => {
   return (
     <div className="flex items-center gap-2 mt-2 flex-1 min-w-0">
@@ -33,7 +35,12 @@ const CardDetails = ({
           className={`text-grey-31 ${isWatchPage ? "text-xs" : "text-sm flex gap-2"}`}
         >
           <span className="line-clamp-1 max-w-[50%]">{channelTitle}</span>
-          <ViewsAndDate viewCount={viewCount} publishedAt={publishedAt} />
+          <ViewsAndDate
+            viewCount={viewCount}
+            publishedAt={publishedAt}
+            isLive={isLive}
+            liveDetails={liveDetails}
+          />
         </div>
       </div>
     </div>

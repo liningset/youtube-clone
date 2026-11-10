@@ -11,6 +11,7 @@ import WatchPageContext from "../data/WatchPageContext";
 import LiveChatPanel from "../components/live-chat/LiveChatPanel";
 import VideoPlayer from "../components/watch-video/VideoPlayer";
 import VideoDetails from "../components/watch-video/VideoDetails";
+import LiveChatContextProvider from "../components/providers/LiveChatContextProvider";
 
 const params = {
   regionCode: "US",
@@ -36,7 +37,13 @@ const WatchPage = () => {
       <VideoPlayer />
       {dataExists && <VideoDetails />}
 
-      {isLive ? <LiveChatPanel /> : <CommentsSection />}
+      {isLive ? (
+        <LiveChatContextProvider>
+          <LiveChatPanel />
+        </LiveChatContextProvider>
+      ) : (
+        <CommentsSection />
+      )}
 
       <PaginationContextProvider params={params}>
         <RelatedVideosSection />
