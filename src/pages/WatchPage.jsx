@@ -12,6 +12,7 @@ import LiveChatPanel from "../components/live-chat/LiveChatPanel";
 import VideoPlayer from "../components/watch-video/VideoPlayer";
 import VideoDetails from "../components/watch-video/VideoDetails";
 import LiveChatContextProvider from "../components/providers/LiveChatContextProvider";
+import LiveChatContext from "../data/LiveChatContext";
 
 const params = {
   regionCode: "US",
@@ -23,6 +24,7 @@ const params = {
 const WatchPage = () => {
   const dispatch = useDispatch();
   const { isLive, dataExists } = useContext(WatchPageContext);
+  const { panelOpened } = useContext(LiveChatContext);
 
   useEffect(() => {
     dispatch(updateCurrentPage());
@@ -32,18 +34,12 @@ const WatchPage = () => {
 
   return (
     <main
-      className={`mx-auto mb-4 grid h-full w-full max-w-350 grid-cols-1 grid-rows-[auto_auto_1fr] gap-8 pt-1 ${isLive ? "[grid-template-areas:'video''livechat''videodetails''related'] lg:grid-cols-[1fr_375px] lg:[grid-template-areas:'video_livechat''videodetails_livechat''videodetails_related']" : "[grid-template-areas:'video''videodetails''related''comments'] lg:grid-cols-[1fr_350px] lg:[grid-template-areas:'video_related''videodetails_related''comments_related']"} [overflow-anchor:none] lg:gap-4 lg:px-4`}
+      className={`mx-auto mb-4 grid h-full w-full max-w-350 grid-cols-1 grid-rows-[auto_auto_1fr] gap-8 pt-1 ${isLive ? (panelOpened ? "[grid-template-areas:'video''livechat''videodetails''related'] lg:[grid-template-areas:'video_livechat''videodetails_livechat''videodetails_related']" : "[grid-template-areas:'video''videodetails''related'] lg:[grid-template-areas:'video_related''videodetails_related''ff_related']") + " lg:grid-cols-[1fr_375px] " : "[grid-template-areas:'video''videodetails''related''comments'] lg:grid-cols-[1fr_350px] lg:[grid-template-areas:'video_related''videodetails_related''comments_related']"} [overflow-anchor:none] lg:gap-4 lg:px-4`}
     >
       <VideoPlayer />
       {dataExists && <VideoDetails />}
 
-      {isLive ? (
-        <LiveChatContextProvider>
-          <LiveChatPanel />
-        </LiveChatContextProvider>
-      ) : (
-        <CommentsSection />
-      )}
+      {isLive ? panelOpened && <LiveChatPanel /> : <CommentsSection />}
 
       <PaginationContextProvider params={params}>
         <RelatedVideosSection />
@@ -56,7 +52,9 @@ const WatchRoute = () => {
   const query = useSearchParams()[0].get("v");
   return (
     <WatchPageContextProvider query={query} key={query}>
-      <WatchPage />
+      <LiveChatContextProvider>
+        <WatchPage />
+      </LiveChatContextProvider>
     </WatchPageContextProvider>
   );
 };

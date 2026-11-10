@@ -1,15 +1,15 @@
 import { useContext, useMemo, useState } from "react";
 import LiveChatContext from "../../data/LiveChatContext";
-import useFetch from "../../hooks/useFetch";
+// import useFetch from "../../hooks/useFetch";
 import WatchPageContext from "../../data/WatchPageContext";
 
 const LiveChatContextProvider = ({ children }) => {
-  const { watchVideo } = useContext(WatchPageContext);
+  const { isLive } = useContext(WatchPageContext);
   const [panelOpened, setPanelOpened] = useState(true);
-  const { data } = useFetch("liveChatMessages", {
-    part: "snippet",
-    liveChatId: watchVideo?.liveStreamingDetails?.activeLiveChatId,
-  });
+  // const { data } = useFetch("liveChat/messages", {
+  //   part: "snippet",
+  //   liveChatId: watchVideo?.liveStreamingDetails?.activeLiveChatId,
+  // });
 
   const values = useMemo(
     () => ({
@@ -20,10 +20,12 @@ const LiveChatContextProvider = ({ children }) => {
     [panelOpened],
   );
 
-  return (
+  return isLive ? (
     <LiveChatContext.Provider value={values}>
       {children}
     </LiveChatContext.Provider>
+  ) : (
+    children
   );
 };
 

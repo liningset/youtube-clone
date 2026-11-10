@@ -23,7 +23,9 @@ const VideoViewsAndDate = ({
       <span className="whitespace-nowrap">
         {collapsed ? formatToTimeAgo(publishedAt) : formatToDate(publishedAt)}
       </span>
-      <ul className="flex gap-1 items-center overflow-hidden flex-wrap">
+      <ul
+        className={`flex gap-1 min-w-0 items-center overflow-hidden ${collapsed ? "w-90" : "flex-wrap"}`}
+      >
         {hashtagsMatcher.test(description) &&
           description.match(hashtagsMatcher).map((found, i) => (
             <a
