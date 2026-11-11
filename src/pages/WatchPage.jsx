@@ -24,7 +24,7 @@ const params = {
 const WatchPage = () => {
   const dispatch = useDispatch();
   const { isLive, dataExists } = useContext(WatchPageContext);
-  const { panelOpened } = useContext(LiveChatContext);
+  const { panelOpened } = useContext(LiveChatContext) ?? {};
 
   useEffect(() => {
     dispatch(updateCurrentPage());

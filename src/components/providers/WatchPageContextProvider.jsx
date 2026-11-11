@@ -7,13 +7,14 @@ const WatchPageContextProvider = ({ children, query }) => {
     id: query,
     part: "snippet,contentDetails,statistics,liveStreamingDetails",
   });
+  const liveStatus = data?.items[0]?.snippet?.liveBroadcastContent;
 
   const values = useMemo(
     () => ({
       query,
       watchVideo: data?.items[0],
       dataExists: data?.items[0] != null,
-      isLive: data?.items[0]?.snippet?.liveBroadcastContent !== "none" || false,
+      isLive: (liveStatus && liveStatus !== "none") || false,
       watchVideoStatus: status,
     }),
     [data, query, status],
