@@ -1,6 +1,11 @@
 import YoutubeIcon from "../common/YoutubeIcon";
 
-const PanelHeader = ({ closePanel }) => {
+const PanelHeader = ({ closePanel, pausePolling }) => {
+  const onClose = () => {
+    closePanel();
+    pausePolling();
+  };
+
   return (
     <div className="flex items-center justify-between p-2">
       <div className="ml-2 flex items-center gap-2">
@@ -11,7 +16,7 @@ const PanelHeader = ({ closePanel }) => {
           <YoutubeIcon icon="threeDots" />
         </button>
         <button
-          onClick={closePanel}
+          onClick={onClose}
           className="hover:bg-border-clr flex aspect-square w-10 cursor-pointer items-center justify-center rounded-full"
         >
           <YoutubeIcon icon="times" />

@@ -7,7 +7,9 @@ import WatchPageContext from "../../data/WatchPageContext";
 const VideoDescription = ({ video }) => {
   const { description, publishedAt } = video.snippet;
   const { viewCount } = video.statistics;
-  const { isLive } = useContext(WatchPageContext);
+  const { isLive, watchVideo } = useContext(WatchPageContext);
+
+  const liveDetails = watchVideo?.liveStreamingDetails;
 
   const [collapsed, setCollapsed] = useState(true);
   const [color, setColor] = useState(null);
@@ -43,6 +45,8 @@ const VideoDescription = ({ video }) => {
         publishedAt={publishedAt}
         collapsed={collapsed}
         description={description}
+        isLive={isLive}
+        liveDetails={liveDetails}
       />
       <pre
         ref={preRef}

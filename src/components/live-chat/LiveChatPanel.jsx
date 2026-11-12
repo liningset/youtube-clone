@@ -5,20 +5,22 @@ import TypeNewChat from "./TypeNewChat";
 import LiveChatContext from "../../data/LiveChatContext";
 
 const LiveChatPanel = () => {
-  const { closePanel } = useContext(LiveChatContext);
+  const { closePanel, resumePolling, pausePolling } =
+    useContext(LiveChatContext);
   const panelRef = useRef(null);
 
   useEffect(() => {
+    resumePolling();
     panelRef.current.scrollIntoView({ block: "start", behavior: "smooth" });
   }, []);
 
   return (
     <div
       ref={panelRef}
-      className="relative min-h-0 px-5 [grid-area:livechat] lg:px-0 scroll-mt-[10vh]"
+      className="relative px-5 [grid-area:livechat] lg:px-0 scroll-mt-[10vh]"
     >
       <div className="border-grey-d8 flex flex-col rounded-xl border lg:absolute lg:inset-0">
-        <PanelHeader closePanel={closePanel} />
+        <PanelHeader closePanel={closePanel} pausePolling={pausePolling} />
         <MessagesContainer />
         <TypeNewChat />
       </div>

@@ -1,23 +1,29 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import LiveChatContext from "../../data/LiveChatContext";
-// import useFetch from "../../hooks/useFetch";
 import WatchPageContext from "../../data/WatchPageContext";
+import useLivePolling from "../../hooks/useLivePolling";
 
 const LiveChatContextProvider = ({ children }) => {
-  const { isLive } = useContext(WatchPageContext);
+  const { isLive, watchVideo } = useContext(WatchPageContext);
   const [panelOpened, setPanelOpened] = useState(true);
-  // const { data } = useFetch("liveChat/messages", {
-  //   part: "snippet",
-  //   liveChatId: watchVideo?.liveStreamingDetails?.activeLiveChatId,
-  // });
+
+  const chatId = watchVideo?.liveStreamingDetails?.activeLiveChatId;
+  const { state, pausePolling, resumePolling } = useLivePolling(chatId);
+
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
 
   const values = useMemo(
     () => ({
+      chatState: state,
       panelOpened,
       openPanel: () => setPanelOpened(true),
       closePanel: () => setPanelOpened(false),
+      pausePolling,
+      resumePolling,
     }),
-    [panelOpened],
+    [panelOpened, state, pausePolling, resumePolling],
   );
 
   return isLive ? (
