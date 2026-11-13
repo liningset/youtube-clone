@@ -7,11 +7,9 @@ const reducer = (state, action) => {
     if (action.status === state.status) return state;
 
     return {
-      messages: state.messages,
+      ...state,
       status: action.status,
-      resume: state.resume,
-      nextPage: state.nextPage,
-      waitFor: state.waitFor,
+      liveEnded: action.status.includes("liveChatEnded"),
     };
   }
   if (action.type === "sync-with-fetched-data") {
@@ -26,26 +24,22 @@ const reducer = (state, action) => {
     );
 
     return {
+      ...state,
       messages: [...dedupedMessages.values()].slice(-150),
       status: "idle",
-      resume: state.resume,
       nextPage: action.data?.nextPageToken ?? null,
       waitFor: action.data?.pollingIntervalMillis ?? null,
     };
   }
   if (action.type === "pause-polling") {
     return {
-      messages: state.messages,
-      status: state.status,
+      ...state,
       resume: false,
-      nextPage: state.nextPage,
-      waitFor: state.waitFor,
     };
   }
   if (action.type === "resume-polling") {
     return {
-      messages: state.messages,
-      status: state.status,
+      ...state,
       resume: true,
       nextPage: 0,
       waitFor: 0,
@@ -62,12 +56,14 @@ const useLivePolling = (liveChatId) => {
     resume: true,
     nextPage: 0,
     waitFor: 0,
+    liveEnded: false,
   });
 
-  const params = useMemo(
-    () => ({ part: "snippet,authorDetails", liveChatId }),
-    [liveChatId],
-  );
+  const params = useMemo(() => {
+    const obj = { part: "snippet,authorDetails", liveChatId };
+    if (state.nextPage) obj.pageToken = state.nextPage;
+    return obj;
+  }, [liveChatId, state.nextPage]);
 
   useEffect(() => {
     if (!liveChatId) return;

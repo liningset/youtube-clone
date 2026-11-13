@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import ThreadsContext from "../../data/ThreadsContext";
 import usePaginatedComments from "../../hooks/usePaginatedComments";
 import WatchPageContext from "../../data/WatchPageContext";
@@ -6,7 +6,7 @@ import WatchPageContext from "../../data/WatchPageContext";
 const START = true;
 
 const ThreadsContextProvider = ({ children }) => {
-  const { query: videoId } = useContext(WatchPageContext);
+  const { query: videoId, disableComments } = useContext(WatchPageContext);
 
   //order param is managed internally
   const params = useMemo(
@@ -22,6 +22,10 @@ const ThreadsContextProvider = ({ children }) => {
     params,
     "commentThreads",
   );
+
+  useEffect(() => {
+    if (commentState.status.includes("commentsDisabled")) disableComments();
+  }, [commentState.status, disableComments]);
 
   const values = useMemo(
     () => ({

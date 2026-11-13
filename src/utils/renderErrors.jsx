@@ -12,13 +12,22 @@ const renderErrors = (errorString) => {
       />
     );
   }
+  if (errorString.includes("quotaExceeded")) {
+    return (
+      <Error
+        message="Sorry, Youtube API daily quota limit exceeded, come back tomorrow"
+        retry={false}
+      />
+    );
+  }
 
   console.error(errorString);
   return (
-    <Error
-      message="There was a problem with fetching this resource."
-      retry={true}
-    />
+    // <Error
+    //   message="There was a problem with fetching this resource."
+    //   retry={true}
+    // />
+    <span>There was a problem with fetching this part of the app</span>
   );
 };
 

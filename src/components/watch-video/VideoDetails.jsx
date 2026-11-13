@@ -6,7 +6,7 @@ import WatchPageContext from "../../data/WatchPageContext";
 import LiveChatOpener from "../live-chat/LiveChatOpener";
 
 const VideoDetails = () => {
-  const { watchVideo, isLive } = useContext(WatchPageContext);
+  const { watchVideo, isLive, chatDisabled } = useContext(WatchPageContext);
   const { title, channelId } = watchVideo.snippet;
   const { likeCount } = watchVideo.statistics;
 
@@ -19,7 +19,7 @@ const VideoDetails = () => {
       </div>
       <div className="mt-4 flex flex-col flex-wrap gap-2 md:flex-row">
         <VideoDescription video={watchVideo} />
-        {isLive && <LiveChatOpener />}
+        {isLive && !chatDisabled && <LiveChatOpener />}
       </div>
     </div>
   );

@@ -4,15 +4,15 @@ import WatchPageContext from "../../data/WatchPageContext";
 import useLivePolling from "../../hooks/useLivePolling";
 
 const LiveChatContextProvider = ({ children }) => {
-  const { isLive, watchVideo } = useContext(WatchPageContext);
+  const { isLive, watchVideo, disableChat } = useContext(WatchPageContext);
   const [panelOpened, setPanelOpened] = useState(true);
 
   const chatId = watchVideo?.liveStreamingDetails?.activeLiveChatId;
   const { state, pausePolling, resumePolling } = useLivePolling(chatId);
 
   useEffect(() => {
-    console.log(state);
-  }, [state]);
+    if (state.status.includes("liveChatDisabled")) disableChat();
+  }, [state.status, disableChat]);
 
   const values = useMemo(
     () => ({

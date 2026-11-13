@@ -14,7 +14,7 @@ const CardDetails = ({
   return (
     <div className="flex items-center gap-2 mt-2 flex-1 min-w-0">
       {!isWatchPage && (
-        <div className="w-16 aspect-square rounded-full overflow-hidden bg-border-clr">
+        <div className="w-10 shrink-0 aspect-square rounded-full overflow-hidden bg-border-clr">
           <img src={channelThumbnails?.default?.url} alt="channel profile" />
         </div>
       )}
@@ -34,7 +34,9 @@ const CardDetails = ({
         <div
           className={`text-grey-31 ${isWatchPage ? "text-xs" : "text-sm flex gap-2"}`}
         >
-          <span className="line-clamp-1 max-w-[50%]">{channelTitle}</span>
+          <span className={`line-clamp-1 ${isWatchPage ? "" : "max-w-[50%]"}`}>
+            {channelTitle}
+          </span>
           <ViewsAndDate
             viewCount={viewCount}
             publishedAt={publishedAt}

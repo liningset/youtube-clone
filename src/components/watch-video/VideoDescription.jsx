@@ -7,7 +7,7 @@ import WatchPageContext from "../../data/WatchPageContext";
 const VideoDescription = ({ video }) => {
   const { description, publishedAt } = video.snippet;
   const { viewCount } = video.statistics;
-  const { isLive, watchVideo } = useContext(WatchPageContext);
+  const { isLive, watchVideo, chatDisabled } = useContext(WatchPageContext);
 
   const liveDetails = watchVideo?.liveStreamingDetails;
 
@@ -31,7 +31,7 @@ const VideoDescription = ({ video }) => {
     <div
       onClick={onDescriptionClick}
       style={color}
-      className={`transition-button bg-grey-f8 scroll-mt-[25vh] overflow-hidden rounded-xl p-3 ${collapsed ? `active:bg-grey-d8 active:border-grey-d8 cursor-pointer hover:bg-(--prominent) ${isLive ? "md:w-1/2" : "md:w-full"}` : "w-full"}`}
+      className={`transition-button bg-grey-f8 scroll-mt-[25vh] overflow-hidden rounded-xl p-3 ${collapsed ? `active:bg-grey-d8 active:border-grey-d8 cursor-pointer hover:bg-(--prominent) ${isLive && !chatDisabled ? "md:w-1/2" : "md:w-full"}` : "w-full"}`}
     >
       <img
         src={video?.snippet?.thumbnails?.default.url}

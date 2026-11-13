@@ -5,7 +5,7 @@ import TypeNewChat from "./TypeNewChat";
 import LiveChatContext from "../../data/LiveChatContext";
 
 const LiveChatPanel = () => {
-  const { closePanel, resumePolling, pausePolling } =
+  const { chatState, closePanel, resumePolling, pausePolling } =
     useContext(LiveChatContext);
   const panelRef = useRef(null);
 
@@ -21,7 +21,8 @@ const LiveChatPanel = () => {
     >
       <div className="border-grey-d8 flex flex-col rounded-xl border lg:absolute lg:inset-0">
         <PanelHeader closePanel={closePanel} pausePolling={pausePolling} />
-        <MessagesContainer />
+        <MessagesContainer messages={chatState.messages} />
+        {chatState.liveEnded && <div>Live has ended</div>}
         <TypeNewChat />
       </div>
     </div>

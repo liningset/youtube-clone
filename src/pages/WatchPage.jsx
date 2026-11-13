@@ -23,7 +23,8 @@ const params = {
 
 const WatchPage = () => {
   const dispatch = useDispatch();
-  const { isLive, dataExists } = useContext(WatchPageContext);
+  const { isLive, dataExists, chatDisabled, commentsDisabled, madeForKids } =
+    useContext(WatchPageContext);
   const { panelOpened } = useContext(LiveChatContext) ?? {};
 
   useEffect(() => {
@@ -34,12 +35,22 @@ const WatchPage = () => {
 
   return (
     <main
-      className={`mx-auto mb-4 grid h-full w-full max-w-350 grid-cols-1 grid-rows-[auto_auto_1fr] gap-8 pt-1 ${isLive ? (panelOpened ? "[grid-template-areas:'video''livechat''videodetails''related'] lg:[grid-template-areas:'video_livechat''videodetails_livechat''videodetails_related']" : "[grid-template-areas:'video''videodetails''related'] lg:[grid-template-areas:'video_related''videodetails_related''ff_related']") + " lg:grid-cols-[1fr_375px] " : "[grid-template-areas:'video''videodetails''related''comments'] lg:grid-cols-[1fr_350px] lg:[grid-template-areas:'video_related''videodetails_related''comments_related']"} [overflow-anchor:none] lg:gap-4 lg:px-4`}
+      className={`mx-auto mb-4 grid h-full w-full max-w-350 grid-cols-1 grid-rows-[auto_auto_1fr] gap-8 pt-1 ${isLive ? (panelOpened && !chatDisabled && !madeForKids ? "[grid-template-areas:'video''livechat''videodetails''related'] lg:[grid-template-areas:'video_livechat''videodetails_livechat''videodetails_related']" : "[grid-template-areas:'video''videodetails''related'] lg:[grid-template-areas:'video_related''videodetails_related''ff_related']") + " lg:grid-cols-[1fr_375px] " : "[grid-template-areas:'video''videodetails''related''comments'] lg:grid-cols-[1fr_350px] lg:[grid-template-areas:'video_related''videodetails_related''comments_related']"} [overflow-anchor:none] lg:gap-4 lg:px-4`}
     >
       <VideoPlayer />
       {dataExists && <VideoDetails />}
 
-      {isLive ? panelOpened && <LiveChatPanel /> : <CommentsSection />}
+      {isLive ? (
+        chatDisabled ? (
+          <div className="text-sm mx-auto">Live chat is turned off</div>
+        ) : (
+          panelOpened && <LiveChatPanel />
+        )
+      ) : commentsDisabled ? (
+        <div className="text-sm mx-auto">Comments are turned off.</div>
+      ) : (
+        <CommentsSection />
+      )}
 
       <PaginationContextProvider params={params}>
         <RelatedVideosSection />

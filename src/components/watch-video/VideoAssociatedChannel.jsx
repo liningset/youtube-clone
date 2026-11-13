@@ -12,7 +12,7 @@ const VideoAssociatedChannel = ({ channelId }) => {
   const channelTitle = data?.items[0]?.snippet?.title;
 
   return (
-    <div className="flex self-start gap-2 items-center">
+    <div className="flex self-start gap-4 items-center">
       <div className="w-12 aspect-square rounded-full overflow-hidden bg-border-clr">
         <img src={channelAvatar} alt="avatar" />
       </div>

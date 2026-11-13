@@ -19,7 +19,7 @@ const fetchFromYoutube = async (type, params, controller, dispatch) => {
   const onRejected = (err) => {
     dispatch({
       type: "change-status",
-      status: `error:${err.message}`,
+      status: `error: ${err.message}: ${err?.errors?.map((e) => e.reason).join(",")}`,
       resource: type,
     });
   };
@@ -35,7 +35,7 @@ const fetchFromYoutube = async (type, params, controller, dispatch) => {
     });
     const data = await res.json();
 
-    if (data.error != null) throw new Error(data?.error?.message);
+    if (data.error != null) throw data.error;
     if (!data?.items) throw new Error("res.ok === false");
     onResolved(data);
   } catch (err) {
