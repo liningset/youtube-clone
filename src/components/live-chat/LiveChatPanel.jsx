@@ -3,13 +3,16 @@ import MessagesContainer from "./MessagesContainer";
 import PanelHeader from "./PanelHeader";
 import TypeNewChat from "./TypeNewChat";
 import LiveChatContext from "../../data/LiveChatContext";
+import WatchPageContext from "../../data/WatchPageContext";
 
 const LiveChatPanel = () => {
+  const { chatDisabled, madeForKids } = useContext(WatchPageContext);
   const { chatState, closePanel, resumePolling, pausePolling } =
     useContext(LiveChatContext);
   const panelRef = useRef(null);
 
   useEffect(() => {
+    if (chatDisabled || madeForKids) return;
     resumePolling();
     panelRef.current.scrollIntoView({ block: "start", behavior: "smooth" });
   }, []);
@@ -22,7 +25,9 @@ const LiveChatPanel = () => {
       <div className="border-grey-d8 flex flex-col rounded-xl border lg:absolute lg:inset-0">
         <PanelHeader closePanel={closePanel} pausePolling={pausePolling} />
         <MessagesContainer messages={chatState.messages} />
-        {chatState.liveEnded && <div>Live has ended</div>}
+        {chatState.liveEnded && (
+          <div className="mx-auto text-sm">Live has ended</div>
+        )}
         <TypeNewChat />
       </div>
     </div>

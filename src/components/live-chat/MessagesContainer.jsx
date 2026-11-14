@@ -1,8 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import YoutubeIcon from "../common/YoutubeIcon";
+import WatchPageContext from "../../data/WatchPageContext";
 
 const MessagesContainer = ({ messages }) => {
   const listRef = useRef(null);
+  const { commentsDisabled } = useContext(WatchPageContext);
 
   useEffect(() => {
     if (messages.length === 0) return;
@@ -14,12 +16,15 @@ const MessagesContainer = ({ messages }) => {
     });
   }, [messages]);
 
-  if (messages.length === 0)
+  if (messages.length === 0) {
     return (
       <div className="p-4 flex-1 grid place-content-center text-center">
-        No chat messages at the moment
+        {commentsDisabled
+          ? "Comments are turned off"
+          : "No chat messages at the moment"}
       </div>
     );
+  }
 
   return (
     <ul
