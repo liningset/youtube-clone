@@ -60,12 +60,14 @@ const CommentThread = ({
             publishedAt={publishedAt}
             updatedAt={updatedAt}
             commentId={data.id}
+            topLevel={topLevel}
           />
           <Body text={textDisplay} />
           <Actions
             canRate={canRate}
             canReply={canReply}
             likeCount={likeCount}
+            commentId={data.id}
           />
           {topLevel && totalReplyCount > 0 && (
             <RepliesContainer replyCount={totalReplyCount} />

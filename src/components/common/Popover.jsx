@@ -43,7 +43,8 @@ const Popover = ({ children, closePopover, parentId }) => {
     lockScroll();
 
     const onClick = (e) => {
-      if (!e.target.closest(`[data-container-id=${parentId}]`)) closePopover();
+      if (!e.target.closest(`[data-container-id="${parentId}"]`))
+        closePopover();
     };
     window.addEventListener("click", onClick);
 

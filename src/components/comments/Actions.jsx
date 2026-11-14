@@ -27,7 +27,7 @@ const ButtonWrapper = ({ children, id }) => {
   );
 };
 
-const Actions = ({ canRate, canReply, likeCount }) => {
+const Actions = ({ canRate, canReply, likeCount, commentId }) => {
   return (
     <div
       className="popover-container flex items-center gap-2 text-sm mt-2 relative"
@@ -35,7 +35,7 @@ const Actions = ({ canRate, canReply, likeCount }) => {
     >
       {canRate && (
         <>
-          <ButtonWrapper id="like">
+          <ButtonWrapper id={"like-" + commentId}>
             <button
               title="Like"
               className="w-8 flex justify-center items-center transition-button aspect-square rounded-full hover:bg-grey-d8 cursor-pointer active:bg-grey-a8"
@@ -48,7 +48,7 @@ const Actions = ({ canRate, canReply, likeCount }) => {
               {formatToViewsSummary(likeCount)}
             </span>
           )}
-          <ButtonWrapper id="dislike">
+          <ButtonWrapper id={"dislike-" + commentId}>
             <button
               title="Dislike"
               className="w-8 flex justify-center items-center transition-button aspect-square rounded-full hover:bg-grey-d8 cursor-pointer active:bg-grey-a8"
@@ -59,7 +59,7 @@ const Actions = ({ canRate, canReply, likeCount }) => {
         </>
       )}
       {canReply && (
-        <ButtonWrapper id="reply">
+        <ButtonWrapper id={"reply-" + commentId}>
           <button className="h-8 px-4 flex items-center text-xs font-medium transition-button rounded-full hover:bg-grey-d8 cursor-pointer active:bg-grey-a8">
             Reply
           </button>
