@@ -12,10 +12,12 @@ const ViewsAndDate = ({ viewCount, publishedAt, isLive, liveDetails }) => {
       if (isLive) {
         return "";
       } else {
-        return "Streamed " + formatToTimeAgo(liveDetails.actualEndTime);
+        return (
+          "Streamed " + formatToTimeAgo(liveDetails.actualEndTime, "short")
+        );
       }
     } else {
-      return formatToTimeAgo(publishedAt);
+      return formatToTimeAgo(publishedAt, "short");
     }
   };
 
