@@ -20,15 +20,20 @@ const renderErrors = (errorString) => {
       />
     );
   }
+  if (errorString.includes("notFound")) {
+    return <Error message="404. resource was not found" retry={false} />;
+  }
 
+  if (errorString.includes("videoChartNotFound")) {
+    return (
+      <Error
+        message="This category does not contain a chart of popular videos at the moment"
+        retry={true}
+      />
+    );
+  }
   console.error(errorString);
-  return (
-    // <Error
-    //   message="There was a problem with fetching this resource."
-    //   retry={true}
-    // />
-    <span>There was a problem with fetching this part of the app</span>
-  );
+  return <span>There was a problem with fetching this part of the app</span>;
 };
 
 export default renderErrors;

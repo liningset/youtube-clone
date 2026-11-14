@@ -18,7 +18,7 @@ const WatchPageContextProvider = ({ children, query }) => {
       dataExists: data?.items[0] != null,
       isLive: (liveStatus && liveStatus !== "none") || false,
       watchVideoStatus: status,
-      madeForKids: data?.status?.madeForKids ?? false,
+      madeForKids: data?.items[0]?.status?.madeForKids ?? false,
       chatDisabled,
       commentsDisabled,
       disableChat: () => setChatDisabled(true),
@@ -31,7 +31,7 @@ const WatchPageContextProvider = ({ children, query }) => {
     if (!data) return;
     document.title = data?.items[0]?.snippet?.title + " - YouTube-clone";
     const checkIfForKids = () => {
-      if (data?.status?.madeForKids) {
+      if (data?.items[0]?.status?.madeForKids) {
         setChatDisabled(true);
         setCommentsDisabled(true);
       }

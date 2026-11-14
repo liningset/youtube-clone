@@ -75,7 +75,7 @@ const CategoryKeywords = () => {
   return status === "pending" ? (
     <CategoryKeywordsShimmer />
   ) : (
-    <div className="relative">
+    <div className="sticky top-[10vh] z-50">
       {scrollable.left && (
         <Button
           onClick={onScrollButtonClick}
