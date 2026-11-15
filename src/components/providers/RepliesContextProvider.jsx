@@ -7,7 +7,12 @@ const RepliesContextProvider = ({ parentId, children }) => {
   const [showReplies, setShowReplies] = useState(false);
 
   const params = useMemo(
-    () => ({ part: "snippet", parentId, maxResults: 10 }),
+    () => ({
+      part: "snippet",
+      parentId,
+      maxResults: 10,
+      textFormat: "plainText",
+    }),
     [parentId],
   );
 

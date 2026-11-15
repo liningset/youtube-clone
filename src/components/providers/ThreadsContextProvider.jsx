@@ -12,6 +12,7 @@ const ThreadsContextProvider = ({ children }) => {
   const params = useMemo(
     () => ({
       part: "snippet",
+      textFormat: "plainText",
       videoId,
     }),
     [videoId],
