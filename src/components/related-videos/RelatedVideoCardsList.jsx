@@ -1,6 +1,7 @@
 import VideoCard, { VideoCardShimmer } from "../home-feed/VideoCard";
 import { useContext } from "react";
-import PaginationContext from "../../data/PaginationContext";
+import SearchPageContext from "../../data/SearchPageContext";
+import WatchPageContext from "../../data/WatchPageContext";
 
 export const RelatedVideoCardsListShimmer = ({ count }) => {
   return (
@@ -15,11 +16,9 @@ export const RelatedVideoCardsListShimmer = ({ count }) => {
 };
 
 const RelatedVideoCardsList = ({ videos }) => {
-  const { pagination } = useContext(PaginationContext);
-  const { channels } = pagination.data;
-
-  if (/not (found|available|supported)/i.test(pagination.status.videos))
-    return <div>this category is not available</div>;
+  const { pagination } = useContext(SearchPageContext);
+  const { videos: videosExtra, channels } = pagination.data;
+  const { watchVideo } = useContext(WatchPageContext);
 
   if (pagination.nextPage === 0)
     return <RelatedVideoCardsListShimmer count={9} />;
@@ -30,7 +29,23 @@ const RelatedVideoCardsList = ({ videos }) => {
         const channel = channels.find(
           (channel) => channel?.id === video?.snippet?.channelId,
         );
-        return <VideoCard data={video} channelData={channel} key={video?.id} />;
+        const videoExtra = videosExtra.find((v) => v?.id === video.id.videoId);
+
+        //this prevents the main video from appearing again as a related video
+        if (watchVideo.id === video.id.videoId) return null;
+
+        return (
+          <VideoCard
+            key={video.id.videoId}
+            data={{
+              ...video,
+              statistics: videoExtra?.statistics,
+              contentDetails: videoExtra?.contentDetails,
+              liveStreamingDetails: videoExtra?.liveStreamingDetails,
+            }}
+            channelData={channel}
+          />
+        );
       })}
     </ul>
   );

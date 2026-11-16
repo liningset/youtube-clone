@@ -48,8 +48,16 @@ const SearchPage = () => {
 
 const SearchRoute = () => {
   const query = useSearchParams()[0].get("q");
+
+  const params = {
+    q: query,
+    type: "video",
+    part: "snippet",
+    maxResults: 50,
+  };
+
   return (
-    <SearchPageContextProvider key={query} query={query}>
+    <SearchPageContextProvider key={query} params={params}>
       <SearchPage />
     </SearchPageContextProvider>
   );

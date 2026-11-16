@@ -7,8 +7,8 @@ import CardDetails from "./CardDetails";
 const VideoCard = ({ data, channelData }) => {
   const { thumbnails, title, channelTitle, publishedAt, liveBroadcastContent } =
     data.snippet;
-  const { duration } = data.contentDetails;
-  const { viewCount } = data.statistics;
+  const { duration } = data?.contentDetails ?? { duration: "" };
+  const { viewCount } = data?.statistics ?? { viewCount: "" };
   const { thumbnails: channelThumbnails } = channelData?.snippet ?? {};
   const [color, setColor] = useState(null);
   const isWatchPage = useSelector(

@@ -2,7 +2,6 @@ import { useSearchParams } from "react-router";
 import { useContext, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { updateCurrentPage } from "../data/appSlice";
-import PaginationContextProvider from "../components/providers/PaginationContextProvider";
 import { changeType, closeSideBar } from "../data/sideBarSlice";
 import CommentsSection from "../components/comments/CommentsSection";
 import RelatedVideosSection from "../components/related-videos/RelatedVideosSection";
@@ -13,18 +12,18 @@ import VideoPlayer from "../components/watch-video/VideoPlayer";
 import VideoDetails from "../components/watch-video/VideoDetails";
 import LiveChatContextProvider from "../components/providers/LiveChatContextProvider";
 import LiveChatContext from "../data/LiveChatContext";
-
-const params = {
-  regionCode: "US",
-  chart: "mostPopular",
-  part: "snippet,statistics,contentDetails",
-  maxResults: 50,
-};
+import RelatedVideosContextProvider from "../components/providers/RelatedVideosContextProvider";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
-  const { isLive, dataExists, chatDisabled, commentsDisabled, madeForKids } =
-    useContext(WatchPageContext);
+  const {
+    watchVideo,
+    isLive,
+    dataExists,
+    chatDisabled,
+    commentsDisabled,
+    madeForKids,
+  } = useContext(WatchPageContext);
   const { panelOpened } = useContext(LiveChatContext) ?? {};
 
   useEffect(() => {
@@ -52,9 +51,9 @@ const WatchPage = () => {
         <CommentsSection />
       )}
 
-      <PaginationContextProvider params={params}>
+      <RelatedVideosContextProvider video={watchVideo}>
         <RelatedVideosSection />
-      </PaginationContextProvider>
+      </RelatedVideosContextProvider>
     </main>
   );
 };
