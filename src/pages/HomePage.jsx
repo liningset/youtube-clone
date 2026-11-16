@@ -1,23 +1,18 @@
 import { useContext, useEffect } from "react";
 import CategoryKeywords from "../components/home-feed/CategoryKeywords";
-import VideoCardsList from "../components/home-feed/VideoCardsList";
-import { useDispatch } from "react-redux";
+import VideoCardsList, {
+  VideoCardsListShimmer,
+} from "../components/home-feed/VideoCardsList";
+import { useDispatch, useSelector } from "react-redux";
 import { updateCurrentPage } from "../data/appSlice";
-import PaginationContextProvider from "../components/providers/PaginationContextProvider";
+import HomePageContextProvider from "../components/providers/HomePageContextProvider";
 import LoadingMoreVideos from "../components/home-feed/LoadingMoreVideos";
-import PaginationContext from "../data/PaginationContext";
+import HomePageContext from "../data/HomePageContext";
 import renderErrors from "../utils/renderErrors";
-
-const params = {
-  regionCode: "US",
-  chart: "mostPopular",
-  part: "snippet,statistics,contentDetails,liveStreamingDetails",
-  maxResults: 15,
-};
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { pagination } = useContext(PaginationContext);
+  const { pagination } = useContext(HomePageContext);
   const hasNextPage = Boolean(pagination.nextPage);
 
   useEffect(() => {
@@ -41,10 +36,15 @@ const HomePage = () => {
 };
 
 const HomeRoute = () => {
-  return (
-    <PaginationContextProvider params={params}>
+  const countryCode = useSelector((store) => store.app.countryCode);
+  return countryCode ? (
+    <HomePageContextProvider>
       <HomePage />
-    </PaginationContextProvider>
+    </HomePageContextProvider>
+  ) : (
+    <div className="w-full">
+      <VideoCardsListShimmer count={9} />
+    </div>
   );
 };
 export default HomeRoute;

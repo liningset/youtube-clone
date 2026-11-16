@@ -1,6 +1,6 @@
 import VideoCard, { VideoCardShimmer } from "./VideoCard";
 import { useContext } from "react";
-import PaginationContext from "../../data/PaginationContext";
+import HomePageContext from "../../data/HomePageContext";
 
 export const VideoCardsListShimmer = ({ count }) => {
   return (
@@ -13,7 +13,7 @@ export const VideoCardsListShimmer = ({ count }) => {
 };
 
 const VideoCardsList = () => {
-  const { pagination } = useContext(PaginationContext);
+  const { pagination } = useContext(HomePageContext);
   const { videos, channels } = pagination.data;
 
   if (pagination.nextPage === 0) return <VideoCardsListShimmer count={9} />;

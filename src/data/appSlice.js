@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const appSlice = createSlice({
   name: "app",
   initialState: {
+    countryCode: null,
     currentPage: "homepage",
     matchMedia: { sm: false, md: false, lg: false },
   },
@@ -27,8 +28,13 @@ const appSlice = createSlice({
         state.matchMedia[action.payload.size] = action.payload.matches;
       }
     },
+    updateCountryCode: (state, action) => {
+      if (!action.payload) return state;
+      state.countryCode = action.payload;
+    },
   },
 });
 
-export const { updateCurrentPage, updateMatchingMedia } = appSlice.actions;
+export const { updateCurrentPage, updateMatchingMedia, updateCountryCode } =
+  appSlice.actions;
 export default appSlice.reducer;

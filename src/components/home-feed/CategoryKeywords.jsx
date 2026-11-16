@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import useFetch from "../../hooks/useFetch";
-import PaginationContext from "../../data/PaginationContext";
+import HomePageContext from "../../data/HomePageContext";
 import YoutubeIcon from "../common/YoutubeIcon";
 
 const CategoryKeywordsShimmer = () => {
@@ -29,7 +29,7 @@ const Button = ({ className, title, onClick, children }) => {
 };
 
 const CategoryKeywords = () => {
-  const { pagination, changeCategory } = useContext(PaginationContext);
+  const { pagination, changeCategory } = useContext(HomePageContext);
 
   const { data: categories, status } = useFetch("videoCategories", {
     part: "snippet",
