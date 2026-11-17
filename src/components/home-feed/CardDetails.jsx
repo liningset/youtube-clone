@@ -12,7 +12,9 @@ const CardDetails = ({
   liveDetails,
 }) => {
   return (
-    <div className="flex items-center gap-2 mt-2 flex-1 min-w-0">
+    <div
+      className={`flex items-center gap-2 ${isWatchPage ? "mx-5 sm:mx-0" : ""} mt-2 flex-1 min-w-0`}
+    >
       {!isWatchPage && (
         <div className="w-10 shrink-0 aspect-square rounded-full overflow-hidden bg-border-clr">
           <img src={channelThumbnails?.default?.url} alt="channel profile" />

@@ -1,6 +1,7 @@
 import IncludePopover from "./IncludePopover";
 import { formatToViewsSummary } from "../../utils/formatting";
 import useFetch from "../../hooks/useFetch";
+import BlackSpecialButton from "../common/BlackSpecialButton";
 
 const VideoAssociatedChannel = ({ channelId }) => {
   const { data } = useFetch("channels", {
@@ -27,9 +28,7 @@ const VideoAssociatedChannel = ({ channelId }) => {
         heading="Want to subscribe to this channel?"
         sub="Sign in to subscribe to this channel."
       >
-        <button className="bg-fg-primary text-bg-primary cursor-pointer py-2 px-4 rounded-4xl">
-          Subscribe
-        </button>
+        <BlackSpecialButton text="Subscribe" />
       </IncludePopover>
     </div>
   );

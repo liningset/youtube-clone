@@ -18,7 +18,8 @@ const VideoCard = ({ data, channelData }) => {
   const navigate = useNavigate();
 
   const onCardClick = (e) => {
-    if (!e.target.closest(".more")) navigate("/watch?v=" + data.id);
+    if (!e.target.closest(".more"))
+      navigate("/watch?v=" + (data.id?.videoId ?? data.id));
   };
 
   return (

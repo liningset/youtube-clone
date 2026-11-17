@@ -20,7 +20,7 @@ const LiveChatPanel = () => {
   return (
     <div
       ref={panelRef}
-      className="relative px-5 [grid-area:livechat] lg:px-0 scroll-mt-[10vh]"
+      className="relative px-5 [grid-area:livechat] lg:px-0 scroll-mt-[10dvh]"
     >
       <div className="border-grey-d8 flex flex-col rounded-xl border lg:absolute lg:inset-0">
         <PanelHeader closePanel={closePanel} pausePolling={pausePolling} />

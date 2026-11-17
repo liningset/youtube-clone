@@ -12,7 +12,7 @@ const Thumbnail = ({ isWatchPage, thumbnails, setColor, duration, isLive }) => {
   };
   return (
     <div
-      className={`bg-bg-primary aspect-video relative overflow-hidden ${isWatchPage ? " rounded-lg lg:flex-2 w-full shrink-0" : "rounded-2xl"}`}
+      className={`bg-bg-primary aspect-video relative overflow-hidden ${isWatchPage ? "sm:rounded-lg lg:flex-2 w-full shrink-0" : "rounded-2xl"}`}
     >
       <img
         crossOrigin="anonymous"

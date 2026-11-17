@@ -23,7 +23,7 @@ const Modal = ({ children }) => {
   return (
     <div
       ref={overlayRef}
-      className={`fixed inset-0 z-50 transition-colors duration-200 ${!opened ? "bg-transparent pointer-events-none" : "bg-border-clr pointer-events-auto"}`}
+      className={`fixed inset-0 z-50 transition-colors duration-200 ${!opened ? "bg-transparent pointer-events-none" : "bg-[rgba(0,0,0,0.4)] pointer-events-auto"}`}
       onClick={overlayClickHandler}
     >
       <aside

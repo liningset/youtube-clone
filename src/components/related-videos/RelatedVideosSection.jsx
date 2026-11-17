@@ -26,7 +26,7 @@ const RelatedVideosSection = () => {
     return renderErrors(searchState.status);
 
   return (
-    <aside className="flex flex-col gap-2 px-4 [grid-area:related] lg:px-0">
+    <aside className="flex flex-col gap-2 sm:px-4 [grid-area:related] lg:px-0">
       <RelatedVideoCardsList videos={visibleVideos} />
 
       {searchState.nextPage ? (

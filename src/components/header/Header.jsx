@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LogoAndBurgerButton from "./LogoAndBurgerButton";
 import SearchField, { WithMobile } from "./SearchField";
 import BlueSpecialButton from "../common/BlueSpecialButton";
@@ -13,6 +13,15 @@ const Header = () => {
   const [mobileSearchTabIsOpen, setMobileSearchTabIsOpen] = useState(false);
 
   const debounceState = useDebounce();
+
+  const currentPage = useSelector((store) => store.app.currentPage);
+
+  useEffect(() => {
+    const closeIfOpened = () => {
+      if (mobileSearchTabIsOpen) setMobileSearchTabIsOpen(false);
+    };
+    closeIfOpened();
+  }, [currentPage]);
 
   return (
     <header className="pe-5 h-[10dvh] flex justify-between items-center sticky top-0 z-20 bg-bg-primary-low-op backdrop-blur-lg">

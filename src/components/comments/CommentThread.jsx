@@ -48,7 +48,7 @@ const CommentThread = ({
 
   return (
     <RepliesContextProvider parentId={data.id}>
-      <div className="thread flex gap-4 scroll-mt-[10vh]">
+      <div className="thread flex gap-4 scroll-mt-[10dvh]">
         <ThreadHitbox
           authorImage={authorProfileImageUrl}
           replyCount={totalReplyCount}

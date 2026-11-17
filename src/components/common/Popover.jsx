@@ -25,11 +25,13 @@ const Popover = ({ children, closePopover, parentId }) => {
 
   const determinePosition = () => {
     const rect = popoverRef.current.getBoundingClientRect();
+    const viewport = window.visualViewport;
 
     const overflows = {
       onTop: rect.top - rect.height < 0,
-      onRight: rect.left + rect.width > window.innerWidth,
-      onBottom: rect.top + rect.height > window.innerHeight,
+      onRight: rect.left + rect.width > (viewport?.width ?? window.innerWidth),
+      onBottom:
+        rect.top + rect.height > (viewport?.height ?? window.innerHeight),
       onLeft: rect.left - rect.width < 0,
     };
 
