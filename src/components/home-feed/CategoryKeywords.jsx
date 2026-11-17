@@ -87,7 +87,10 @@ const CategoryKeywords = () => {
       )}
       <ul
         onScrollEnd={() => {
-          const { scrollLeft, scrollLeftMax } = overflowingRef.current;
+          const { scrollLeft, scrollWidth, clientWidth } =
+            overflowingRef.current;
+
+          const scrollLeftMax = scrollWidth - clientWidth;
 
           setScrollable({
             left: scrollLeft > 0,
@@ -97,7 +100,7 @@ const CategoryKeywords = () => {
         ref={overflowingRef}
         data-clickable="false"
         onClick={(e) => clickHandler(e)}
-        className="flex overflow-x-hidden items-center px-5 -left-2 gap-3 py-2 sticky top-[10dvh] bg-bg-primary-low-op backdrop-blur-lg z-10"
+        className="flex overflow-x-auto sm:overflow-x-hidden items-center px-5 -left-2 gap-3 py-2 sticky top-[10dvh] bg-bg-primary-low-op backdrop-blur-lg z-10"
       >
         <li
           data-clickable="true"
