@@ -64,7 +64,7 @@ The project recreates core YouTube browsing and watch experiences, with an empha
    ```env
    VITE_BASE_URL=https://www.googleapis.com/youtube/v3/
    VITE_KEY=your_youtube_api_key
-   VITE_SUGGESTIONS_URL=http://suggestqueries.google.com/complete/search
+   VITE_SUGGESTIONS_URL=https://suggestqueries.google.com/complete/search
    VITE_LOCATION_URL=https://free.freeipapi.com/api/v1/json/
    ```
 

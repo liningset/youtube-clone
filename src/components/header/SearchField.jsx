@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SearchSuggestions from "./SearchSuggestions";
 import YoutubeIcon from "../common/YoutubeIcon";
 import { useNavigate } from "react-router";
@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 const SearchField = ({ debounceState }) => {
   const [suggestTabOpen, setSuggestTabOpen] = useState(false);
   const { search, suggested, resetSearch, updateSearch } = debounceState;
+  const inputRef = useRef(null);
 
   const navigate = useNavigate();
 
@@ -50,6 +51,7 @@ const SearchField = ({ debounceState }) => {
           tailwindStyles=" w-14 hidden group-focus-within:block"
         />
         <input
+          ref={inputRef}
           type="text"
           placeholder="Search"
           className="py-2 px-4 group-focus-within:ps-0 w-full border-0 outline-0"
@@ -70,7 +72,10 @@ const SearchField = ({ debounceState }) => {
         {search.search && (
           <button
             type="button"
-            onClick={resetSearch}
+            onClick={() => {
+              resetSearch();
+              inputRef.current?.focus();
+            }}
             className="absolute right-16 flex items-center justify-center hover:bg-border-clr rounded-full w-10 aspect-square"
           >
             <YoutubeIcon icon="times" />
