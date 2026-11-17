@@ -4,9 +4,12 @@ A YouTube-inspired video streaming application built with **React**, **Vite**, a
 
 The project recreates core YouTube browsing and watch experiences, with an emphasis on component architecture, state management, and working with external APIs.
 
+✅ Live app: https://liningset-youtube-clone.netlify.app
+
 ## ✨ Features
 
 - 🎥 **Video browsing** — Browse videos across different categories.
+- 🌍 **Tailored to region** — browse across most popular videos based on user's current country
 - ▶️ **Video playback** — Watch videos through YouTube's embedded player.
 - 🔎 **Debounced Search** — Search for videos using the YouTube Data API.
 - ⚡ **Caching** — Auto-suggestions are cached during typing
@@ -56,12 +59,13 @@ The project recreates core YouTube browsing and watch experiences, with an empha
    npm install
    ```
 
-3. Create a `.env` file in the project root:
+3. Create a `.env.local` file in the project root:
 
    ```env
    VITE_BASE_URL=https://www.googleapis.com/youtube/v3/
    VITE_KEY=your_youtube_api_key
    VITE_SUGGESTIONS_URL=http://suggestqueries.google.com/complete/search
+   VITE_LOCATION_URL=https://free.freeipapi.com/api/v1/json/
    ```
 
 4. Start the development server:

@@ -31,7 +31,7 @@ const useDebounce = () => {
       const fetchSuggestions = async (query) => {
         try {
           const BASE_URL = import.meta.env.VITE_SUGGESTIONS_URL;
-          const params = `client=youtube&ds=yt&client=firefox&q=${query}`;
+          const params = `ds=yt&client=firefox&q=${query}`;
           const res = await fetch(`${BASE_URL}?${params}`, {
             signal: controller.signal,
           });
