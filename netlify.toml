@@ -1,0 +1,5 @@
+[[redirects]]
+from = "/api/suggestions"
+to = "https://suggestqueries.google.com/complete/search"
+status = 200
+force = true
